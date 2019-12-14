@@ -1,0 +1,50 @@
+@import "settings.scss";
+@import "reset.scss";
+
+.header {
+    background-color: rgb(44, 44, 44);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+    h1 {
+        font-size: 50px;
+        color: rgb(25, 172, 240);
+
+        span {
+            color:white;
+        }
+    }
+
+    .nav {
+        
+        a {
+            text-decoration: none;
+            color: white;
+            margin-left: 5px;
+        }
+    }
+
+    .contact {
+        display: flex;
+        flex-direction: column;
+
+        .contact_tel {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .contact_email {
+            display: flex;
+            align-items: center;
+
+            a {
+                color: white;
+                margin-left: 3px;
+            }
+        }
+    }
+}
