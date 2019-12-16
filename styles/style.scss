@@ -136,6 +136,8 @@
         max-width: $width_content;
         margin-bottom: 20px;
         margin: 0 auto;
+        padding-left: 5px;
+        padding-right: 5px;
     }
 
     .delivery {
@@ -189,6 +191,12 @@
 
     h2 {
         font-size: 35px;
+    }
+
+    &_wrap {
+        display: flex;
+        justify-content: space-around;
+        width: 100%;
     }
 }
 

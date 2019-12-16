@@ -187,7 +187,9 @@ table {
   .payment_wrap {
     max-width: 1170px;
     margin-bottom: 20px;
-    margin: 0 auto; }
+    margin: 0 auto;
+    padding-left: 5px;
+    padding-right: 5px; }
   .payment .delivery {
     display: flex;
     margin-bottom: 35px;
@@ -222,6 +224,10 @@ table {
   flex-direction: column; }
   .contacts h2 {
     font-size: 35px; }
+  .contacts_wrap {
+    display: flex;
+    justify-content: space-around;
+    width: 100%; }
 
 .foot {
   display: flex;
