@@ -1,0 +1,16 @@
+$text_color_wite: #eaeaea;
+$text_color_dark_grey:#3c3c3c;
+$text_color_light: #f8fcff;
+$text_color_red: #fa4a33;
+$text_color_gray: #4f4f4f;
+
+$max-width: 1200px;
+
+// Small tablets and large smartphones (landscape view)
+$screen-sm-min: 576px;
+// Small tablets (portrait view)
+$screen-md-min: 768px;
+// Tablets and small desktops
+$screen-lg-min: 992px;
+// Large tablets and desktops
+$screen-xl-min: $max-width;

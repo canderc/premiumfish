@@ -21,7 +21,7 @@ gulp.task('run', function(done) {
       server: "./"
   });
 
-  gulp.watch("styles/*.scss", gulp.series('sass'));
+  gulp.watch("styles/**/*.scss", gulp.series('sass'));
   gulp.watch("*.html", gulp.series('reload'));
   done()
 
