@@ -37,17 +37,24 @@
         a {
             text-decoration: none;
             color: white;
-            margin-left: 5px;
+            margin-left: 10px;
+            font-size: 16px;
+            font-family: 'Source Sans Pro Regular';
         }
     }
 
     .contact {
         display: flex;
         flex-direction: column;
+        font-family: 'Proxima Nova Semibold';
 
         .contact_tel {
             display: flex;
             flex-direction: column;
+            
+            span {
+                padding-bottom: 5px;
+            }
         }
 
         .contact_email {
@@ -66,29 +73,37 @@
     height: 500px;
     display: flex;
     justify-content: center;
-    background-image: url("/img/ryba-6.jpg");
+    background-image: url("/img/Фон.jpg");
     background-repeat: no-repeat;
-    background-position: inherit;
+    background-position: center;
     background-size: 100%;
-    // opacity: 0.7;
-
+   
     &_wrap {
-       max-width:$width_content;
+       background-color: #030c21;
+       background-position: center;
+       width: 100%;
+       opacity: 0.6; 
        display: flex;
        justify-content: center;
-       align-items: center;
-
+       
         span {
            text-align: center;
             font-size: 54px;
             color:white;
-
+            padding-top: 50px;
         }
     }
 }
 
 .product {
     display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    h2 {
+        font-size: 35px;
+    }
 }
 
 .plus {
@@ -98,10 +113,149 @@
     flex-direction: column;
 
     h2 {
-        font-size: 40px;
+        font-size: 35px;
     }
 
     &_wrap {
         max-width:$width_content;
+    }
+}
+
+.payment {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 20px;
+
+    h2 {
+        font-size: 35px;
+    }
+
+    &_wrap {
+        max-width: $width_content;
+        margin-bottom: 20px;
+        margin: 0 auto;
+    }
+
+    .delivery {
+        display: flex;
+        margin-bottom: 35px;
+        margin-top: 20px;
+
+        &_text {
+            display: flex;
+            flex-direction: column;
+            margin-left: 20px;
+
+            h3 {
+                font-size: 25px;
+                font-family: 'Roboto', sans-serif;
+            }
+
+            p {
+                font-size: 18px;
+                font-family: 'Roboto', sans-serif;
+            }
+        }
+    }
+
+    .pay {
+        display: flex;
+
+        &_text {
+            display: flex;
+            flex-direction: column;
+            margin-right: 20px;
+
+            h3 {
+                font-size: 25px;
+                font-family: 'Roboto', sans-serif;
+            }
+
+            p {
+                font-size: 19px;
+                font-family: 'Roboto', sans-serif;
+            }
+        }
+    }
+}
+
+.contacts {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    flex-direction: column;
+
+    h2 {
+        font-size: 35px;
+    }
+}
+
+.foot {
+    display: flex;
+    justify-content: space-around;
+    background-color: rgb(44, 44, 44);
+    margin-top: 20px;
+    align-items: center;
+
+    &_wrap {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        width: 100%;
+        padding-top: 30px;
+        padding-bottom: 30px;
+    }
+
+    &_logo {
+        text-align: center;
+
+        p {
+            color: rgb(25, 172, 240);
+            font-size: 35px;
+
+            span {
+                color: #00FFFF;
+            }
+        }
+
+        .discript {
+            color: white;
+        }
+    }
+
+    &_nav {
+        display: flex;
+        flex-direction: column;
+
+        a {
+            padding-bottom: 10px;
+            color: white;
+        }
+    }
+
+    &_contact {
+
+        &_tel {
+            display: flex;
+            flex-direction: column;
+            color: white;
+
+            span {
+                padding-bottom: 5px;
+            }
+        }
+
+        &_email {
+            display: flex;
+            align-items: center;
+
+            a {
+                color: white;
+                margin-left: 5px;
+                text-decoration: none;
+            }
+        }
     }
 }

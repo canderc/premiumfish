@@ -1,3 +1,59 @@
+@charset "UTF-8";
+@font-face {
+  font-family: 'Montserrat Regular';
+  src: url("../fonts/Montserrat-Regular.eot");
+  src: url("../fonts/Montserrat-Regular.eot?#iefix") format("embedded-opentype"), url("../fonts/Montserrat-Regular.woff") format("woff"), url("../fonts/Montserrat-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'Montserrat Bold';
+  src: url("../fonts/Montserrat-ExtraBold.eot");
+  src: url("../fonts/Montserrat-ExtraBold.eot?#iefix") format("embedded-opentype"), url("../fonts/Montserrat-ExtraBold.woff") format("woff"), url("../fonts/Montserrat-ExtraBold.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'Montserrat Extra Bold';
+  src: local("../fonts/Montserrat Extra Bold"), local("../fonts/Montserrat-Extra-Bold"), url("../fonts/Montserrat-ExtraBold.woff2") format("woff2"), url("../fonts/Montserrat-ExtraBold.woff") format("woff"), url("../fonts/Montserrat-ExtraBold.ttf") format("truetype");
+  font-weight: 800;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'Source Sans Pro Regular';
+  src: url("../fonts/SourceSansPro-Regular.eot");
+  src: url("../fonts/SourceSansPro-Regular.eot?#iefix") format("embedded-opentype"), url("../fonts/SourceSansPro-Regular.woff") format("woff"), url("../fonts/SourceSansPro-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'Source Sans Pro Semibold';
+  src: url("../fonts/SourceSansPro-SemiBold.eot");
+  src: url("../fonts/SourceSansPro-SemiBold.eot?#iefix") format("embedded-opentype"), url("../fonts/SourceSansPro-SemiBold.woff") format("woff"), url("../fonts/SourceSansPro-SemiBold.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'Source Sans Pro Bold';
+  src: url("../fonts/SourceSansPro-Bold.eot");
+  src: url("../fonts/SourceSansPro-Bold.eot?#iefix") format("embedded-opentype"), url("../fonts/SourceSansPro-Bold.woff") format("woff"), url("../fonts/SourceSansPro-Bold.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'Proxima Nova Regular';
+  src: url("../fonts/ProximaNova-Regular.eot");
+  src: url("../fonts/ProximaNova-Regular.eot?#iefix") format("embedded-opentype"), url("../fonts/ProximaNova-Regular.woff") format("woff"), url("../fonts/ProximaNova-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'Proxima Nova Semibold';
+  src: url("../fonts/ProximaNova-Semibold.eot");
+  src: url("../fonts/ProximaNova-Semibold.eot?#iefix") format("embedded-opentype"), url("../fonts/ProximaNova-Semibold.woff") format("woff"), url("../fonts/ProximaNova-Semibold.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal; }
+
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
    License: none (public domain)
@@ -62,13 +118,18 @@ table {
   .header .nav a {
     text-decoration: none;
     color: white;
-    margin-left: 5px; }
+    margin-left: 10px;
+    font-size: 16px;
+    font-family: 'Source Sans Pro Regular'; }
   .header .contact {
     display: flex;
-    flex-direction: column; }
+    flex-direction: column;
+    font-family: 'Proxima Nova Semibold'; }
     .header .contact .contact_tel {
       display: flex;
       flex-direction: column; }
+      .header .contact .contact_tel span {
+        padding-bottom: 5px; }
     .header .contact .contact_email {
       display: flex;
       align-items: center; }
@@ -80,22 +141,30 @@ table {
   height: 500px;
   display: flex;
   justify-content: center;
-  background-image: url("/img/ryba-6.jpg");
+  background-image: url("/img/Фон.jpg");
   background-repeat: no-repeat;
-  background-position: inherit;
+  background-position: center;
   background-size: 100%; }
   .header_bottom_wrap {
-    max-width: 1170px;
+    background-color: #030c21;
+    background-position: center;
+    width: 100%;
+    opacity: 0.6;
     display: flex;
-    justify-content: center;
-    align-items: center; }
+    justify-content: center; }
     .header_bottom_wrap span {
       text-align: center;
       font-size: 54px;
-      color: white; }
+      color: white;
+      padding-top: 50px; }
 
 .product {
-  display: flex; }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column; }
+  .product h2 {
+    font-size: 35px; }
 
 .plus {
   display: flex;
@@ -103,6 +172,95 @@ table {
   align-items: center;
   flex-direction: column; }
   .plus h2 {
-    font-size: 40px; }
+    font-size: 35px; }
   .plus_wrap {
     max-width: 1170px; }
+
+.payment {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: 20px; }
+  .payment h2 {
+    font-size: 35px; }
+  .payment_wrap {
+    max-width: 1170px;
+    margin-bottom: 20px;
+    margin: 0 auto; }
+  .payment .delivery {
+    display: flex;
+    margin-bottom: 35px;
+    margin-top: 20px; }
+    .payment .delivery_text {
+      display: flex;
+      flex-direction: column;
+      margin-left: 20px; }
+      .payment .delivery_text h3 {
+        font-size: 25px;
+        font-family: 'Roboto', sans-serif; }
+      .payment .delivery_text p {
+        font-size: 18px;
+        font-family: 'Roboto', sans-serif; }
+  .payment .pay {
+    display: flex; }
+    .payment .pay_text {
+      display: flex;
+      flex-direction: column;
+      margin-right: 20px; }
+      .payment .pay_text h3 {
+        font-size: 25px;
+        font-family: 'Roboto', sans-serif; }
+      .payment .pay_text p {
+        font-size: 19px;
+        font-family: 'Roboto', sans-serif; }
+
+.contacts {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  flex-direction: column; }
+  .contacts h2 {
+    font-size: 35px; }
+
+.foot {
+  display: flex;
+  justify-content: space-around;
+  background-color: #2c2c2c;
+  margin-top: 20px;
+  align-items: center; }
+  .foot_wrap {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    padding-top: 30px;
+    padding-bottom: 30px; }
+  .foot_logo {
+    text-align: center; }
+    .foot_logo p {
+      color: #19acf0;
+      font-size: 35px; }
+      .foot_logo p span {
+        color: #00FFFF; }
+    .foot_logo .discript {
+      color: white; }
+  .foot_nav {
+    display: flex;
+    flex-direction: column; }
+    .foot_nav a {
+      padding-bottom: 10px;
+      color: white; }
+  .foot_contact_tel {
+    display: flex;
+    flex-direction: column;
+    color: white; }
+    .foot_contact_tel span {
+      padding-bottom: 5px; }
+  .foot_contact_email {
+    display: flex;
+    align-items: center; }
+    .foot_contact_email a {
+      color: white;
+      margin-left: 5px;
+      text-decoration: none; }
