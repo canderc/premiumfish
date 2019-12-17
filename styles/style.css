@@ -115,12 +115,15 @@ table {
     color: #19acf0; }
     .header h1 span {
       color: #00FFFF; }
-  .header .nav a {
-    text-decoration: none;
-    color: white;
-    margin-left: 10px;
-    font-size: 16px;
-    font-family: 'Source Sans Pro Regular'; }
+  .header .nav {
+    display: flex;
+    flex-wrap: wrap; }
+    .header .nav a {
+      text-decoration: none;
+      color: white;
+      margin-left: 10px;
+      font-size: 16px;
+      font-family: 'Source Sans Pro Regular'; }
   .header .contact {
     display: flex;
     flex-direction: column;
@@ -141,7 +144,7 @@ table {
   height: 500px;
   display: flex;
   justify-content: center;
-  background-image: url("/img/Фон.jpg");
+  background-image: url("../img/камбала.jpg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: 100%; }

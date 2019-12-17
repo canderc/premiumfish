@@ -33,6 +33,8 @@
     }
 
     .nav {
+        display: flex;
+        flex-wrap: wrap;
         
         a {
             text-decoration: none;
@@ -73,7 +75,7 @@
     height: 500px;
     display: flex;
     justify-content: center;
-    background-image: url("../img/Фон.jpg");
+    background-image: url("../img/камбала.jpg");
     background-repeat: no-repeat;
     background-position: center;
     background-size: 100%;
