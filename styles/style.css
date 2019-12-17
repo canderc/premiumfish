@@ -180,7 +180,21 @@ img {
   color: #eaeaea;
   padding-top: 10px;
   padding-bottom: 10px; }
-  .header .content {
+  .header h1 {
+    font-size: 50px;
+    color: #19acf0; }
+    .header h1 span {
+      color: #00FFFF; }
+  .header .nav {
+    display: flex;
+    flex-wrap: wrap; }
+    .header .nav a {
+      text-decoration: none;
+      color: white;
+      margin-left: 10px;
+      font-size: 16px;
+      font-family: 'Source Sans Pro Regular'; }
+  .header .contact {
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -211,22 +225,37 @@ img {
     .header .content .contact {
       display: flex;
       flex-direction: column; }
-      .header .content .contact .contact_tel {
-        display: flex;
-        flex-direction: column; }
-        .header .content .contact .contact_tel span {
-          padding-bottom: 5px; }
-      .header .content .contact .contact_email {
-        display: none; }
-        @media (min-width: 576px) {
-          .header .content .contact .contact_email {
-            display: flex;
-            align-items: center; } }
-        .header .content .contact .contact_email a {
-          color: #eaeaea;
-          margin-left: 3px; }
+      .header .contact .contact_tel span {
+        padding-bottom: 5px; }
+    .header .contact .contact_email {
+      display: flex;
+      align-items: center; }
+      .header .contact .contact_email a {
+        color: white;
+        margin-left: 3px; }
 
-.products {
+.header_bottom {
+  height: 500px;
+  display: flex;
+  justify-content: center;
+  background-image: url("../img/камбала.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100%; }
+  .header_bottom_wrap {
+    background-color: #030c21;
+    background-position: center;
+    width: 100%;
+    opacity: 0.6;
+    display: flex;
+    justify-content: center; }
+    .header_bottom_wrap span {
+      text-align: center;
+      font-size: 54px;
+      color: white;
+      padding-top: 50px; }
+
+.product {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -238,12 +267,68 @@ img {
   height: 500px;
   display: flex;
   align-items: center;
-  justify-content: center;
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../img/Фон.jpg");
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat; }
-  .banner .banner_text {
-    text-align: center;
-    font-size: 3em;
-    color: #eaeaea; }
+  flex-direction: column;
+  background-color: #3d99e4; }
+  .contacts h2 {
+    font-size: 35px;
+    padding-top: 30px; }
+  .contacts_wrap {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    padding-top: 20px;
+    padding-bottom: 50px; }
+    .contacts_wrap .contacts_email {
+      display: flex;
+      align-items: center; }
+    .contacts_wrap .contacts_tel {
+      display: flex;
+      align-items: center; }
+      .contacts_wrap .contacts_tel span {
+        display: flex;
+        flex-direction: column;
+        padding-bottom: 5px;
+        margin-left: 10px; }
+
+.foot {
+  display: flex;
+  justify-content: space-around;
+  background-color: #2c2c2c;
+  padding-top: 20px;
+  align-items: center; }
+  .foot_wrap {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    padding-top: 30px;
+    padding-bottom: 30px; }
+  .foot_logo {
+    text-align: center; }
+    .foot_logo p {
+      color: #19acf0;
+      font-size: 35px; }
+      .foot_logo p span {
+        color: #00FFFF; }
+    .foot_logo .discript {
+      color: white; }
+  .foot_nav {
+    display: flex;
+    flex-direction: column; }
+    .foot_nav a {
+      padding-bottom: 10px;
+      color: white; }
+  .foot_contact_tel {
+    display: flex;
+    flex-direction: column;
+    color: white; }
+    .foot_contact_tel span {
+      padding-bottom: 5px; }
+  .foot_contact_email {
+    display: flex;
+    align-items: center; }
+    .foot_contact_email a {
+      color: white;
+      margin-left: 5px;
+      text-decoration: none; }
