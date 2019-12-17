@@ -1,58 +1,75 @@
 @charset "UTF-8";
 @font-face {
   font-family: 'Montserrat Regular';
-  src: url("../fonts/Montserrat-Regular.eot");
-  src: url("../fonts/Montserrat-Regular.eot?#iefix") format("embedded-opentype"), url("../fonts/Montserrat-Regular.woff") format("woff"), url("../fonts/Montserrat-Regular.ttf") format("truetype");
+  src: url("../../fonts/Montserrat-Regular.eot");
+  src: url("../../fonts/Montserrat-Regular.eot?#iefix") format("embedded-opentype"), url("../../fonts/Montserrat-Regular.woff") format("woff"), url("../../fonts/Montserrat-Regular.ttf") format("truetype");
   font-weight: normal;
   font-style: normal; }
 
 @font-face {
   font-family: 'Montserrat Bold';
-  src: url("../fonts/Montserrat-ExtraBold.eot");
-  src: url("../fonts/Montserrat-ExtraBold.eot?#iefix") format("embedded-opentype"), url("../fonts/Montserrat-ExtraBold.woff") format("woff"), url("../fonts/Montserrat-ExtraBold.ttf") format("truetype");
+  src: url("../../fonts/Montserrat-ExtraBold.eot");
+  src: url("../../fonts/Montserrat-ExtraBold.eot?#iefix") format("embedded-opentype"), url("../../fonts/Montserrat-ExtraBold.woff") format("woff"), url("../../fonts/Montserrat-ExtraBold.ttf") format("truetype");
   font-weight: normal;
   font-style: normal; }
 
 @font-face {
   font-family: 'Montserrat Extra Bold';
-  src: local("../fonts/Montserrat Extra Bold"), local("../fonts/Montserrat-Extra-Bold"), url("../fonts/Montserrat-ExtraBold.woff2") format("woff2"), url("../fonts/Montserrat-ExtraBold.woff") format("woff"), url("../fonts/Montserrat-ExtraBold.ttf") format("truetype");
+  src: local("../../fonts/Montserrat Extra Bold"), local("../../fonts/Montserrat-Extra-Bold"), url("../../fonts/Montserrat-ExtraBold.woff2") format("woff2"), url("../../fonts/Montserrat-ExtraBold.woff") format("woff"), url("../../fonts/Montserrat-ExtraBold.ttf") format("truetype");
   font-weight: 800;
   font-style: normal; }
 
 @font-face {
   font-family: 'Source Sans Pro Regular';
-  src: url("../fonts/SourceSansPro-Regular.eot");
-  src: url("../fonts/SourceSansPro-Regular.eot?#iefix") format("embedded-opentype"), url("../fonts/SourceSansPro-Regular.woff") format("woff"), url("../fonts/SourceSansPro-Regular.ttf") format("truetype");
+  src: url("../../fonts/SourceSansPro-Regular.eot");
+  src: url("../../fonts/SourceSansPro-Regular.eot?#iefix") format("embedded-opentype"), url("../../fonts/SourceSansPro-Regular.woff") format("woff"), url("../../fonts/SourceSansPro-Regular.ttf") format("truetype");
   font-weight: normal;
   font-style: normal; }
 
 @font-face {
   font-family: 'Source Sans Pro Semibold';
-  src: url("../fonts/SourceSansPro-SemiBold.eot");
-  src: url("../fonts/SourceSansPro-SemiBold.eot?#iefix") format("embedded-opentype"), url("../fonts/SourceSansPro-SemiBold.woff") format("woff"), url("../fonts/SourceSansPro-SemiBold.ttf") format("truetype");
+  src: url("../../fonts/SourceSansPro-SemiBold.eot");
+  src: url("../../fonts/SourceSansPro-SemiBold.eot?#iefix") format("embedded-opentype"), url("../../fonts/SourceSansPro-SemiBold.woff") format("woff"), url("../../fonts/SourceSansPro-SemiBold.ttf") format("truetype");
   font-weight: normal;
   font-style: normal; }
 
 @font-face {
   font-family: 'Source Sans Pro Bold';
-  src: url("../fonts/SourceSansPro-Bold.eot");
-  src: url("../fonts/SourceSansPro-Bold.eot?#iefix") format("embedded-opentype"), url("../fonts/SourceSansPro-Bold.woff") format("woff"), url("../fonts/SourceSansPro-Bold.ttf") format("truetype");
+  src: url("../../fonts/SourceSansPro-Bold.eot");
+  src: url("../../fonts/SourceSansPro-Bold.eot?#iefix") format("embedded-opentype"), url("../../fonts/SourceSansPro-Bold.woff") format("woff"), url("../../fonts/SourceSansPro-Bold.ttf") format("truetype");
   font-weight: normal;
   font-style: normal; }
 
 @font-face {
   font-family: 'Proxima Nova Regular';
-  src: url("../fonts/ProximaNova-Regular.eot");
-  src: url("../fonts/ProximaNova-Regular.eot?#iefix") format("embedded-opentype"), url("../fonts/ProximaNova-Regular.woff") format("woff"), url("../fonts/ProximaNova-Regular.ttf") format("truetype");
+  src: url("../../fonts/ProximaNova-Regular.eot");
+  src: url("../../fonts/ProximaNova-Regular.eot?#iefix") format("embedded-opentype"), url("../../fonts/ProximaNova-Regular.woff") format("woff"), url("../../fonts/ProximaNova-Regular.ttf") format("truetype");
   font-weight: normal;
   font-style: normal; }
 
 @font-face {
   font-family: 'Proxima Nova Semibold';
-  src: url("../fonts/ProximaNova-Semibold.eot");
-  src: url("../fonts/ProximaNova-Semibold.eot?#iefix") format("embedded-opentype"), url("../fonts/ProximaNova-Semibold.woff") format("woff"), url("../fonts/ProximaNova-Semibold.ttf") format("truetype");
+  src: url("../../fonts/ProximaNova-Semibold.eot");
+  src: url("../../fonts/ProximaNova-Semibold.eot?#iefix") format("embedded-opentype"), url("../../fonts/ProximaNova-Semibold.woff") format("woff"), url("../../fonts/ProximaNova-Semibold.ttf") format("truetype");
   font-weight: normal;
   font-style: normal; }
+
+/**
+ * Set up a decent box model on the root element
+ */
+html {
+  box-sizing: border-box; }
+
+/**
+ * Make all elements from the DOM inherit from the parent box-sizing
+ * Since `*` has a specificity of 0, it does not override the `html` value
+ * making all elements inheriting from the root box-sizing value
+ * See: https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/
+ */
+*,
+*::before,
+*::after {
+  box-sizing: inherit; }
 
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
@@ -71,7 +88,8 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   display: block; }
 
 body {
-  line-height: 1; }
+  line-height: 1;
+  font-family: 'Proxima Nova Regular'; }
 
 ol, ul {
   list-style: none; }
@@ -91,23 +109,75 @@ table {
   border-collapse: collapse;
   border-spacing: 0; }
 
-.wrap {
-  max-width: 1920px; }
+img {
+  max-width: 100%; }
 
-.content {
-  max-width: 1170px;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  margin: 0 auto;
-  min-width: 100%; }
+@font-face {
+  font-family: 'Montserrat Regular';
+  src: url("../../fonts/Montserrat-Regular.eot");
+  src: url("../../fonts/Montserrat-Regular.eot?#iefix") format("embedded-opentype"), url("../../fonts/Montserrat-Regular.woff") format("woff"), url("../../fonts/Montserrat-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'Montserrat Bold';
+  src: url("../../fonts/Montserrat-ExtraBold.eot");
+  src: url("../../fonts/Montserrat-ExtraBold.eot?#iefix") format("embedded-opentype"), url("../../fonts/Montserrat-ExtraBold.woff") format("woff"), url("../../fonts/Montserrat-ExtraBold.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'Montserrat Extra Bold';
+  src: local("../../fonts/Montserrat Extra Bold"), local("../../fonts/Montserrat-Extra-Bold"), url("../../fonts/Montserrat-ExtraBold.woff2") format("woff2"), url("../../fonts/Montserrat-ExtraBold.woff") format("woff"), url("../../fonts/Montserrat-ExtraBold.ttf") format("truetype");
+  font-weight: 800;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'Source Sans Pro Regular';
+  src: url("../../fonts/SourceSansPro-Regular.eot");
+  src: url("../../fonts/SourceSansPro-Regular.eot?#iefix") format("embedded-opentype"), url("../../fonts/SourceSansPro-Regular.woff") format("woff"), url("../../fonts/SourceSansPro-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'Source Sans Pro Semibold';
+  src: url("../../fonts/SourceSansPro-SemiBold.eot");
+  src: url("../../fonts/SourceSansPro-SemiBold.eot?#iefix") format("embedded-opentype"), url("../../fonts/SourceSansPro-SemiBold.woff") format("woff"), url("../../fonts/SourceSansPro-SemiBold.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'Source Sans Pro Bold';
+  src: url("../../fonts/SourceSansPro-Bold.eot");
+  src: url("../../fonts/SourceSansPro-Bold.eot?#iefix") format("embedded-opentype"), url("../../fonts/SourceSansPro-Bold.woff") format("woff"), url("../../fonts/SourceSansPro-Bold.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'Proxima Nova Regular';
+  src: url("../../fonts/ProximaNova-Regular.eot");
+  src: url("../../fonts/ProximaNova-Regular.eot?#iefix") format("embedded-opentype"), url("../../fonts/ProximaNova-Regular.woff") format("woff"), url("../../fonts/ProximaNova-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'Proxima Nova Semibold';
+  src: url("../../fonts/ProximaNova-Semibold.eot");
+  src: url("../../fonts/ProximaNova-Semibold.eot?#iefix") format("embedded-opentype"), url("../../fonts/ProximaNova-Semibold.woff") format("woff"), url("../../fonts/ProximaNova-Semibold.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal; }
+
+.wrap {
+  padding: 0 3px; }
+  @media (min-width: 576px) {
+    .wrap {
+      max-width: 1200px;
+      padding: 0;
+      margin: 0 auto; } }
 
 .header {
   background-color: #2c2c2c;
-  color: white;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
+  color: #eaeaea;
   padding-top: 10px;
   padding-bottom: 10px; }
   .header h1 {
@@ -126,9 +196,33 @@ table {
       font-family: 'Source Sans Pro Regular'; }
   .header .contact {
     display: flex;
-    flex-direction: column;
-    font-family: 'Proxima Nova Semibold'; }
-    .header .contact .contact_tel {
+    justify-content: space-around;
+    align-items: center;
+    margin: 0 auto; }
+    .header .content h1 {
+      font-size: 1.5em;
+      color: #19acf0; }
+      @media (min-width: 576px) {
+        .header .content h1 {
+          font-size: 2.5em; } }
+      .header .content h1 span {
+        color: #00FFFF; }
+    .header .content .nav {
+      display: none; }
+      @media (min-width: 576px) {
+        .header .content .nav {
+          display: flex;
+          flex-direction: column; } }
+      @media (min-width: 768px) {
+        .header .content .nav {
+          display: flex;
+          flex-direction: row; } }
+      .header .content .nav a {
+        text-decoration: none;
+        color: #eaeaea;
+        margin-left: 10px;
+        font-size: 16px; }
+    .header .content .contact {
       display: flex;
       flex-direction: column; }
       .header .contact .contact_tel span {
@@ -166,63 +260,12 @@ table {
   justify-content: center;
   align-items: center;
   flex-direction: column; }
-  .product h2 {
+  .products h2 {
     font-size: 35px; }
 
-.plus {
+.banner {
+  height: 500px;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column; }
-  .plus h2 {
-    font-size: 35px; }
-  .plus_wrap {
-    max-width: 1170px; }
-
-.payment {
-  display: flex;
-  justify-content: start;
-  align-items: center;
-  flex-direction: column;
-  margin-bottom: 20px; }
-  .payment h2 {
-    font-size: 35px; }
-  .payment_wrap {
-    max-width: 1170px;
-    margin-bottom: 20px;
-    margin: 0 auto;
-    padding-left: 5px;
-    padding-right: 5px; }
-  .payment .delivery {
-    display: flex;
-    margin-bottom: 35px;
-    margin-top: 20px; }
-    .payment .delivery_text {
-      display: flex;
-      flex-direction: column;
-      margin-left: 20px; }
-      .payment .delivery_text h3 {
-        font-size: 25px;
-        font-family: 'Roboto', sans-serif; }
-      .payment .delivery_text p {
-        font-size: 18px;
-        font-family: 'Roboto', sans-serif; }
-  .payment .pay {
-    display: flex; }
-    .payment .pay_text {
-      display: flex;
-      flex-direction: column;
-      margin-right: 20px; }
-      .payment .pay_text h3 {
-        font-size: 25px;
-        font-family: 'Roboto', sans-serif; }
-      .payment .pay_text p {
-        font-size: 19px;
-        font-family: 'Roboto', sans-serif; }
-
-.contacts {
-  display: flex;
-  justify-content: start;
   align-items: center;
   flex-direction: column;
   background-color: #3d99e4; }

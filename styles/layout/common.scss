@@ -1,0 +1,9 @@
+.wrap {
+	padding: 0 3px;
+
+	@include sm-screen {
+		max-width: $max_width;
+		padding: 0;
+		margin: 0 auto;
+	}
+}

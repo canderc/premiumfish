@@ -1,293 +1,292 @@
-@import "settings.scss";
-@import "reset.scss";
+@import
+    'utils/mixins.scss',
+    'utils/variables.scss';
 
-.wrap {
-    max-width: $max_width;
-}
+@import
+    'base/base.scss',
+    'base/fonts.scss';
 
-.content {
-    max-width: $width_content;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    margin: 0 auto;
-    min-width: 100%;
-}
+@import
+    'layout/common.scss',
+    'layout/header.scss';
 
-.header {
-    background-color: rgb(44, 44, 44);
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    padding-top: 10px;
-    padding-bottom: 10px;
+@import
+    'components/products.scss';
 
-    h1 {
-        font-size: 50px;
-        color: rgb(25, 172, 240);
+@import
+    'pages/home.scss';
 
-        span {
-            color:#00FFFF;
-        }
-    }
 
-    .nav {
-        display: flex;
-        flex-wrap: wrap;
+
+
+
+
+// @import "settings.scss";
+// @import "reset.scss";
+
+// .wrap {
+//     max-width: $max_width;
+// }
+
+// .content {
+//     max-width: $width_content;
+//     display: flex;
+//     justify-content: space-around;
+//     align-items: center;
+//     margin: 0 auto;
+//     min-width: 100%;
+// }
+
+// .header {
+//     background-color: rgb(44, 44, 44);
+//     color: white;
+//     display: flex;
+//     align-items: center;
+//     justify-content: space-around;
+//     padding-top: 10px;
+//     padding-bottom: 10px;
+
+//     h1 {
+//         font-size: 50px;
+//         color: rgb(25, 172, 240);
+
+//         span {
+//             color:#00FFFF;
+//         }
+//     }
+
+//     .nav {
         
-        a {
-            text-decoration: none;
-            color: white;
-            margin-left: 10px;
-            font-size: 16px;
-            font-family: 'Source Sans Pro Regular';
-        }
-    }
+//         a {
+//             text-decoration: none;
+//             color: white;
+//             margin-left: 10px;
+//             font-size: 16px;
+//             font-family: 'Source Sans Pro Regular';
+//         }
+//     }
 
-    .contact {
-        display: flex;
-        flex-direction: column;
-        font-family: 'Proxima Nova Semibold';
+//     .contact {
+//         display: flex;
+//         flex-direction: column;
+//         font-family: 'Proxima Nova Semibold';
 
-        .contact_tel {
-            display: flex;
-            flex-direction: column;
+//         .contact_tel {
+//             display: flex;
+//             flex-direction: column;
             
-            span {
-                padding-bottom: 5px;
-            }
-        }
+//             span {
+//                 padding-bottom: 5px;
+//             }
+//         }
 
-        .contact_email {
-            display: flex;
-            align-items: center;
+//         .contact_email {
+//             display: flex;
+//             align-items: center;
 
-            a {
-                color: white;
-                margin-left: 3px;
-            }
-        }
-    }
-}
+//             a {
+//                 color: white;
+//                 margin-left: 3px;
+//             }
+//         }
+//     }
+// }
 
-.header_bottom {
-    height: 500px;
-    display: flex;
-    justify-content: center;
-    background-image: url("../img/камбала.jpg");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: 100%;
+// .header_bottom {
+//     height: 500px;
+//     display: flex;
+//     justify-content: center;
+//     background-image: url("../img/Фон.jpg");
+//     background-repeat: no-repeat;
+//     background-position: center;
+//     background-size: 100%;
    
-    &_wrap {
-       background-color: #030c21;
-       background-position: center;
-       width: 100%;
-       opacity: 0.6; 
-       display: flex;
-       justify-content: center;
+//     &_wrap {
+//        background-color: #030c21;
+//        background-position: center;
+//        width: 100%;
+//        opacity: 0.6; 
+//        display: flex;
+//        justify-content: center;
        
-        span {
-           text-align: center;
-            font-size: 54px;
-            color:white;
-            padding-top: 50px;
-        }
-    }
-}
+//         span {
+//            text-align: center;
+//             font-size: 54px;
+//             color:white;
+//             padding-top: 50px;
+//         }
+//     }
+// }
 
-.product {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+// .product {
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//     flex-direction: column;
 
-    h2 {
-        font-size: 35px;
-    }
-}
+//     h2 {
+//         font-size: 35px;
+//     }
+// }
 
-.plus {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+// .plus {
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//     flex-direction: column;
 
-    h2 {
-        font-size: 35px;
-    }
+//     h2 {
+//         font-size: 35px;
+//     }
 
-    &_wrap {
-        max-width:$width_content;
-    }
-}
+//     &_wrap {
+//         max-width:$width_content;
+//     }
+// }
 
-.payment {
-    display: flex;
-    justify-content: start;
-    align-items: center;
-    flex-direction: column;
-    margin-bottom: 20px;
+// .payment {
+//     display: flex;
+//     justify-content: start;
+//     align-items: center;
+//     flex-direction: column;
+//     margin-bottom: 20px;
 
-    h2 {
-        font-size: 35px;
-    }
+//     h2 {
+//         font-size: 35px;
+//     }
 
-    &_wrap {
-        max-width: $width_content;
-        margin-bottom: 20px;
-        margin: 0 auto;
-        padding-left: 5px;
-        padding-right: 5px;
-    }
+//     &_wrap {
+//         max-width: $width_content;
+//         margin-bottom: 20px;
+//         margin: 0 auto;
+//         padding-left: 5px;
+//         padding-right: 5px;
+//     }
 
-    .delivery {
-        display: flex;
-        margin-bottom: 35px;
-        margin-top: 20px;
+//     .delivery {
+//         display: flex;
+//         margin-bottom: 35px;
+//         margin-top: 20px;
 
-        &_text {
-            display: flex;
-            flex-direction: column;
-            margin-left: 20px;
+//         &_text {
+//             display: flex;
+//             flex-direction: column;
+//             margin-left: 20px;
 
-            h3 {
-                font-size: 25px;
-                font-family: 'Roboto', sans-serif;
-            }
+//             h3 {
+//                 font-size: 25px;
+//                 font-family: 'Roboto', sans-serif;
+//             }
 
-            p {
-                font-size: 18px;
-                font-family: 'Roboto', sans-serif;
-            }
-        }
-    }
+//             p {
+//                 font-size: 18px;
+//                 font-family: 'Roboto', sans-serif;
+//             }
+//         }
+//     }
 
-    .pay {
-        display: flex;
+//     .pay {
+//         display: flex;
 
-        &_text {
-            display: flex;
-            flex-direction: column;
-            margin-right: 20px;
+//         &_text {
+//             display: flex;
+//             flex-direction: column;
+//             margin-right: 20px;
 
-            h3 {
-                font-size: 25px;
-                font-family: 'Roboto', sans-serif;
-            }
+//             h3 {
+//                 font-size: 25px;
+//                 font-family: 'Roboto', sans-serif;
+//             }
 
-            p {
-                font-size: 19px;
-                font-family: 'Roboto', sans-serif;
-            }
-        }
-    }
-}
+//             p {
+//                 font-size: 19px;
+//                 font-family: 'Roboto', sans-serif;
+//             }
+//         }
+//     }
+// }
 
-.contacts {
-    display: flex;
-    justify-content: start;
-    align-items: center;
-    flex-direction: column;
-    background-color: rgb(61, 153, 228);
+// .contacts {
+//     display: flex;
+//     justify-content: start;
+//     align-items: center;
+//     flex-direction: column;
 
-    h2 {
-        font-size: 35px;
-        padding-top: 30px;
-    }
+//     h2 {
+//         font-size: 35px;
+//     }
 
-    &_wrap {
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
-        width: 100%;
-        padding-top: 20px;
-        padding-bottom: 50px;
-        
-        .contacts_email {
-            display: flex;
-            align-items: center;
-        }
+//     &_wrap {
+//         display: flex;
+//         justify-content: space-around;
+//         width: 100%;
+//     }
+// }
 
-        .contacts_tel {
-            display: flex;
-            align-items: center;
+// .foot {
+//     display: flex;
+//     justify-content: space-around;
+//     background-color: rgb(44, 44, 44);
+//     margin-top: 20px;
+//     align-items: center;
 
-            span {
-                display: flex;
-                flex-direction: column;
-                padding-bottom: 5px;
-                margin-left: 10px;
-            }
-        }
-    }
-}
+//     &_wrap {
+//         display: flex;
+//         justify-content: space-around;
+//         align-items: center;
+//         width: 100%;
+//         padding-top: 30px;
+//         padding-bottom: 30px;
+//     }
 
-.foot {
-    display: flex;
-    justify-content: space-around;
-    background-color: rgb(44, 44, 44);
-    padding-top: 20px;
-    align-items: center;
+//     &_logo {
+//         text-align: center;
 
-    &_wrap {
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
-        width: 100%;
-        padding-top: 30px;
-        padding-bottom: 30px;
-    }
+//         p {
+//             color: rgb(25, 172, 240);
+//             font-size: 35px;
 
-    &_logo {
-        text-align: center;
+//             span {
+//                 color: #00FFFF;
+//             }
+//         }
 
-        p {
-            color: rgb(25, 172, 240);
-            font-size: 35px;
+//         .discript {
+//             color: white;
+//         }
+//     }
 
-            span {
-                color: #00FFFF;
-            }
-        }
+//     &_nav {
+//         display: flex;
+//         flex-direction: column;
 
-        .discript {
-            color: white;
-        }
-    }
+//         a {
+//             padding-bottom: 10px;
+//             color: white;
+//         }
+//     }
 
-    &_nav {
-        display: flex;
-        flex-direction: column;
+//     &_contact {
 
-        a {
-            padding-bottom: 10px;
-            color: white;
-        }
-    }
+//         &_tel {
+//             display: flex;
+//             flex-direction: column;
+//             color: white;
 
-    &_contact {
+//             span {
+//                 padding-bottom: 5px;
+//             }
+//         }
 
-        &_tel {
-            display: flex;
-            flex-direction: column;
-            color: white;
+//         &_email {
+//             display: flex;
+//             align-items: center;
 
-            span {
-                padding-bottom: 5px;
-            }
-        }
-
-        &_email {
-            display: flex;
-            align-items: center;
-
-            a {
-                color: white;
-                margin-left: 5px;
-                text-decoration: none;
-            }
-        }
-    }
-}
+//             a {
+//                 color: white;
+//                 margin-left: 5px;
+//                 text-decoration: none;
+//             }
+//         }
+//     }
+// }

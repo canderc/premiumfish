@@ -1,0 +1,32 @@
+.banner {
+  height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url("../img/Фон.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  // background-position: center;
+      // width: 100%;
+      // opacity: 0.6; 
+  // background-image: url("../img/Фон.jpg");
+  // background-repeat: no-repeat;
+  // background-position: center;
+  // background-size: 100%;
+  
+  // &_wrap {
+  //     background-color: #030c21;
+  //     background-position: center;
+  //     width: 100%;
+  //     opacity: 0.6; 
+  //     display: flex;
+  //     justify-content: center;
+      
+      .banner_text {
+          text-align: center;
+          font-size: 3em;
+          color: $text_color_wite;
+      }
+  // }
+}

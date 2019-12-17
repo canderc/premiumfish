@@ -1,0 +1,36 @@
+// https://getinstance.info/articles/css/sass-basics-the-mixin-directive/
+
+// Small devices
+@mixin sm-screen {
+  @media (min-width: #{$screen-sm-min}) {
+      @content;
+  }
+}
+
+// Medium devices
+@mixin md-screen {
+  @media (min-width: #{$screen-md-min}) {
+      @content;
+  }
+}
+
+// Large devices
+@mixin lg-screen {
+  @media (min-width: #{$screen-lg-min}) {
+      @content;
+  }
+}
+
+// Extra large devices
+@mixin xl-screen {
+  @media (min-width: #{$screen-xl-min}) {
+      @content;
+  }
+}
+
+// Custom devices
+@mixin custom-screen($screen) {
+  @media (min-width: $screen+'px') {
+      @content;
+  }
+}
