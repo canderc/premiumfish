@@ -1,7 +1,7 @@
 .banner {
   height: 500px;
   display: flex;
-  align-items: center;
+  padding-top: 120px;
   justify-content: center;
   background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url("../img/Фон.jpg");
   background-position: center;
@@ -23,10 +23,14 @@
   //     display: flex;
   //     justify-content: center;
       
-      .banner_text {
-          text-align: center;
+    .banner_text {
+        font-size: 1.5em;
+        text-align: center;
+        color: $text_color_wite;
+
+        @include sm-screen {
           font-size: 3em;
-          color: $text_color_wite;
-      }
+        }
+    }
   // }
 }

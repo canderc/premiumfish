@@ -1,0 +1,50 @@
+.payment {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 20px;
+
+    h2 {
+        text-align: center;
+        font-size: 32px;
+    }
+
+    &_wrap {
+        display: flex;
+        flex-direction: column;
+        padding-top: 25px;
+
+        .delivery {
+            
+            &_text {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+
+                h3 {
+                    font-size: 22px;
+                    padding-top: 15px;
+                }
+            }
+        }
+
+        .pay {
+            display: flex;
+            flex-direction: column-reverse;
+            margin-top: 20px;
+            
+            &_text {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+
+                h3 {
+                    font-size: 22px;
+                    padding-top: 15px;
+                }
+            }
+        }
+    }
+}    

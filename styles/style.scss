@@ -8,13 +8,21 @@
 
 @import
     'layout/common.scss',
-    'layout/header.scss';
+    'layout/header.scss',
+    'layout/footer.scss';
 
 @import
     'components/products.scss';
 
 @import
-    'pages/home.scss';
+    'pages/home.scss',
+    'pages/plus.scss',
+    'pages/products.scss',
+    'pages/payment.scss',
+    'pages/reviews.scss',
+    'pages/contacts.scss';
+    
+
 
 
 
