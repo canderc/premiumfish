@@ -73,7 +73,7 @@
     height: 500px;
     display: flex;
     justify-content: center;
-    background-image: url("/img/Фон.jpg");
+    background-image: url("../img/Фон.jpg");
     background-repeat: no-repeat;
     background-position: center;
     background-size: 100%;
@@ -188,15 +188,37 @@
     justify-content: start;
     align-items: center;
     flex-direction: column;
+    background-color: rgb(61, 153, 228);
 
     h2 {
         font-size: 35px;
+        padding-top: 30px;
     }
 
     &_wrap {
         display: flex;
         justify-content: space-around;
+        align-items: center;
         width: 100%;
+        padding-top: 20px;
+        padding-bottom: 50px;
+        
+        .contacts_email {
+            display: flex;
+            align-items: center;
+        }
+
+        .contacts_tel {
+            display: flex;
+            align-items: center;
+
+            span {
+                display: flex;
+                flex-direction: column;
+                padding-bottom: 5px;
+                margin-left: 10px;
+            }
+        }
     }
 }
 
@@ -204,7 +226,7 @@
     display: flex;
     justify-content: space-around;
     background-color: rgb(44, 44, 44);
-    margin-top: 20px;
+    padding-top: 20px;
     align-items: center;
 
     &_wrap {

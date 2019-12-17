@@ -221,19 +221,35 @@ table {
   display: flex;
   justify-content: start;
   align-items: center;
-  flex-direction: column; }
+  flex-direction: column;
+  background-color: #3d99e4; }
   .contacts h2 {
-    font-size: 35px; }
+    font-size: 35px;
+    padding-top: 30px; }
   .contacts_wrap {
     display: flex;
     justify-content: space-around;
-    width: 100%; }
+    align-items: center;
+    width: 100%;
+    padding-top: 20px;
+    padding-bottom: 50px; }
+    .contacts_wrap .contacts_email {
+      display: flex;
+      align-items: center; }
+    .contacts_wrap .contacts_tel {
+      display: flex;
+      align-items: center; }
+      .contacts_wrap .contacts_tel span {
+        display: flex;
+        flex-direction: column;
+        padding-bottom: 5px;
+        margin-left: 10px; }
 
 .foot {
   display: flex;
   justify-content: space-around;
   background-color: #2c2c2c;
-  margin-top: 20px;
+  padding-top: 20px;
   align-items: center; }
   .foot_wrap {
     display: flex;
