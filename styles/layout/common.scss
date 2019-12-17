@@ -1,9 +1,28 @@
 .wrap {
-	padding: 0 3px;
-
 	@include sm-screen {
 		max-width: $max_width;
-		padding: 0;
 		margin: 0 auto;
 	}
+}
+
+.text-content-wrap {
+	padding: 0 10px;
+
+	@include sm-screen {
+		padding: 0;
+	}
+}
+
+.multi-paragraph-block {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.block-with-image {
+  display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }

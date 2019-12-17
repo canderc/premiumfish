@@ -1,0 +1,22 @@
+.advantages {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px 0;
+
+    h2 {
+        text-align: center;
+    }
+
+        .advantages_item {
+            padding: 15px 0;
+
+            h3 {
+                padding: 8px 0;
+            }
+
+            p {
+                text-align: center;
+            }
+        }
+}
