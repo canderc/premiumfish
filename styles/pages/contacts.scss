@@ -14,6 +14,11 @@
         align-items: center;
         padding-top: 25px;
         padding-bottom: 25px;
+
+        @include sm-screen {
+            flex-direction: initial;
+            justify-content: space-around;
+        }
         
         .contacts_email {
             display: flex;

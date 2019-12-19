@@ -2,6 +2,10 @@
 .delivery {
     padding: 15px 0;
 
+    @include sm-screen {
+		padding: 15px 10px;
+	}
+
     h3 {
         padding: 15px 0;
     }
