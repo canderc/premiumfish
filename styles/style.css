@@ -112,6 +112,15 @@ table {
 img {
   max-width: 100%; }
 
+h2 {
+  font-size: 32px;
+  text-align: center; }
+
+h3 {
+  font-size: 22px;
+  text-align: center;
+  font-weight: bold; }
+
 @font-face {
   font-family: 'Montserrat Regular';
   src: url("../../fonts/Montserrat-Regular.eot");
@@ -167,19 +176,38 @@ img {
   font-weight: normal;
   font-style: normal; }
 
-.wrap {
-  padding: 0 3px; }
+@media (min-width: 576px) {
+  .wrap {
+    max-width: 1200px;
+    margin: 0 auto; } }
+
+.text-content-wrap {
+  padding: 0 10px; }
   @media (min-width: 576px) {
-    .wrap {
-      max-width: 1200px;
-      padding: 0;
-      margin: 0 auto; } }
+    .text-content-wrap {
+      padding: 0; } }
+
+.multi-paragraph-block {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; }
+
+.block-with-image {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; }
 
 .header {
+  position: fixed;
+  width: 100%;
+  max-width: 1200px;
   background-color: #2c2c2c;
   color: #eaeaea;
   padding-top: 10px;
-  padding-bottom: 10px; }
+  padding-bottom: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); }
   .header .content {
     display: flex;
     justify-content: space-around;
@@ -269,81 +297,48 @@ img {
   justify-content: center;
   align-items: center;
   flex-direction: column; }
-  .products h2 {
-    font-size: 35px; }
 
 .banner {
   height: 500px;
   display: flex;
-  padding-top: 120px;
+  align-items: center;
   justify-content: center;
   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../img/Фон.jpg");
-  background-position: center;
-  background-size: cover;
+  background-position: top;
+  background-attachment: fixed;
   background-repeat: no-repeat; }
   .banner .banner_text {
     font-size: 1.5em;
     text-align: center;
-    color: #eaeaea; }
+    color: #eaeaea;
+    text-shadow: 0px 2px 3px rgba(0, 0, 0, 0.75); }
     @media (min-width: 576px) {
       .banner .banner_text {
         font-size: 3em; } }
 
-.plus {
+.advantages {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding-top: 20px; }
-  .plus h2 {
-    text-align: center;
-    font-size: 32px; }
-  .plus_wrap {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    padding-top: 15px;
-    padding-bottom: 25px; }
-    .plus_wrap .plus_price {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      padding-top: 30px; }
-      .plus_wrap .plus_price h3 {
-        font-size: 20px; }
+  padding: 20px 0; }
+  .advantages h2 {
+    text-align: center; }
+  .advantages .advantages_item {
+    padding: 15px 0; }
+    .advantages .advantages_item h3 {
+      padding: 8px 0; }
+    .advantages .advantages_item p {
+      text-align: center; }
 
 .payment {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  margin-top: 20px; }
-  .payment h2 {
-    text-align: center;
-    font-size: 32px; }
-  .payment_wrap {
-    display: flex;
-    flex-direction: column;
-    padding-top: 25px; }
-    .payment_wrap .delivery_text {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center; }
-      .payment_wrap .delivery_text h3 {
-        font-size: 22px;
-        padding-top: 15px; }
-    .payment_wrap .pay {
-      display: flex;
-      flex-direction: column-reverse;
-      margin-top: 20px; }
-      .payment_wrap .pay_text {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center; }
-        .payment_wrap .pay_text h3 {
-          font-size: 22px;
-          padding-top: 15px; }
+  padding: 15px 0; }
+  .payment h3 {
+    padding: 15px 0; }
+
+.delivery {
+  padding: 15px 0; }
+  .delivery h3 {
+    padding: 15px 0; }
 
 .contacts {
   display: flex;
@@ -354,8 +349,7 @@ img {
   color: white;
   padding-top: 20px; }
   .contacts h2 {
-    text-align: center;
-    font-size: 32px; }
+    text-align: center; }
   .contacts_wrap {
     display: flex;
     flex-direction: column;
