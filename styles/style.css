@@ -192,6 +192,9 @@ h3 {
   flex-direction: column;
   justify-content: center;
   align-items: center; }
+  @media (min-width: 576px) {
+    .multi-paragraph-block {
+      align-items: initial; } }
 
 .block-with-image {
   display: flex;
@@ -264,12 +267,20 @@ h3 {
     justify-content: space-around;
     padding-top: 25px;
     padding-bottom: 25px; }
+    @media (min-width: 576px) {
+      .foot_wrap .foot_logo {
+        font-size: 22px; } }
     .foot_wrap .foot_logo p {
       color: #19acf0; }
     .foot_wrap .foot_logo span {
       color: #00FFFF; }
     .foot_wrap .foot_logo .discript {
       display: none; }
+      @media (min-width: 576px) {
+        .foot_wrap .foot_logo .discript {
+          display: block;
+          color: white;
+          font-size: 15px; } }
     .foot_wrap .foot_nav {
       display: flex;
       flex-direction: column;
@@ -279,18 +290,27 @@ h3 {
         color: white;
         font-size: 10px;
         padding-bottom: 5px; }
+        @media (min-width: 576px) {
+          .foot_wrap .foot_nav a {
+            font-size: 13px; } }
     .foot_wrap .foot_contact_tel {
       display: flex;
       flex-direction: column; }
       .foot_wrap .foot_contact_tel span {
         font-size: 10px;
         padding-bottom: 5px; }
+        @media (min-width: 576px) {
+          .foot_wrap .foot_contact_tel span {
+            font-size: 13px; } }
     .foot_wrap .foot_contact_email img {
       display: none; }
     .foot_wrap .foot_contact_email a {
       text-decoration: none;
       font-size: 10px;
       color: white; }
+      @media (min-width: 576px) {
+        .foot_wrap .foot_contact_email a {
+          font-size: 13px; } }
 
 .products {
   display: flex;
@@ -314,7 +334,7 @@ h3 {
     text-shadow: 0px 2px 3px rgba(0, 0, 0, 0.75); }
     @media (min-width: 576px) {
       .banner .banner_text {
-        font-size: 3em; } }
+        font-size: 2.5em; } }
 
 .advantages {
   display: flex;
@@ -332,11 +352,17 @@ h3 {
 
 .payment {
   padding: 15px 0; }
+  @media (min-width: 576px) {
+    .payment {
+      padding: 15px 10px; } }
   .payment h3 {
     padding: 15px 0; }
 
 .delivery {
   padding: 15px 0; }
+  @media (min-width: 576px) {
+    .delivery {
+      padding: 15px 10px; } }
   .delivery h3 {
     padding: 15px 0; }
 
@@ -348,14 +374,16 @@ h3 {
   background-color: blue;
   color: white;
   padding-top: 20px; }
-  .contacts h2 {
-    text-align: center; }
   .contacts_wrap {
     display: flex;
     flex-direction: column;
     align-items: center;
     padding-top: 25px;
     padding-bottom: 25px; }
+    @media (min-width: 576px) {
+      .contacts_wrap {
+        flex-direction: initial;
+        justify-content: space-around; } }
     .contacts_wrap .contacts_email {
       display: flex;
       flex-direction: column;
