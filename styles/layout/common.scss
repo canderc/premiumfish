@@ -11,6 +11,11 @@
 	@include sm-screen {
 		padding: 0;
 	}
+
+	@include lg-screen {
+		display: flex;
+		justify-content: space-around;
+	}
 }
 
 .multi-paragraph-block {
@@ -21,6 +26,11 @@
 
 	@include sm-screen {
 		align-items: initial;
+	}
+
+	@include lg-screen {
+		padding-left: 15px;
+		padding-right: 15px;
 	}
 }
 

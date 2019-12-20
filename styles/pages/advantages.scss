@@ -17,6 +17,10 @@
 
             p {
                 text-align: center;
+
+                @include lg-screen {
+                    max-width: 300px;
+                }
             }
         }
 }

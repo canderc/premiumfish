@@ -14,6 +14,10 @@
             @include sm-screen {
                 font-size: 22px;
             }
+
+            @include lg-screen {
+               font-size: 27px;
+            }
             
             p {
                 color: rgb(25, 172, 240);
@@ -48,6 +52,10 @@
                 @include sm-screen {
                     font-size: 13px;
                 }
+
+                @include lg-screen {
+                    font-size: 17px;
+                }
             }
         }
 
@@ -63,6 +71,10 @@
 
                     @include sm-screen {
                         font-size: 13px;
+                    }
+
+                    @include lg-screen {
+                        font-size: 17px;
                     }
                 }
             }
@@ -80,6 +92,10 @@
 
                     @include sm-screen {
                         font-size: 13px;
+                    }
+
+                    @include lg-screen {
+                        font-size: 17px;
                     }
                 }
             }

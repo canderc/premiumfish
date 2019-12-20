@@ -4,6 +4,11 @@
 
     @include sm-screen {
 		padding: 15px 10px;
+    }
+    
+    @include lg-screen {
+		display: flex;
+		flex-direction: row;
 	}
 
     h3 {
