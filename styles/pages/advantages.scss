@@ -1,8 +1,12 @@
 .advantages {
+    background-color: #5751bb;
     display: flex;
     flex-direction: column;
     justify-content: center;
     padding: 20px 0;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    color: $text_color_wite;
 
     h2 {
         text-align: center;
