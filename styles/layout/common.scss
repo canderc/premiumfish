@@ -1,15 +1,14 @@
-.wrap {
-	@include sm-screen {
-		max-width: $max_width;
-		margin: 0 auto;
-	}
+.main {
+	background-color: $main-background;
 }
 
 .text-content-wrap {
 	padding: 0 10px;
+	margin: 0 auto;
 
 	@include sm-screen {
 		padding: 0;
+		max-width: $max_width;
 	}
 
 	@include lg-screen {
@@ -35,8 +34,21 @@
 }
 
 .block-with-image {
-  	display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.fade-in-hidden {
+	opacity: 0;
+  transform: translateY(20vh);
+  visibility: hidden;
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.fade-in {
+	opacity: 1;
+	transform: none;
+	visibility: visible;
 }

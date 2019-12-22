@@ -114,7 +114,8 @@ img {
 
 h2 {
   font-size: 32px;
-  text-align: center; }
+  text-align: center;
+  text-shadow: 0px 2px 3px rgba(0, 0, 0, 0.75); }
 
 h3 {
   font-size: 22px;
@@ -176,16 +177,16 @@ h3 {
   font-weight: normal;
   font-style: normal; }
 
-@media (min-width: 576px) {
-  .wrap {
-    max-width: 1200px;
-    margin: 0 auto; } }
+.main {
+  background-color: #c6c4d4; }
 
 .text-content-wrap {
-  padding: 0 10px; }
+  padding: 0 10px;
+  margin: 0 auto; }
   @media (min-width: 576px) {
     .text-content-wrap {
-      padding: 0; } }
+      padding: 0;
+      max-width: 1200px; } }
   @media (min-width: 992px) {
     .text-content-wrap {
       display: flex;
@@ -210,28 +211,41 @@ h3 {
   justify-content: center;
   align-items: center; }
 
+.fade-in-hidden {
+  opacity: 0;
+  transform: translateY(20vh);
+  visibility: hidden;
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
+
+.fade-in {
+  opacity: 1;
+  transform: none;
+  visibility: visible; }
+
 .header {
   position: fixed;
   width: 100%;
-  max-width: 1200px;
-  background-color: #2c2c2c;
+  background-color: #000050;
   color: #eaeaea;
   padding-top: 10px;
   padding-bottom: 10px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); }
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  z-index: 1000; }
   .header .content {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     margin: 0 auto; }
     .header .content h1 {
       font-size: 1.5em;
-      color: #19acf0; }
+      font-weight: bold;
+      text-shadow: 0px 2px 3px rgba(255, 216, 99, 0.75);
+      color: #FFBF00; }
       @media (min-width: 576px) {
         .header .content h1 {
           font-size: 2.5em; } }
       .header .content h1 span {
-        color: #00FFFF; }
+        color: #FFD863; }
     .header .content .nav {
       display: none; }
       @media (min-width: 576px) {
@@ -252,7 +266,8 @@ h3 {
       flex-direction: column; }
       .header .content .contact .contact_tel {
         display: flex;
-        flex-direction: column; }
+        flex-direction: column;
+        color: #eaeaea; }
         .header .content .contact .contact_tel span {
           padding-bottom: 5px;
           font-size: 15px; }
@@ -267,12 +282,12 @@ h3 {
           margin-left: 3px; }
 
 .foot {
-  background-color: #2c2c2c;
+  background-color: #000050;
   color: #eaeaea; }
   .foot_wrap {
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
     padding-top: 25px;
     padding-bottom: 25px; }
     @media (min-width: 576px) {
@@ -339,12 +354,12 @@ h3 {
   flex-direction: column; }
 
 .banner {
-  height: 500px;
   display: flex;
   align-items: center;
   justify-content: center;
   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../img/Фон.jpg");
-  background-position: top;
+  background-position: center;
+  background-size: cover;
   background-attachment: fixed;
   background-repeat: no-repeat; }
   .banner .banner_text {
@@ -357,14 +372,9 @@ h3 {
         font-size: 2.5em; } }
 
 .advantages {
-  background-color: #5751bb;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 20px 0;
-  margin-top: 5px;
-  margin-bottom: 5px;
-  color: #eaeaea; }
+  padding: 20px 0; }
+  .advantages .text-content-wrap {
+    align-items: baseline; }
   .advantages h2 {
     text-align: center; }
   .advantages .advantages_item {
@@ -376,6 +386,8 @@ h3 {
       @media (min-width: 992px) {
         .advantages .advantages_item p {
           max-width: 300px; } }
+    .advantages .advantages_item img {
+      width: 128px; }
 
 .payment {
   padding: 15px 0; }
@@ -390,7 +402,6 @@ h3 {
     padding: 15px 0; }
 
 .deliv-pay {
-  background-color: burlywood;
   padding-top: 25px; }
 
 .delivery {
@@ -409,10 +420,6 @@ h3 {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin-top: 5px;
-  margin-bottom: 5px;
-  background-color: #5751bb;
-  color: #eaeaea;
   padding-top: 20px; }
   .contacts_wrap {
     display: flex;
@@ -435,7 +442,7 @@ h3 {
         justify-content: center; }
         .contacts_wrap .contacts_email_text a {
           text-decoration: none;
-          color: #eaeaea; }
+          color: black; }
           @media (min-width: 992px) {
             .contacts_wrap .contacts_email_text a {
               font-size: 20px; } }
