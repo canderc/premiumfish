@@ -5,7 +5,6 @@ const banner = document.getElementsByClassName('banner')[0];
 banner.style.height = window.innerHeight + 'px';
 
 const observer = new IntersectionObserver(entries => {
-  banner.style.height = 'window.innerHeight' + 'px';
   entries.forEach(entry => {
     entry.isIntersecting  && entry.target.classList.add('fade-in')
   }, { threshold: 1.0})
