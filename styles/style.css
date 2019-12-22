@@ -266,7 +266,8 @@ h3 {
       flex-direction: column; }
       .header .content .contact .contact_tel {
         display: flex;
-        flex-direction: column; }
+        flex-direction: column;
+        color: #eaeaea; }
         .header .content .contact .contact_tel span {
           padding-bottom: 5px;
           font-size: 15px; }
@@ -441,7 +442,7 @@ h3 {
         justify-content: center; }
         .contacts_wrap .contacts_email_text a {
           text-decoration: none;
-          color: #eaeaea; }
+          color: black; }
           @media (min-width: 992px) {
             .contacts_wrap .contacts_email_text a {
               font-size: 20px; } }
