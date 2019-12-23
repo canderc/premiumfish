@@ -288,7 +288,6 @@ h3 {
     z-index: 30;
     width: 30px;
     height: 30px;
-    background-color: #2c2c2c;
     border-radius: 50%; }
     .header .hamburg-menu_button .hamburg-menu_lines,
     .header .hamburg-menu_button .hamburg-menu_lines::after,
@@ -297,7 +296,8 @@ h3 {
       position: absolute;
       width: 30px;
       height: 4px;
-      background-color: white; }
+      background-color: white;
+      transition: 0.7s all; }
     .header .hamburg-menu_button .hamburg-menu_lines {
       top: 50%;
       left: 50%;
@@ -337,12 +337,13 @@ h3 {
     display: flex;
     flex-flow: column;
     height: 100%;
-    left: 100px;
     width: 90%;
     justify-content: space-evenly;
     align-items: flex-start;
     background-color: #000050;
-    opacity: 0.9; }
+    opacity: 0.9;
+    left: 100%;
+    transition: 0.7s all; }
     .header .hamburg-menu_nav a {
       text-decoration: none;
       color: #eaeaea;
@@ -361,6 +362,19 @@ h3 {
     @media (min-width: 1200px) {
       .header .hamburg-menu_nav {
         display: none; } }
+  .header .menu_active {
+    margin-top: 30px;
+    position: fixed;
+    z-index: 20;
+    display: flex;
+    flex-flow: column;
+    height: 100%;
+    left: 100px;
+    width: 90%;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    background-color: #000050;
+    opacity: 0.9; }
 
 .foot {
   background-color: #000050;
