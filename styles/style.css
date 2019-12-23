@@ -353,15 +353,6 @@ h3 {
     @media (min-width: 576px) {
       .header .hamburg-menu_nav {
         display: none; } }
-    @media (min-width: 768px) {
-      .header .hamburg-menu_nav {
-        display: none; } }
-    @media (min-width: 992px) {
-      .header .hamburg-menu_nav {
-        display: none; } }
-    @media (min-width: 1200px) {
-      .header .hamburg-menu_nav {
-        display: none; } }
   .header .menu_active {
     margin-top: 30px;
     position: fixed;

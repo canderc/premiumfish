@@ -181,18 +181,6 @@
 		@include sm-screen {
 			display: none;
 		}
-
-		@include md-screen {
-			display: none;
-		}
-
-		@include lg-screen {
-			display: none;
-		}
-
-		@include xl-screen {
-			display: none;
-		}
 	}
 
 	.menu_active {
