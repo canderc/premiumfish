@@ -81,4 +81,133 @@
 			}
 		}
 	}
+
+	.hamburg-menu_button {
+		display: block;
+		position: fixed;
+		top: 10px;
+		right: 10px;
+		z-index: 30;
+		width: 30px;
+		height: 30px;
+		border-radius: 50%;
+
+		.hamburg-menu_lines,
+		.hamburg-menu_lines::after,
+		.hamburg-menu_lines::before {
+			display: block;
+			position: absolute;
+			width: 30px;
+			height: 4px;
+			background-color: white;
+			transition: 0.7s all;
+		}
+	
+		.hamburg-menu_lines {
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%,-50%);
+		}
+
+		.hamburg-menu_lines::after {
+			content: '';
+			top: 10px;
+		}
+
+		.hamburg-menu_lines::before {
+			content: '';
+			top: -10px;
+		}
+
+		@include sm-screen {
+			display: none;
+		}
+
+		@include md-screen {
+			display: none;
+		}
+
+		@include lg-screen {
+			display: none;
+		}
+
+		@include xl-screen {
+			display: none;
+		}
+
+
+	}
+
+	.hamburg-menu_button:hover .hamburg-menu_lines {
+		filter: brightness(0.7);
+	}
+	
+	.hamburg-menu_active .hamburg-menu_lines {
+		background-color: transparent;
+	}
+
+	.hamburg-menu_active .hamburg-menu_lines::after {
+		top: 0;
+		transform: rotate(-45deg);
+	}
+
+	.hamburg-menu_active .hamburg-menu_lines::before {
+		top: 0;
+		transform: rotate(45deg);
+	}
+	 .hamburg-menu_nav {
+		margin-top: 30px;
+		position: fixed;
+		z-index: 20;
+		display: flex;
+		flex-flow: column;
+		height: 100%;
+		width: 90%;
+		justify-content: space-evenly;
+		align-items: flex-start;
+		background-color: $dark-blue;
+		opacity: 0.9;
+		left: 100%;
+		transition: 0.7s all;
+
+		a {
+			text-decoration: none;
+			color: $text_color_white;
+			font-size: 20px;
+			cursor: pointer;
+			padding-left: 20px;
+		}
+
+		@include sm-screen {
+			display: none;
+		}
+
+		@include md-screen {
+			display: none;
+		}
+
+		@include lg-screen {
+			display: none;
+		}
+
+		@include xl-screen {
+			display: none;
+		}
+	}
+
+	.menu_active {
+		margin-top: 30px;
+		position: fixed;
+		z-index: 20;
+		display: flex;
+		flex-flow: column;
+		height: 100%;
+		left: 100px;
+		width: 90%;
+		justify-content: space-evenly;
+		align-items: flex-start;
+		background-color: $dark-blue;
+		opacity: 0.9;
+	}
+	
 }
