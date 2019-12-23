@@ -22,7 +22,7 @@ gulp.task('run', function(done) {
   });
 
   gulp.watch("styles/**/*.scss", gulp.series('sass'));
-  gulp.watch("*.html", gulp.series('reload'));
+  gulp.watch("*.html|.js", gulp.series('reload'));
   done()
 
 });

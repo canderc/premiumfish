@@ -2,10 +2,6 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin-top: 5px;
-    margin-bottom: 5px;
-    background-color: #5751bb;
-    color: $text_color_wite;
     padding-top: 20px;
 
 
@@ -34,7 +30,7 @@
                 
                 a {
                     text-decoration: none;
-                    color:$text_color_wite;
+                    color: black;
 
                     @include lg-screen {
                         font-size: 20px;
