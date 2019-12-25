@@ -2,7 +2,9 @@
 const banner = document.getElementsByClassName('banner')[0];
 const header = document.getElementsByTagName('header')[0];
 const sections = document.getElementsByTagName('section');
+// const nav = querySelector('.nav');
 
+// smooth scrolling
 const setElementsHeight = () => {
   Array.from(sections).forEach(section => { 
     const windowHeight = window.innerHeight
@@ -28,9 +30,59 @@ const scroll = (e) => {
   document.querySelector(targetClassName).scrollIntoView({ behavior: 'smooth' })
 }
 
+
 document.querySelector('.nav').addEventListener('click', scroll)
 document.querySelector('.hamburg-menu_nav').addEventListener('click', scroll)
 
 setElementsHeight();
 
 window.subscribeOnResize(setElementsHeight)
+
+
+// active nav item effect
+const activeItemUnderline = document.querySelector('.active-item-underline');
+const navAList = Array.from(document.querySelector('.nav').querySelectorAll('a'));
+
+const hash = window.location.hash
+
+const underlineSelectedItem = (item) => {
+  let left = 0
+  console.log('activeNavItem = ', activeItemUnderline)
+  for (let i = 0; i < navAList.length; i++) {
+    if (navAList[i] !== item) {
+      left = left + navAList[i].getBoundingClientRect().width
+    } else {
+      break;
+    }
+  }
+
+  const itemWidth = item.getBoundingClientRect().width
+
+  activeItemUnderline.style.width = itemWidth + 'px';
+  activeItemUnderline.style.left = left + 'px';
+}
+
+if (hash) {
+  activeItemUnderline.style.transition = 'all 0s'
+  activeItemUnderline.style.display = 'none'
+}
+
+window.onload = () => {
+  if (hash) {
+    const item = document.querySelector(`[href="${hash}"]`)
+    
+    underlineSelectedItem(item)
+    
+    activeItemUnderline.style.display = 'block'
+    activeItemUnderline.style.transition = 'all .6s'
+  }
+}
+
+
+const changeSelectedItem = (e) => {
+  e.preventDefault()
+
+  underlineSelectedItem(e.target)
+}
+
+document.querySelector('.nav').addEventListener('click', changeSelectedItem)

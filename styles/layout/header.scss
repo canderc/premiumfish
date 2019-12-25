@@ -20,12 +20,12 @@
 		width: 100%;
     background-color: $dark-blue;
     color: $text_color_white;
-    padding: 10px;
+    padding: 6px 10px;
 		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 		z-index: 1000;
 
 		@include lg-screen {
-			padding: 10px 0;
+			padding: 6px 5px;
 		}
 		
 	.content {
@@ -33,6 +33,7 @@
 		justify-content: space-between;
 		align-items: center;
 		margin: 0 auto;
+		font-size: 18px;	
 
 		.logo {
 			font-size: 1.5em;
@@ -40,18 +41,22 @@
 			text-shadow: 0px 2px 3px rgba(255, 216, 99, 0.75);
 			color: $dark-yellow;
 
+			@include md-screen {
+				font-size: 1.8em;
+			}
+
+			@include xl-screen {
+				font-size: 2em;
+			}
+
 			span {
 				color: $light-yellow;
 			}
-
-			@include sm-screen {
-				font-size: 2.5em;
-			}
-
 		}
 
 		.nav {
 			display: none;
+			position: relative;
 
 			@include lg-screen {
 				display: block;
@@ -59,118 +64,132 @@
 
 			ul {
 				display: flex;
-				// flex-direction: column;
 			}
 			
 			a {
 				color: $text_color_white;
-				margin-left: 10px;
-				font-size: 16px;
+				padding: 0 10px;
 			}
 
+			.active-item-underline {
+				position: absolute;
+				left: 0;
+				bottom: -15px;
+				width: 80px;
+				height: 3px;
+				background-color: $yellow;
+				transition: all .6s;
+			}
 		}
 
 		.contact {
 			display: flex;
 			flex-direction: column;
+			font-size: 17px;	
 
+			// .contact_email {
+			// 	display: none;
+
+			// 	// @include sm-screen {
+			// 	// 	display: block;
+			// 	// }
 	
-			.contact_email {
+			// 	a {
+			// 		color: $text_color_white;
+			// 	}
+			// }
+		}
+	}
+
+	.hamburg-menu {
+		display: block;
+
+		@include lg-screen {
+			display: none;
+		}
+
+		.hamburg-menu_button {
+			display: block;
+			position: relative;
+			z-index: 30;
+			width: 30px;
+			height: 30px;
+			background-color: transparent;
+			border: none;
+	
+			.hamburg-menu_lines,
+			.hamburg-menu_lines::after,
+			.hamburg-menu_lines::before {
+				display: block;
+				position: absolute;
+				width: 30px;
+				height: 4px;
+				background-color: $text_color_white;
+				transition: 0.4s all;
+			}
+		
+			.hamburg-menu_lines {
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%,-50%);
+			}
+	
+			.hamburg-menu_lines::after {
+				content: '';
+				top: 10px;
+			}
+	
+			.hamburg-menu_lines::before {
+				content: '';
+				top: -10px;
+			}
+	
+			@include lg-screen {
 				display: none;
-
-				@include sm-screen {
-					display: block;
-				}
+			}
+		}
 	
-				a {
-					color: $text_color_white;
-				}
+		.hamburg-menu_button:hover .hamburg-menu_lines {
+			filter: brightness(0.7);
+		}
+		
+		.hamburg-menu_active .hamburg-menu_lines {
+			background-color: transparent;
+		}
+	
+		.hamburg-menu_active .hamburg-menu_lines::after {
+			top: 0;
+			transform: rotate(-45deg);
+		}
+	
+		.hamburg-menu_active .hamburg-menu_lines::before {
+			top: 0;
+			transform: rotate(45deg);
+		}
+	
+		.hamburg-menu_nav {
+			@extend %hamburger-styles;
+			left: 100%;
+	
+			a {
+				color: $text_color_white;
+				font-size: 20px;
+				cursor: pointer;
+				padding-left: 20px;
+			}
+	
+			@include lg-screen {
+				display: none;
+			}
+		}
+	
+		.menu_active {
+			@extend %hamburger-styles;
+			left: 0;
+	
+			@include sm-screen {
+				left: 40%;
 			}
 		}
 	}
-
-	.hamburg-menu_button {
-		display: block;
-		position: relative;
-		z-index: 30;
-		width: 30px;
-		height: 30px;
-		background-color: transparent;
-		border: none;
-
-		.hamburg-menu_lines,
-		.hamburg-menu_lines::after,
-		.hamburg-menu_lines::before {
-			display: block;
-			position: absolute;
-			width: 30px;
-			height: 4px;
-			background-color: $text_color_white;
-			transition: 0.4s all;
-		}
-	
-		.hamburg-menu_lines {
-			top: 50%;
-			left: 50%;
-			transform: translate(-50%,-50%);
-		}
-
-		.hamburg-menu_lines::after {
-			content: '';
-			top: 10px;
-		}
-
-		.hamburg-menu_lines::before {
-			content: '';
-			top: -10px;
-		}
-
-		@include lg-screen {
-			display: none;
-		}
-	}
-
-	.hamburg-menu_button:hover .hamburg-menu_lines {
-		filter: brightness(0.7);
-	}
-	
-	.hamburg-menu_active .hamburg-menu_lines {
-		background-color: transparent;
-	}
-
-	.hamburg-menu_active .hamburg-menu_lines::after {
-		top: 0;
-		transform: rotate(-45deg);
-	}
-
-	.hamburg-menu_active .hamburg-menu_lines::before {
-		top: 0;
-		transform: rotate(45deg);
-	}
-
-	.hamburg-menu_nav {
-		@extend %hamburger-styles;
-		left: 100%;
-
-		a {
-			color: $text_color_white;
-			font-size: 20px;
-			cursor: pointer;
-			padding-left: 20px;
-		}
-
-		@include lg-screen {
-			display: none;
-		}
-	}
-
-	.menu_active {
-		@extend %hamburger-styles;
-		left: 0;
-
-		@include sm-screen {
-			left: 40%;
-		}
-	}
-	
 }
