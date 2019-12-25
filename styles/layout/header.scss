@@ -1,13 +1,32 @@
- 
+%hamburger-styles {
+	top: 0;
+	position: fixed;
+	z-index: 20;
+	display: flex;
+	flex-flow: column;
+	height: 100%;
+	width: 100%;
+	left: 0;
+	right: 0;
+	justify-content: space-evenly;
+	align-items: flex-start;
+	background-color: $dark-blue;
+	opacity: 0.95;
+	transition: 0.4s all;
+}
+
 .header {
 		position: fixed;
 		width: 100%;
     background-color: $dark-blue;
     color: $text_color_white;
-    padding-top: 10px;
-		padding-bottom: 10px;
+    padding: 10px;
 		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 		z-index: 1000;
+
+		@include lg-screen {
+			padding: 10px 0;
+		}
 		
 	.content {
 		display: flex;
@@ -15,68 +34,56 @@
 		align-items: center;
 		margin: 0 auto;
 
-		h1 {
+		.logo {
 			font-size: 1.5em;
 			font-weight: bold;
 			text-shadow: 0px 2px 3px rgba(255, 216, 99, 0.75);
 			color: $dark-yellow;
 
+			span {
+				color: $light-yellow;
+			}
+
 			@include sm-screen {
 				font-size: 2.5em;
 			}
 
-			span {
-				color: $light-yellow;
-			}
 		}
 
 		.nav {
 			display: none;
 
-			@include sm-screen {
-				display: flex;
-				flex-direction: column;
+			@include lg-screen {
+				display: block;
 			}
 
-			@include md-screen {
+			ul {
 				display: flex;
-				flex-direction: row;
+				// flex-direction: column;
 			}
-
+			
 			a {
-				text-decoration: none;
 				color: $text_color_white;
 				margin-left: 10px;
 				font-size: 16px;
 			}
+
 		}
 
 		.contact {
 			display: flex;
 			flex-direction: column;
-	
-			.contact_tel {
-				display: flex;
-				flex-direction: column;
-				color: $text_color_white;
 
-				span {
-					padding-bottom: 5px;
-					font-size: 15px;
-				}
-			}
 	
 			.contact_email {
 				display: none;
 
 				@include sm-screen {
-					display: flex;
-					align-items: center;
+					display: block;
 				}
 	
 				a {
 					color: $text_color_white;
-					margin-left: 3px;
 				}
 			}
 		}
@@ -84,13 +91,12 @@
 
 	.hamburg-menu_button {
 		display: block;
-		position: fixed;
-		top: 10px;
-		right: 10px;
+		position: relative;
 		z-index: 30;
 		width: 30px;
 		height: 30px;
-		border-radius: 50%;
+		background-color: transparent;
+		border: none;
 
 		.hamburg-menu_lines,
 		.hamburg-menu_lines::after,
@@ -99,8 +105,8 @@
 			position: absolute;
 			width: 30px;
 			height: 4px;
-			background-color: white;
-			transition: 0.7s all;
+			background-color: $text_color_white;
+			transition: 0.4s all;
 		}
 	
 		.hamburg-menu_lines {
@@ -119,23 +125,9 @@
 			top: -10px;
 		}
 
-		@include sm-screen {
-			display: none;
-		}
-
-		@include md-screen {
-			display: none;
-		}
-
 		@include lg-screen {
 			display: none;
 		}
-
-		@include xl-screen {
-			display: none;
-		}
-
-
 	}
 
 	.hamburg-menu_button:hover .hamburg-menu_lines {
@@ -155,59 +147,30 @@
 		top: 0;
 		transform: rotate(45deg);
 	}
-	 .hamburg-menu_nav {
-		margin-top: 30px;
-		position: fixed;
-		z-index: 20;
-		display: flex;
-		flex-flow: column;
-		height: 100%;
-		width: 90%;
-		justify-content: space-evenly;
-		align-items: flex-start;
-		background-color: $dark-blue;
-		opacity: 0.9;
+
+	.hamburg-menu_nav {
+		@extend %hamburger-styles;
 		left: 100%;
-		transition: 0.7s all;
 
 		a {
-			text-decoration: none;
 			color: $text_color_white;
 			font-size: 20px;
 			cursor: pointer;
 			padding-left: 20px;
 		}
 
-		@include sm-screen {
-			display: none;
-		}
-
-		@include md-screen {
-			display: none;
-		}
-
 		@include lg-screen {
-			display: none;
-		}
-
-		@include xl-screen {
 			display: none;
 		}
 	}
 
 	.menu_active {
-		margin-top: 30px;
-		position: fixed;
-		z-index: 20;
-		display: flex;
-		flex-flow: column;
-		height: 100%;
-		left: 100px;
-		width: 90%;
-		justify-content: space-evenly;
-		align-items: flex-start;
-		background-color: $dark-blue;
-		opacity: 0.9;
+		@extend %hamburger-styles;
+		left: 0;
+
+		@include sm-screen {
+			left: 40%;
+		}
 	}
 	
 }

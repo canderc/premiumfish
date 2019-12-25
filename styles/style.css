@@ -91,6 +91,9 @@ body {
   line-height: 1;
   font-family: 'Proxima Nova Regular'; }
 
+a {
+  text-decoration: none; }
+
 ol, ul {
   list-style: none; }
 
@@ -211,84 +214,83 @@ h3 {
   justify-content: center;
   align-items: center; }
 
-.fade-in-hidden {
-  opacity: 0;
-  transform: translateY(20vh);
-  visibility: hidden;
-  transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
+.section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; }
 
-.fade-in {
-  opacity: 1;
-  transform: none;
-  visibility: visible; }
+.header .hamburg-menu_nav, .header .menu_active {
+  top: 0;
+  position: fixed;
+  z-index: 20;
+  display: flex;
+  flex-flow: column;
+  height: 100%;
+  width: 100%;
+  left: 0;
+  right: 0;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  background-color: #000050;
+  opacity: 0.95;
+  transition: 0.4s all; }
 
 .header {
   position: fixed;
   width: 100%;
   background-color: #000050;
   color: #eaeaea;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  padding: 10px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   z-index: 1000; }
+  @media (min-width: 992px) {
+    .header {
+      padding: 10px 0; } }
   .header .content {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin: 0 auto; }
-    .header .content h1 {
+    .header .content .logo {
       font-size: 1.5em;
       font-weight: bold;
       text-shadow: 0px 2px 3px rgba(255, 216, 99, 0.75);
       color: #FFBF00; }
-      @media (min-width: 576px) {
-        .header .content h1 {
-          font-size: 2.5em; } }
-      .header .content h1 span {
+      .header .content .logo span {
         color: #FFD863; }
+      @media (min-width: 576px) {
+        .header .content .logo {
+          font-size: 2.5em; } }
     .header .content .nav {
       display: none; }
-      @media (min-width: 576px) {
+      @media (min-width: 992px) {
         .header .content .nav {
-          display: flex;
-          flex-direction: column; } }
-      @media (min-width: 768px) {
-        .header .content .nav {
-          display: flex;
-          flex-direction: row; } }
+          display: block; } }
+      .header .content .nav ul {
+        display: flex; }
       .header .content .nav a {
-        text-decoration: none;
         color: #eaeaea;
         margin-left: 10px;
         font-size: 16px; }
     .header .content .contact {
       display: flex;
       flex-direction: column; }
-      .header .content .contact .contact_tel {
-        display: flex;
-        flex-direction: column;
-        color: #eaeaea; }
-        .header .content .contact .contact_tel span {
-          padding-bottom: 5px;
-          font-size: 15px; }
       .header .content .contact .contact_email {
         display: none; }
         @media (min-width: 576px) {
           .header .content .contact .contact_email {
-            display: flex;
-            align-items: center; } }
+            display: block; } }
         .header .content .contact .contact_email a {
-          color: #eaeaea;
-          margin-left: 3px; }
+          color: #eaeaea; }
   .header .hamburg-menu_button {
     display: block;
-    position: fixed;
-    top: 10px;
-    right: 10px;
+    position: relative;
     z-index: 30;
     width: 30px;
     height: 30px;
-    border-radius: 50%; }
+    background-color: transparent;
+    border: none; }
     .header .hamburg-menu_button .hamburg-menu_lines,
     .header .hamburg-menu_button .hamburg-menu_lines::after,
     .header .hamburg-menu_button .hamburg-menu_lines::before {
@@ -296,8 +298,8 @@ h3 {
       position: absolute;
       width: 30px;
       height: 4px;
-      background-color: white;
-      transition: 0.7s all; }
+      background-color: #eaeaea;
+      transition: 0.4s all; }
     .header .hamburg-menu_button .hamburg-menu_lines {
       top: 50%;
       left: 50%;
@@ -308,16 +310,7 @@ h3 {
     .header .hamburg-menu_button .hamburg-menu_lines::before {
       content: '';
       top: -10px; }
-    @media (min-width: 576px) {
-      .header .hamburg-menu_button {
-        display: none; } }
-    @media (min-width: 768px) {
-      .header .hamburg-menu_button {
-        display: none; } }
     @media (min-width: 992px) {
-      .header .hamburg-menu_button {
-        display: none; } }
-    @media (min-width: 1200px) {
       .header .hamburg-menu_button {
         display: none; } }
   .header .hamburg-menu_button:hover .hamburg-menu_lines {
@@ -331,50 +324,20 @@ h3 {
     top: 0;
     transform: rotate(45deg); }
   .header .hamburg-menu_nav {
-    margin-top: 30px;
-    position: fixed;
-    z-index: 20;
-    display: flex;
-    flex-flow: column;
-    height: 100%;
-    width: 90%;
-    justify-content: space-evenly;
-    align-items: flex-start;
-    background-color: #000050;
-    opacity: 0.9;
-    left: 100%;
-    transition: 0.7s all; }
+    left: 100%; }
     .header .hamburg-menu_nav a {
-      text-decoration: none;
       color: #eaeaea;
       font-size: 20px;
       cursor: pointer;
       padding-left: 20px; }
-    @media (min-width: 576px) {
-      .header .hamburg-menu_nav {
-        display: none; } }
-    @media (min-width: 768px) {
-      .header .hamburg-menu_nav {
-        display: none; } }
     @media (min-width: 992px) {
       .header .hamburg-menu_nav {
         display: none; } }
-    @media (min-width: 1200px) {
-      .header .hamburg-menu_nav {
-        display: none; } }
   .header .menu_active {
-    margin-top: 30px;
-    position: fixed;
-    z-index: 20;
-    display: flex;
-    flex-flow: column;
-    height: 100%;
-    left: 100px;
-    width: 90%;
-    justify-content: space-evenly;
-    align-items: flex-start;
-    background-color: #000050;
-    opacity: 0.9; }
+    left: 0; }
+    @media (min-width: 576px) {
+      .header .menu_active {
+        left: 40%; } }
 
 .foot {
   background-color: #000050;
@@ -458,7 +421,7 @@ h3 {
   background-attachment: fixed;
   background-repeat: no-repeat; }
   .banner .banner_text {
-    font-size: 1.5em;
+    font-size: 2em;
     text-align: center;
     color: #eaeaea;
     text-shadow: 0px 2px 3px rgba(0, 0, 0, 0.75); }
