@@ -1,28 +1,52 @@
- 
+%hamburger-styles {
+	top: 0;
+	position: fixed;
+	z-index: 20;
+	display: flex;
+	flex-flow: column;
+	height: 100%;
+	width: 100%;
+	left: 0;
+	right: 0;
+	justify-content: space-evenly;
+	align-items: flex-start;
+	background-color: $dark-blue;
+	opacity: 0.95;
+	transition: 0.4s all;
+}
+
 .header {
 	position: fixed;
 	width: 100%;
     background-color: $dark-blue;
     color: $text_color_white;
-    padding-top: 10px;
-	padding-bottom: 10px;
-	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-	z-index: 1000;
+    padding: 6px 10px;
+		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+		z-index: 1000;
+
+		@include lg-screen {
+			padding: 6px 5px;
+		}
 		
 	.content {
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
 		margin: 0 auto;
+		font-size: 18px;	
 
-		h1 {
+		.logo {
 			font-size: 1.5em;
 			font-weight: bold;
 			text-shadow: 0px 2px 3px rgba(255, 216, 99, 0.75);
 			color: $dark-yellow;
 
-			@include sm-screen {
-				font-size: 2.5em;
+			@include md-screen {
+				font-size: 1.8em;
+			}
+
+			@include xl-screen {
+				font-size: 2em;
 			}
 
 			span {
@@ -32,182 +56,140 @@
 
 		.nav {
 			display: none;
+			position: relative;
 
-			@include sm-screen {
-				display: flex;
-				flex-direction: column;
+			@include lg-screen {
+				display: block;
 			}
 
-			@include md-screen {
+			ul {
 				display: flex;
-				flex-direction: row;
 			}
-
+			
 			a {
-				text-decoration: none;
 				color: $text_color_white;
-				margin-left: 10px;
-				font-size: 16px;
+				padding: 0 10px;
+			}
+
+			.active-item-underline {
+				position: absolute;
+				left: 0;
+				bottom: -15px;
+				width: 80px;
+				height: 3px;
+				background-color: $yellow;
+				transition: all .6s;
 			}
 		}
 
 		.contact {
 			display: flex;
 			flex-direction: column;
-	
-			.contact_tel {
-				display: flex;
-				flex-direction: column;
-				color: $text_color_white;
+			font-size: 17px;	
 
-				span {
-					padding-bottom: 5px;
-					font-size: 15px;
-				}
-			}
-	
-			.contact_email {
-				display: none;
+			// .contact_email {
+			// 	display: none;
 
-				@include sm-screen {
-					display: flex;
-					align-items: center;
-				}
+			// 	// @include sm-screen {
+			// 	// 	display: block;
+			// 	// }
 	
-				a {
-					color: $text_color_white;
-					margin-left: 3px;
-				}
-			}
+			// 	a {
+			// 		color: $text_color_white;
+			// 	}
+			// }
 		}
 	}
 
-	.hamburg-menu_button {
+	.hamburg-menu {
 		display: block;
-		position: fixed;
-		top: 10px;
-		right: 10px;
-		z-index: 30;
-		width: 30px;
-		height: 30px;
-		border-radius: 50%;
 
-		.hamburg-menu_lines,
-		.hamburg-menu_lines::after,
-		.hamburg-menu_lines::before {
+		@include lg-screen {
+			display: none;
+		}
+
+		.hamburg-menu_button {
 			display: block;
-			position: absolute;
+			position: relative;
+			z-index: 30;
 			width: 30px;
-			height: 4px;
-			background-color: white;
-			transition: 0.7s all;
+			height: 30px;
+			background-color: transparent;
+			border: none;
+	
+			.hamburg-menu_lines,
+			.hamburg-menu_lines::after,
+			.hamburg-menu_lines::before {
+				display: block;
+				position: absolute;
+				width: 30px;
+				height: 4px;
+				background-color: $text_color_white;
+				transition: 0.4s all;
+			}
+		
+			.hamburg-menu_lines {
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%,-50%);
+			}
+	
+			.hamburg-menu_lines::after {
+				content: '';
+				top: 10px;
+			}
+	
+			.hamburg-menu_lines::before {
+				content: '';
+				top: -10px;
+			}
+	
+			@include lg-screen {
+				display: none;
+			}
 		}
 	
-		.hamburg-menu_lines {
-			top: 50%;
-			left: 50%;
-			transform: translate(-50%,-50%);
+		.hamburg-menu_button:hover .hamburg-menu_lines {
+			filter: brightness(0.7);
 		}
-
-		.hamburg-menu_lines::after {
-			content: '';
-			top: 10px;
+		
+		.hamburg-menu_active .hamburg-menu_lines {
+			background-color: transparent;
 		}
-
-		.hamburg-menu_lines::before {
-			content: '';
-			top: -10px;
-		}
-
-		@include sm-screen {
-			display: none;
-		}
-
-		@include md-screen {
-			display: none;
-		}
-
-		@include lg-screen {
-			display: none;
-		}
-
-		@include xl-screen {
-			display: none;
-		}
-
-
-	}
-
-	.hamburg-menu_button:hover .hamburg-menu_lines {
-		filter: brightness(0.7);
-	}
 	
-	.hamburg-menu_active .hamburg-menu_lines {
-		background-color: transparent;
-	}
-
-	.hamburg-menu_active .hamburg-menu_lines::after {
-		top: 0;
-		transform: rotate(-45deg);
-	}
-
-	.hamburg-menu_active .hamburg-menu_lines::before {
-		top: 0;
-		transform: rotate(45deg);
-	}
-	 .hamburg-menu_nav {
-		margin-top: 30px;
-		position: fixed;
-		z-index: 20;
-		display: flex;
-		flex-flow: column;
-		height: 100%;
-		width: 90%;
-		justify-content: space-evenly;
-		align-items: flex-start;
-		background-color: $dark-blue;
-		opacity: 0.9;
-		left: 100%;
-		transition: 0.7s all;
-
-		a {
-			text-decoration: none;
-			color: $text_color_white;
-			font-size: 20px;
-			cursor: pointer;
-			padding-left: 20px;
+		.hamburg-menu_active .hamburg-menu_lines::after {
+			top: 0;
+			transform: rotate(-45deg);
 		}
-
-		@include sm-screen {
-			display: none;
-		}
-
-		@include md-screen {
-			display: none;
-		}
-
-		@include lg-screen {
-			display: none;
-		}
-
-		@include xl-screen {
-			display: none;
-		}
-	}
-
-	.menu_active {
-		margin-top: 30px;
-		position: fixed;
-		z-index: 20;
-		display: flex;
-		flex-flow: column;
-		height: 100%;
-		left: 100px;
-		width: 90%;
-		justify-content: space-evenly;
-		align-items: flex-start;
-		background-color: $dark-blue;
-		opacity: 0.9;
-	}
 	
+		.hamburg-menu_active .hamburg-menu_lines::before {
+			top: 0;
+			transform: rotate(45deg);
+		}
+	
+		.hamburg-menu_nav {
+			@extend %hamburger-styles;
+			left: 100%;
+	
+			a {
+				color: $text_color_white;
+				font-size: 20px;
+				cursor: pointer;
+				padding-left: 20px;
+			}
+	
+			@include lg-screen {
+				display: none;
+			}
+		}
+	
+		.menu_active {
+			@extend %hamburger-styles;
+			left: 0;
+	
+			@include sm-screen {
+				left: 40%;
+			}
+		}
+	}
 }

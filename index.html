@@ -10,80 +10,85 @@
 <body>
     <header class="header">
         <div class="content text-content-wrap">
-            <h1 class="logo"><span>Premium</span>Fish</h1>
+            <div class="logo"><span>Premium</span>Fish</div>
             <nav class="nav">
-                <a href="#">Главная</a>
-                <a href="#">Преимущества</a>
-                <a href="#">Товар</a>
-                <a href="#">Оплата и доставка</a>
-                <a href="#">Отзывы</a>
-                <a href="#">Контакты</a>
+                <ul>
+                    <li><a href="#home">Главная</a></li>
+                    <li><a href="#advantages">Преимущества</a></li>
+                    <li><a href="#products">Товар</a></li>
+                    <li><a href="#delivery_payment">Оплата и доставка</a></li>
+                    <li><a href="#">Отзывы</a></li>
+                    <li><a href="#contacts">Контакты</a></li>
+                </ul>
+                <div class="active-item-underline"></div>
             </nav>
             <div class="contact">
                 <div class="contact_tel">
-                    <span>+380632219550</span>
-                    <span>+380632219550</span>
+                    <div>+380632219550</div>
+                    <div>+380632219550</div>
                 </div>
-                <div class="contact_email">
+                <!-- <div class="contact_email">
                     <a href="#">premiumfish@gmail.com</a>
-                </div>
+                </div> -->
             </div>
             <div class="hamburg-menu">
-                <a href="#" class="hamburg-menu_button">
+                <button class="hamburg-menu_button">
                     <span class="hamburg-menu_lines"></span>
-                </a>
-                <nav class="hamburg-menu_nav">
-                    <a href="#" class="hamburg-menu_link">Главная</a>
-                    <a href="#" class="hamburg-menu_link">Преимущества</a>
-                    <a href="#" class="hamburg-menu_link">Товар</a>
-                    <a href="#" class="hamburg-menu_link">Оплата и доставка</a>
-                    <a href="#" class="hamburg-menu_link">Отзывы</a>
-                    <a href="#" class="hamburg-menu_link">Контакты</a>
+                </button>
+                <nav>
+                    <ul class="hamburg-menu_nav">
+                        <li><a href="#home" class="hamburg-menu_link">Главная</a></li>
+                        <li><a href="#advantages" class="hamburg-menu_link">Преимущества</a></li>
+                        <li><a href="#products" class="hamburg-menu_link">Товар</a></li>
+                        <li><a href="#delivery_payment" class="hamburg-menu_link">Оплата и доставка</a></li>
+                        <li><a href="#" class="hamburg-menu_link">Отзывы</a></li>
+                        <li><a href="#contacts" class="hamburg-menu_link">Контакты</a></li>
+                    </ul>
                 </nav>
             </div>
         </div>
     </header>
 
     <main class="main">
-        <div class="banner">
-            <div class="banner_text">
+        <div class="home banner">
+            <h1 class="banner_text">
                 <strong>
                     Вяленая рыба и икра премиум класса<br>
                     оптом и в розницу<br>
                     с доставкой по Украине
                 </strong>
-            </div>
+            </h1>
         </div>
 
-        <section class="products">
+        <section class="products"> <!--Товар-->
             <div class="product_wrap">
                 <h2>Товары:</h2>
             </div>
         </section>
 
-        <section class="advantages">
+        <section class="section advantages">
             <h2>Наши преимущества:</h2>
             <div class="text-content-wrap">
-                <div class="advantages_item block-with-image fade-in-hidden">
+                <div class="advantages_item block-with-image">
                     <img src="../img/price.svg" alt="price">
                     <h3><strong>Цена</strong></h3>
                     <p>Так как мы работаем на прямую с производителем у нас самая низкая цена</p>
                 </div>
-                <div class="advantages_item block-with-image fade-in-hidden">
+                <div class="advantages_item block-with-image">
                     <img src="../img/quality.svg" alt="quality">
                     <h3>Качество</h3>
                     <p>Весь товар сертифицирован</p>
                 </div>
-                <div class="advantages_item block-with-image fade-in-hidden">
+                <div class="advantages_item block-with-image">
                     <img src="../img/delivery.svg" alt="delivery">
                     <h3>Быстрая доставка</h3>
                     <p>Собираем и отправляем товар в день заказа</p>
                 </div> 
         </section>
 
-        <section >
+        <section class="section delivery_payment">
             <h2>Условия оплаты и доставки:</h2>
-            <div class="delivery block-with-image text-content-wrap fade-in-hidden">
+            <div class="delivery block-with-image text-content-wrap">
                 <img src="img/Доставка3.jpg" alt="Доставка">
                 <div class="multi-paragraph-block text-content-wrap">
                     <h3>Доставка:</h3>
@@ -94,7 +99,7 @@
                     <p>Самовывоз - оговаривается с нашим менеджером во время заказа.</p>
                 </div>
             </div>
-            <div class="payment block-with-image text-content-wrap fade-in-hidden">
+            <div class="payment block-with-image text-content-wrap">
                 <img src="img/Оплата1.jpg" alt="Оплата">
                 <div class="multi-paragraph-block text-content-wrap">
                     <h3>Оплата:</h3>
@@ -106,7 +111,7 @@
             </section>
         </section>    
         
-        <section class="contacts text-content-wrap fade-in-hidden">
+        <section class="section contacts text-content-wrap">
             <h2>Наши контакты:</h2>
             <div class="contacts_wrap">
                 <div class="contacts_email">
@@ -155,6 +160,7 @@
             </div>
         </div>
     </footer>
+    <script src="js/observables.js"></script>
     <script src="js/visual-effects.js"></script>
     <script src="js/humburg-menu.js"></script>
 </body>
