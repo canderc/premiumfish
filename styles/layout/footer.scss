@@ -1,106 +1,93 @@
-.foot {
+.footer {
     background-color: $dark-blue;
     color: $text_color_white;
+    font-size: 16px;
 
     &_wrap {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        padding-top: 25px;
-        padding-bottom: 25px;
+        padding-top: 10px;
+        padding-bottom: 10px;
 
-        .foot_logo {
-
-            @include sm-screen {
-                font-size: 22px;
-            }
-
-            @include lg-screen {
-               font-size: 27px;
-            }
-            
-            p {
-                color: rgb(25, 172, 240);
-            }
-
-            span {
-                color: #00FFFF;
-            }
-
-            .discript {
-                display: none;
-
-                @include sm-screen {
-                    display: block;
-                    color: $text_color_white;
-                    font-size: 15px;
-                }
-            }
-        }
-
-        .foot_nav {
+        .nav {
             display: flex;
             flex-direction: column;
-            align-items: center;
+            align-items: flex-end;
             justify-content: center;
-            font-size: 10px;
-            padding-bottom: 5px;
-
-            @include sm-screen {
-                font-size: 13px;
-            }
-
-            @include lg-screen {
-                font-size: 17px;
-            }
 
             a {
+                padding: 2px 0;
                 color: $text_color_white;
+
+                &:hover {
+                    font-weight: bold;
+                }
             }
 
            
         }
 
-        .foot_contact {
-            
-            &_tel {
+        .logo-contacts {
+            display: flex;
+            flex-direction: column;
+            align-self: stretch;
+            justify-content: space-between;
+
+            .logo-description-container {
                 display: flex;
-                flex-direction: column;
 
-                span {
-                    font-size: 10px;
-                    padding-bottom: 5px;
+                .logo {
+                    font-size: 1.4em;
+                    font-weight: bold;
+                    text-shadow: 0px 2px 3px rgba(255, 216, 99, 0.75);
+                    color: $dark-yellow;
 
-                    @include sm-screen {
-                        font-size: 13px;
+                    span {
+                        color: $light-yellow;
                     }
-
-                    @include lg-screen {
-                        font-size: 17px;
+        
+                    @include md-screen {
+                    	font-size: 1.8em;
+                    }
+        
+                    @include xl-screen {
+                    	font-size: 2em;
+                    }
+        
+                }
+        
+                .description {
+                    display: none;
+                    color: $text_color_white;
+                    padding-left: 15px;
+                    font-style: oblique;
+        
+                    @include sm-screen {
+                        display: block;
                     }
                 }
             }
 
-            &_email {
-                
-                img {
-                    display: none;
-                }
+            .contact { 
+                &_tel {
+                    display: flex;
+                    flex-direction: column;
 
-                a {
-                    text-decoration: none;
-                    font-size: 10px;
-                    color: $text_color_white;
-
-                    @include sm-screen {
-                        font-size: 13px;
+                    span {
+                        padding: 2px 0;
                     }
+                }
+    
+                &_email {
+                    padding-top: 6px;
 
-                    @include lg-screen {
-                        font-size: 17px;
+                    a {
+                        color: $text_color_white;
                     }
                 }
             }
         }
+
     }
 }

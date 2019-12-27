@@ -16,16 +16,17 @@
 }
 
 .header {
-	position: fixed;
-	width: 100%;
+		position: fixed;
+		width: 100%;
+		padding: 6px 10px;
+		font-size: 18px;
     background-color: $dark-blue;
     color: $text_color_white;
-    padding: 6px 10px;
 		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 		z-index: 1000;
 
 		@include lg-screen {
-			padding: 6px 5px;
+			padding: 8px 5px;
 		}
 		
 	.content {
@@ -33,7 +34,6 @@
 		justify-content: space-between;
 		align-items: center;
 		margin: 0 auto;
-		font-size: 18px;	
 
 		.logo {
 			font-size: 1.5em;
@@ -68,24 +68,32 @@
 			
 			a {
 				color: $text_color_white;
-				padding: 0 10px;
+				padding: 10px;
+
+				&:hover {
+					font-weight: bold;
+					transition: all .4s;
+
+				}
 			}
 
 			.active-item-underline {
 				position: absolute;
 				left: 0;
-				bottom: -15px;
-				width: 80px;
+				bottom: -16px;
 				height: 3px;
 				background-color: $yellow;
 				transition: all .6s;
+
+				@include xl-screen {
+					bottom: -17px;
+				}
 			}
 		}
 
 		.contact {
 			display: flex;
 			flex-direction: column;
-			font-size: 17px;	
 
 			// .contact_email {
 			// 	display: none;
@@ -170,12 +178,23 @@
 		.hamburg-menu_nav {
 			@extend %hamburger-styles;
 			left: 100%;
+
+			li {
+				width: 100%;
+			}
 	
 			a {
+				display: block;
 				color: $text_color_white;
 				font-size: 20px;
 				cursor: pointer;
-				padding-left: 20px;
+				padding: 30px 20px;
+
+				&:hover {
+					font-weight: bold;
+					transition: all .4s;
+
+				}
 			}
 	
 			@include lg-screen {

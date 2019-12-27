@@ -9,12 +9,13 @@ const setElementsHeight = () => {
   Array.from(sections).forEach(section => { 
     const windowHeight = window.innerHeight
     const sectionHeight = section.getBoundingClientRect().height
+    const headerHeight = header.getBoundingClientRect().height
   
-    section.style.paddingTop = header.getBoundingClientRect().height + 15 + 'px'
-  
+    section.style.paddingTop = headerHeight + 15 + 'px'
+
     if (sectionHeight < windowHeight) {
       section.style.height = window.innerHeight + 'px'
-    }
+    } 
   })
   
   banner.style.height = window.innerHeight + 'px';
@@ -34,20 +35,17 @@ const scroll = (e) => {
 document.querySelector('.nav').addEventListener('click', scroll)
 document.querySelector('.hamburg-menu_nav').addEventListener('click', scroll)
 
-setElementsHeight();
-
 window.subscribeOnResize(setElementsHeight)
 
 
 // active nav item effect
 const activeItemUnderline = document.querySelector('.active-item-underline');
 const navAList = Array.from(document.querySelector('.nav').querySelectorAll('a'));
-
-const hash = window.location.hash
+const hash = window.location.hash || '#home'
 
 const underlineSelectedItem = (item) => {
   let left = 0
-  console.log('activeNavItem = ', activeItemUnderline)
+
   for (let i = 0; i < navAList.length; i++) {
     if (navAList[i] !== item) {
       left = left + navAList[i].getBoundingClientRect().width
@@ -62,23 +60,6 @@ const underlineSelectedItem = (item) => {
   activeItemUnderline.style.left = left + 'px';
 }
 
-if (hash) {
-  activeItemUnderline.style.transition = 'all 0s'
-  activeItemUnderline.style.display = 'none'
-}
-
-window.onload = () => {
-  if (hash) {
-    const item = document.querySelector(`[href="${hash}"]`)
-    
-    underlineSelectedItem(item)
-    
-    activeItemUnderline.style.display = 'block'
-    activeItemUnderline.style.transition = 'all .6s'
-  }
-}
-
-
 const changeSelectedItem = (e) => {
   e.preventDefault()
 
@@ -86,3 +67,16 @@ const changeSelectedItem = (e) => {
 }
 
 document.querySelector('.nav').addEventListener('click', changeSelectedItem)
+
+
+// actions before load and onload
+activeItemUnderline.style.transition = 'all 0s'
+activeItemUnderline.style.display = 'none'
+
+window.onload = () => {
+  setElementsHeight()
+  underlineSelectedItem(document.querySelector(`[href="${hash}"]`))
+  
+  activeItemUnderline.style.display = 'block'
+  activeItemUnderline.style.transition = 'all .6s'
+}
