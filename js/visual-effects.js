@@ -32,7 +32,7 @@ const scroll = (e) => {
 }
 
 
-document.querySelector('.nav').addEventListener('click', scroll)
+Array.from(document.querySelectorAll('.nav')).forEach(nav => nav.addEventListener('click', scroll))
 document.querySelector('.hamburg-menu_nav').addEventListener('click', scroll)
 
 window.subscribeOnResize(setElementsHeight)
@@ -63,10 +63,13 @@ const underlineSelectedItem = (item) => {
 const changeSelectedItem = (e) => {
   e.preventDefault()
 
-  underlineSelectedItem(e.target)
+  const href = e.target.getAttribute('href');
+  const item =  navAList.find(navA => navA.getAttribute('href') === href);
+
+  underlineSelectedItem(item)
 }
 
-document.querySelector('.nav').addEventListener('click', changeSelectedItem)
+Array.from(document.querySelectorAll('.nav')).forEach(nav => nav.addEventListener('click', changeSelectedItem))
 
 
 // actions before load and onload
