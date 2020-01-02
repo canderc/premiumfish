@@ -1,15 +1,32 @@
 {
+  "homepage": "https://canderc.github.io/premiumfish/",
   "name": "premiumfish",
   "version": "1.0.0",
   "description": "",
   "main": "gulpfile.js",
   "dependencies": {
-    "browser-sync": "^2.26.7",
-    "gulp": "^4.0.2",
+    "axios": "^0.19.0",
+    "concurrently": "^5.0.2",
+    "gulp-rename": "^2.0.0",
     "gulp-sass": "^4.0.2"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "@babel/core": "^7.7.7",
+    "@babel/preset-env": "^7.7.7",
+    "babelify": "^10.0.0",
+    "browser-sync": "^2.26.7",
+    "forever": "^1.0.0",
+    "gh-pages": "^2.1.1",
+    "gulp": "^4.0.2",
+    "gulp-browserify": "^0.5.1",
+    "gulp-copy": "^4.0.1",
+    "proxy-middleware": "^0.15.0",
+    "url": "^0.11.0"
+  },
   "scripts": {
+    "deploy": "gh-pages -d build",
+    "build": "gulp",
+    "dev": "concurrently 'forever --watch --watchDirectory __server__ --watchIgnore *.log __server__/index.js' 'gulp'",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",

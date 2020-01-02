@@ -1,3 +1,4 @@
+const { onResize } = require('./observables');
 
 const banner = document.getElementsByClassName('banner')[0];
 const header = document.getElementsByTagName('header')[0];
@@ -33,10 +34,9 @@ const scroll = (e) => {
 
 
 Array.from(document.querySelectorAll('.nav')).forEach(nav => nav.addEventListener('click', scroll))
-document.querySelector('.hamburg-menu_nav').addEventListener('click', scroll)
+document.querySelector('.hamburger-menu_nav').addEventListener('click', scroll)
 
-window.subscribeOnResize(setElementsHeight)
-
+onResize(setElementsHeight)
 
 // active nav item effect
 const activeItemUnderline = document.querySelector('.active-item-underline');
@@ -76,10 +76,19 @@ Array.from(document.querySelectorAll('.nav')).forEach(nav => nav.addEventListene
 activeItemUnderline.style.transition = 'all 0s'
 activeItemUnderline.style.display = 'none'
 
-window.onload = () => {
-  setElementsHeight()
-  underlineSelectedItem(document.querySelector(`[href="${hash}"]`))
+// window.onload = () => {
+//   setElementsHeight()
+//   underlineSelectedItem(document.querySelector(`[href="${hash}"]`))
   
-  activeItemUnderline.style.display = 'block'
-  activeItemUnderline.style.transition = 'all .6s'
+//   activeItemUnderline.style.display = 'block'
+//   activeItemUnderline.style.transition = 'all .6s'
+// }
+module.exports = {
+  onLoad: () => {
+    setElementsHeight()
+    underlineSelectedItem(document.querySelector(`[href="${hash}"]`))
+  
+    activeItemUnderline.style.display = 'block'
+    activeItemUnderline.style.transition = 'all .6s'
+  }
 }
