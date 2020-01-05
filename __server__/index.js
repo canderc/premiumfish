@@ -7,4 +7,4 @@ server.on('request', (req, res) => {
   router(req, res)
 });
 
-server.listen(3000, () => console.log('Server is running on port 4444'))
+server.listen(4444, () => console.log('Server is running on port 4444'))
