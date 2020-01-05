@@ -45,9 +45,12 @@
     flex-direction: column;
     align-items: center;
     border: double #0000501c;
-    margin: 3px;
+    margin: 8px;
     width: 95%;
 
+    .title-img {
+        padding-top: 5px;
+    }
 
     .product-title {
         font-size: 20px;
