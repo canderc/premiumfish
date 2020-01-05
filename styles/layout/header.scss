@@ -16,18 +16,17 @@
 }
 
 .header {
-		position: fixed;
-		width: 100%;
-		padding: 6px 10px;
-		font-size: 18px;
+	position: fixed;
+	width: 100%;
+	padding: 6px 10px;
+	font-size: 18px;
     background-color: $dark-blue;
     color: $text_color_white;
-		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-		z-index: 1000;
-
-		@include lg-screen {
-			padding: 8px 5px;
-		}
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	z-index: 1000;
+	@include lg-screen {
+		padding: 8px 5px;
+	}
 		
 	.content {
 		display: flex;

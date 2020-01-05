@@ -1,0 +1,81 @@
+.fish-category {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+
+    h2 {
+        text-align: left;
+        width: 95%;
+        font-size: 28px;
+    }
+}
+
+.caviar-category {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+
+    h2 {
+        text-align: left;
+        width: 95%;
+        font-size: 28px;
+    }
+}
+
+.snacks-category {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+
+    h2 {
+        text-align: left;
+        width: 95%;
+        font-size: 28px;
+    }
+}
+
+.product-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: double #0000501c;
+    margin: 3px;
+    width: 95%;
+
+
+    .product-title {
+        font-size: 20px;
+        margin-top: 10px;
+    }
+
+    .product-discription {
+        text-align: center;
+        margin-top: 5px;
+    }
+
+    .product-price {
+        text-align: center;
+        margin-top: 8px;
+        margin-bottom: 8px;
+        font-weight: bold;
+        font-size: 20px;
+    }
+
+    .button-wrap {
+        display: contents;
+
+        .button-basket {
+            width: 128px;
+            height: 25px;
+            margin-bottom: 8px;
+            cursor: pointer;
+            border-radius: 1px;
+        }
+    }
+}
