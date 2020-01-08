@@ -1,10 +1,10 @@
 const hamburger = require('./hamburger')
-// const testFetchData = require('./test-fetch')
+const products = require('./products')
 const visualEffects = require('./visual-effects')
 require('./products')
 
 window.onload = function() {
   hamburger.onLoad && hamburger.onLoad();
-  // testFetchData.onLoad && testFetchData.onLoad();
+  products.onLoad && products.onLoad();
   visualEffects.onLoad && visualEffects.onLoad();
 }

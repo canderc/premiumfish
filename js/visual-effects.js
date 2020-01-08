@@ -15,7 +15,7 @@ const setElementsHeight = () => {
     section.style.paddingTop = headerHeight + 15 + 'px'
 
     if (sectionHeight < windowHeight) {
-      section.style.height = window.innerHeight + 'px'
+      section.style['min-height'] = window.innerHeight + 'px'
     } 
   })
   
