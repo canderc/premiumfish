@@ -10,6 +10,16 @@
         width: 95%;
         font-size: 28px;
     }
+
+    &_wrap {
+
+        @include sm-screen {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+    }
 }
 
 .caviar-category {
@@ -23,6 +33,16 @@
         text-align: left;
         width: 95%;
         font-size: 28px;
+    }
+
+    &_wrap {
+
+        @include sm-screen {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
     }
 }
 
@@ -38,6 +58,16 @@
         width: 95%;
         font-size: 28px;
     }
+
+    &_wrap {
+
+        @include sm-screen {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+    }
 }
 
 .product-wrap {
@@ -47,6 +77,12 @@
     border: double #0000501c;
     margin: 8px;
     width: 95%;
+
+    @include sm-screen {
+        max-width: 220px;
+        min-height: 350px;
+        justify-content: space-around;
+    }
 
     .title-img {
         padding-top: 5px;
