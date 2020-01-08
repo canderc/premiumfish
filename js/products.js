@@ -46,6 +46,7 @@ function createCard (product, option) {
     const quantityWrap = document.createElement('div');
     const spanPlus = document.createElement('span');
     const spanMinus = document.createElement('span');
+    const spanWeight = document.createElement('span');
 
     wrapCard.className = "product-wrap";
     title.className = "product-title";
@@ -61,6 +62,7 @@ function createCard (product, option) {
     quantityWrap.className = "quantity-wrap";
     spanPlus.className = "plus-minus";
     spanMinus.className = "plus-minus";
+    spanWeight.className = "weight"
 
     wrapCard.append(titleImage);
     wrapCard.append(title);
@@ -70,6 +72,7 @@ function createCard (product, option) {
     wrapButton.append(quantityWrap);
     quantityWrap.append(spanMinus);
     quantityWrap.append(input);
+    quantityWrap.append(spanWeight);
     quantityWrap.append(spanPlus);
     wrapButton.append(buttonBasket);
     
@@ -80,6 +83,7 @@ function createCard (product, option) {
     spanPlus.innerHTML = "+";
     spanMinus.innerHTML = "-";
     input.value = option.quantity;
+    spanWeight.innerHTML = "кг";
     
     spanPlus.addEventListener ('click', function () {
         const nowValue = input.value;
