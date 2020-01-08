@@ -51,6 +51,10 @@ function createCard (product) {
     const buttonLook = document.createElement('button');
     const buttonBasket = document.createElement('button');
     const titleImage = document.createElement('img');
+    const input = document.createElement('input')
+    const quantityWrap = document.createElement('div');
+    const spanPlus = document.createElement('span');
+    const spanMinus = document.createElement('span');
 
     wrapCard.className = "product-wrap";
     title.className = "product-title";
@@ -62,18 +66,28 @@ function createCard (product) {
     titleImage.className = "title-img";
     titleImage.setAttribute ('alt', 'titl-image')
     titleImage.setAttribute ('src', product.avatar);
+    input.className = "quantity";
+    quantityWrap.className = "quantity-wrap";
+    spanPlus.className = "plus-minus";
+    spanMinus.className = "plus-minus";
 
     wrapCard.append(titleImage);
     wrapCard.append(title);
     wrapCard.append(description);
     wrapCard.append(price);
     wrapCard.append(wrapButton);
+    wrapButton.append(quantityWrap);
+    quantityWrap.append(spanMinus);
+    quantityWrap.append(input);
+    quantityWrap.append(spanPlus);
     wrapButton.append(buttonBasket);
-
+    
     title.innerHTML = product.title;
     description.innerHTML = product.description;
     price.innerHTML = product.price;
-    buttonBasket.innerHTML = "В корзину"
+    buttonBasket.innerHTML = "В корзину";
+    spanPlus.innerHTML = "+";
+    spanMinus.innerHTML = "-";
 
     return wrapCard;
 }
