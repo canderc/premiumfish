@@ -1,0 +1,121 @@
+.basket-close {
+    display: none;
+}
+
+.basket {
+    display: block;
+    position: absolute;
+    top: 15%;
+    min-height: 80%;
+
+    .basket-wrap {
+        display: flex;
+        flex-direction: column;
+        background-color: #e0d9c3;
+        height: 85%;
+        width: 55%;
+        top: 10%;
+        left: 0;
+        right: 0;
+        margin: auto;
+        position: fixed;
+        justify-content: space-between;
+
+        @include sm-screen {
+            
+        }
+
+        .basket-header {
+            display: flex;
+            justify-content: space-between;
+
+            .basket-title {
+                margin-left: 10px;
+                margin-top: 5px;
+                font-size: 20px;
+            }
+
+            .basket-close_button {
+                margin-right: 10px;
+                margin-top: 5px;
+                background-color: #e0d9c3;
+                border: none;
+                cursor: pointer;
+
+                .button-span {
+                    display: block;
+                    width: 20px;
+                    height: 2px;
+                }
+
+                .button-span::before, .button-span::after {
+                    position: absolute;
+                    background-color: black;
+                    content: '';
+                    width: 20px;
+                    height: 2px;
+                    right: 17px;
+                }
+
+                .button-span::before {
+                    transform: rotate(45deg);
+                }
+
+                .button-span::after {
+                    transform: rotate(-45deg);
+                }
+            }
+        }
+
+        .basket.product {
+            display: flex;
+        }
+
+        .order-cost {
+            display: flex;
+        }
+
+        .basket-form {
+            display: flex;
+            flex-direction: column;
+
+            &_wrap {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                align-items: center;
+                flex-wrap: wrap;
+                margin-left: 8px;
+
+                @include lg-screen {
+                    flex-direction: row;
+                }
+
+                &_title {
+                    margin-left: 10px;
+                }
+
+                &_input {
+                    margin-right: 10px;
+                    margin-bottom: 10px;
+                    padding-left: 10px;
+                    padding-top: 5px;
+                    padding-bottom: 5px;
+                }
+            }
+        }
+
+        .basket-footer {
+            display: flex;
+            flex-direction: row-reverse;
+
+            .basket-button-order {
+                height: 40px;
+                width: 130px;
+                margin-bottom: 20px;
+                margin-right: 20px;
+                cursor: pointer;
+            }
+        }
+    }
+}
