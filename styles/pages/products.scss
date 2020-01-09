@@ -1,0 +1,149 @@
+.fish-category {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+
+    h2 {
+        text-align: left;
+        width: 95%;
+        font-size: 28px;
+    }
+
+    &_wrap {
+
+        @include sm-screen {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            width: 100%;
+        }
+
+    }
+}
+
+.caviar-category {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+
+    h2 {
+        text-align: left;
+        width: 95%;
+        font-size: 28px;
+    }
+
+    &_wrap {
+
+        @include sm-screen {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            width: 100%;
+        }
+
+    }
+}
+
+.snacks-category {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+
+    h2 {
+        text-align: left;
+        width: 95%;
+        font-size: 28px;
+    }
+
+    &_wrap {
+
+        @include sm-screen {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            width: 100%;
+        }
+
+    }
+}
+
+.product-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: double #0000501c;
+    margin: 8px;
+    width: 95%;
+
+    @include sm-screen {
+        max-width: 220px;
+        min-height: 350px;
+        justify-content: space-around;
+    }
+
+    .title-img {
+        padding-top: 5px;
+    }
+
+    .product-title {
+        font-size: 20px;
+        margin-top: 10px;
+    }
+
+    .product-discription {
+        text-align: center;
+        margin-top: 5px;
+    }
+
+    .product-price {
+        text-align: center;
+        margin-top: 8px;
+        margin-bottom: 8px;
+        font-weight: bold;
+        font-size: 20px;
+    }
+
+    .button-wrap {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .quantity-wrap {
+            display: flex;
+            margin-bottom: 5px;
+
+            .plus-minus {
+                display: flex;
+                width: 18px;
+                justify-content: center;
+                align-items: center;
+                background-color: #fbfcfd38;;
+            }
+
+            .quantity {
+                margin-left: 8px;
+                margin-right: 2px;
+                width: 40px;
+                text-align: center;
+            }
+
+            .weight {
+                margin-right: 8px;
+            }
+        }
+
+        .button-basket {
+            width: 128px;
+            height: 25px;
+            margin-bottom: 8px;
+            cursor: pointer;
+            border-radius: 1px;
+        }
+    }
+}

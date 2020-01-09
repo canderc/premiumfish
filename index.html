@@ -4,8 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="./img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./img/favicon/favicon-16x16.png">
+    <link rel="mask-icon" href="./img/favicon/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#2b5797">
+    <meta name="theme-color" content="#ffffff">
+
     <title>PremiumFish</title>
+
     <link rel="stylesheet" href="styles/style.css" type="text/css" />
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"></script> -->
+    <!-- <script src="build/js/bundle.js"></script> -->
 </head>
 <body>
     <header class="header">
@@ -31,18 +42,18 @@
                     <a href="#">premiumfish@gmail.com</a>
                 </div> -->
             </div>
-            <div class="hamburg-menu">
-                <button class="hamburg-menu_button">
-                    <span class="hamburg-menu_lines"></span>
+            <div class="hamburger-menu">
+                <button class="hamburger-menu_button">
+                    <span class="hamburger-menu_lines"></span>
                 </button>
                 <nav>
-                    <ul class="hamburg-menu_nav">
-                        <li><a href="#home" class="hamburg-menu_link">Главная</a></li>
-                        <li><a href="#advantages" class="hamburg-menu_link">Преимущества</a></li>
-                        <li><a href="#products" class="hamburg-menu_link">Товар</a></li>
-                        <li><a href="#delivery_payment" class="hamburg-menu_link">Оплата и доставка</a></li>
-                        <li><a href="#" class="hamburg-menu_link">Отзывы</a></li>
-                        <li><a href="#contacts" class="hamburg-menu_link">Контакты</a></li>
+                    <ul class="hamburger-menu_nav">
+                        <li><a href="#home" class="hamburger-menu_link">Главная</a></li>
+                        <li><a href="#advantages" class="hamburger-menu_link">Преимущества</a></li>
+                        <li><a href="#products" class="hamburger-menu_link">Товар</a></li>
+                        <li><a href="#delivery_payment" class="hamburger-menu_link">Оплата и доставка</a></li>
+                        <li><a href="#" class="hamburger-menu_link">Отзывы</a></li>
+                        <li><a href="#contacts" class="hamburger-menu_link">Контакты</a></li>
                     </ul>
                 </nav>
             </div>
@@ -80,9 +91,27 @@
                 </div> 
         </section>
 
-        <section class="products"> <!--Товар-->
+        <section class="products"> 
             <div class="product_wrap">
                 <h2>Товары:</h2>
+                <div class="fish-category">
+                    <h2>Рыба:</h2>
+                    <div class="fish-category_wrap">
+                        
+                    </div>
+                </div>
+                <div class="caviar-category">
+                    <h2>Икра:</h2>
+                    <div class="caviar-category_wrap">
+
+                    </div>
+                </div>
+                <div class="snacks-category">
+                    <h2>Снеки:</h2>
+                    <div class="snacks-category_wrap">
+                        
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -163,8 +192,11 @@
             </div>
         </div>
     </footer>
-    <script src="js/observables.js"></script>
-    <script src="js/visual-effects.js"></script>
-    <script src="js/humburg-menu.js"></script>
+    <!-- <script src="js/observables.js"></script>
+    <script type="module" src="js/services/request.js"></script>
+    <script src="js/visual-effects.js"></script> -->
+    <!-- <script src="js/humburg-menu.js"></script> -->
+    <!-- <script src="js/test-fetch.js"></script> -->
+    <script src="js/bundle.js"></script>
 </body>
 </html>
