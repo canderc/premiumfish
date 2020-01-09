@@ -21,6 +21,10 @@
         position: fixed;
         justify-content: space-between;
 
+        @include sm-screen {
+            
+        }
+
         .basket-header {
             display: flex;
             justify-content: space-between;
