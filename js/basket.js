@@ -91,6 +91,12 @@ function addToBasket (product, option) {
         input.value = newValue < option.quantity ? option.quantity : newValue;
     });
 
+    buttonDel.addEventListener ('click', function() {
+        if (product.id) {
+            basketProduct.removeChild (wrapCard);
+        }
+    });
+
     basketProduct.append (wrapCard);
 };
 

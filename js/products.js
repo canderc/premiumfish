@@ -104,13 +104,11 @@ function createCard (product, option) {
         const target = event.target;
         const id = target.id;
         // cart[art] = 1;
-        console.log (id);
         const product = productsMock.find (function (pr) {
             if (pr.id === id) {
                 return true
             }
         });
-        console.log (product);
         basket.addToBasket(product, option);
     });
 
