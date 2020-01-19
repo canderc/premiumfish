@@ -11,10 +11,10 @@
     .basket-wrap {
         display: flex;
         flex-direction: column;
-        background-color: #e0d9c3;
+        background-color: #d4d3cf;
         height: 85%;
         width: 100%;
-        top: 10%;
+        top: 12%;
         left: 0;
         right: 0;
         margin: auto;
@@ -23,6 +23,7 @@
 
         @include sm-screen {
             width: 85%;
+            top: 10%;
         }
 
         .basket-product {
@@ -123,36 +124,6 @@
                 font-size: 20px;
             }
 
-            .basket-close_button {
-                margin-right: 10px;
-                margin-top: 5px;
-                background-color: #e0d9c3;
-                border: none;
-                cursor: pointer;
-
-                .button-span {
-                    display: block;
-                    width: 20px;
-                    height: 2px;
-                }
-
-                .button-span::before, .button-span::after {
-                    position: absolute;
-                    background-color: black;
-                    content: '';
-                    width: 20px;
-                    height: 2px;
-                    right: 17px;
-                }
-
-                .button-span::before {
-                    transform: rotate(45deg);
-                }
-
-                .button-span::after {
-                    transform: rotate(-45deg);
-                }
-            }
         }
 
         .basket.product {
@@ -206,35 +177,37 @@
             }
         }
     }
-    .basket-close_button {
-        margin-right: 10px;
-        margin-top: 5px;
-        background-color: #e0d9c3;
-        border: none;
-        position: relative;
-        cursor: pointer;
+   
+}
 
-        .button-span {
-            display: block;
-            width: 20px;
-            height: 2px;
-        }
+.basket-close_button {
+    margin-right: 10px;
+    margin-top: 5px;
+    background-color: #d4d3cf;
+    border: none;
+    position: relative;
+    cursor: pointer;
 
-        .button-span::before, .button-span::after {
-            position: absolute;
-            background-color: black;
-            content: '';
-            width: 20px;
-            height: 2px;
-            right: 7px;
-        }
+    .button-span {
+        display: block;
+        width: 20px;
+        height: 2px;
+    }
 
-        .button-span::before {
-            transform: rotate(45deg);
-        }
+    .button-span::before, .button-span::after {
+        position: absolute;
+        background-color: black;
+        content: '';
+        width: 20px;
+        height: 2px;
+        right: 7px;
+    }
 
-        .button-span::after {
-            transform: rotate(-45deg);
-        }
+    .button-span::before {
+        transform: rotate(45deg);
+    }
+
+    .button-span::after {
+        transform: rotate(-45deg);
     }
 }

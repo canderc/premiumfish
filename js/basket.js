@@ -2,6 +2,7 @@ const buttonBasketClose = document.querySelector ('.basket-close_button');
 const basket = document.querySelector ('.basket-close');
 const basketIcons = document.querySelector ('.basket-icons');
 const basketProduct = document.querySelector ('.basket-product');
+const basketWrap = document.querySelector ('.basket-wrap');
 
 buttonBasketClose.addEventListener ('click', function() {
     basket.classList.toggle ('basket-close');
