@@ -23,11 +23,11 @@ function productToBasket (product) {
         productsInBasket[productId].quantity = productsInBasket[productId].quantity + product.step;
         const input = document.querySelector ('[data-id =' + product.id +']');
         input.value = productsInBasket[productId].quantity;
-        console.log (input);
+        console.log (product.price);
     } else {
         productsInBasket[productId] = {quantity: product.quantity, step: product.step};
         addToBasket(product);
-        spanEmptyBasket.classList.toggle ('basket-goods');
+        spanEmptyBasket.classList.add ('basket-goods');
     }
 }
 
@@ -48,7 +48,8 @@ function addToBasket (product) {
     const quantityTitle = document.createElement ('span');
     const quantityWrapItem = document.createElement ('div');
     const buttonDel = document.createElement ('button');
-    const spanDel = document.createElement ('span');    
+    const spanDel = document.createElement ('span');
+    const spanSum = document.createElement ('span');    
 
     wrapCard.className = "basket-product_wrap";
     title.className = "product-title_basket";
@@ -70,6 +71,7 @@ function addToBasket (product) {
     quantityWrapItem.className = "quantity-wrap_item";
     buttonDel.className = "basket-close_button";
     spanDel.className = "button-span";
+    spanSum.className = "span-sum";
 
 
     wrapCard.append (divTitlePriceImg);
@@ -88,41 +90,66 @@ function addToBasket (product) {
     quantityWrapItem.append (spanWeight);
     quantityWrapItem.append (spanPlus);
     sum.append (sumTitle);
+    sum.append (spanSum);
         
     title.innerHTML = product.title;
-    price.innerHTML = product.price;
+    price.innerHTML = 'Цена: '+ product.price + ' кг';
     spanPlus.innerHTML = "+";
     spanMinus.innerHTML = "-";
     input.value = product.quantity;
     spanWeight.innerHTML = "кг";
     sumTitle.innerHTML = "Сумма";
     quantityTitle.innerHTML = "Количество";
+    spanSum.innerHTML = input.value * product.price +' грн';
     
     spanPlus.addEventListener ('click', function () {
         const nowValue = input.value;
         const newValue = parseFloat(nowValue) + product.step;
         input.value = newValue; 
+        const newSum = product.price * input.value;
+        spanSum.innerHTML = newSum + ' грн';
     });
 
     spanMinus.addEventListener ('click', function () {
         const nowValue = input.value;
         const newValue = parseFloat(nowValue) - product.step;
         input.value = newValue < product.quantity ? product.quantity : newValue;
+        const newSum = product.price * input.value;
+        spanSum.innerHTML = newSum + ' грн';
     });
 
-    buttonDel.addEventListener ('click', function() {
+    input.addEventListener ('change', function () {
+        input.value = this.value;
+        const newSum = product.price * input.value;
+        spanSum.innerHTML = newSum + ' грн';
+        console.log (input.value)
+    });
+
+    buttonDel.addEventListener ('click', function(e) {
+        const target = e.target;
         if (product.id) {
             basketProduct.removeChild (wrapCard);
-            for (let key in productsInBasket) {
-                delete productsInBasket[key]
+            for (var key in productsInBasket) {
+                if(product.id === key) {
+                    delete productsInBasket[key]
+                }    
             };
             console.log (productsInBasket);
+        }
+        if (isEmpty(productsInBasket) === true) {
             spanEmptyBasket.classList.toggle ('basket-goods');
         }
+        console.log (target)
     });
 
     basketProduct.append (wrapCard);
-    
 };
+
+function isEmpty(obj) {
+    for (let key in obj) {
+        return false;
+    }
+    return true
+}
 
 module.exports = {productToBasket}

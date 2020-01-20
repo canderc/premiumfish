@@ -114,6 +114,9 @@
                 .sum-wrap {
                     display: flex;
                     margin-right: 15px;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    align-items: center;
 
                     .sum-title {
                         font-weight: bold;
