@@ -3,6 +3,9 @@ const basket = document.querySelector ('.basket-close');
 const basketIcons = document.querySelector ('.basket-icons');
 const basketProduct = document.querySelector ('.basket-product');
 const basketWrap = document.querySelector ('.basket-wrap');
+const spanEmptyBasket = document.querySelector ('.empty-basket');
+
+const productsInBasket = {};
 
 buttonBasketClose.addEventListener ('click', function() {
     basket.classList.toggle ('basket-close');
@@ -13,7 +16,22 @@ basketIcons.addEventListener ('click', function() {
     basket.classList.toggle ('basket')
 });
 
-function addToBasket (product, option) {
+function productToBasket (product) {
+    const productId = product.id;
+    console.log (productsInBasket);
+    if (productsInBasket[productId]) {
+        productsInBasket[productId].quantity = productsInBasket[productId].quantity + product.step;
+        const input = document.querySelector ('[data-id =' + product.id +']');
+        input.value = productsInBasket[productId].quantity;
+        console.log (input);
+    } else {
+        productsInBasket[productId] = {quantity: product.quantity, step: product.step};
+        addToBasket(product);
+        spanEmptyBasket.classList.toggle ('basket-goods');
+    }
+}
+
+function addToBasket (product) {
     const wrapCard = document.createElement('div');
     const title = document.createElement('h3');
     const price = document.createElement ('span');
@@ -38,6 +56,7 @@ function addToBasket (product, option) {
     titleImage.className = "title-img_basket";
     titleImage.setAttribute ('alt', 'titl-image_basket')
     titleImage.setAttribute ('src', product.avatar);
+    input.setAttribute ("data-id", product.id);
     input.className = "quantity";
     quantityWrap.className = "quantity-wrap";
     spanPlus.className = "plus-minus";
@@ -74,30 +93,36 @@ function addToBasket (product, option) {
     price.innerHTML = product.price;
     spanPlus.innerHTML = "+";
     spanMinus.innerHTML = "-";
-    input.value = option.quantity;
+    input.value = product.quantity;
     spanWeight.innerHTML = "кг";
     sumTitle.innerHTML = "Сумма";
     quantityTitle.innerHTML = "Количество";
     
     spanPlus.addEventListener ('click', function () {
         const nowValue = input.value;
-        const newValue = parseFloat(nowValue) + option.step;
+        const newValue = parseFloat(nowValue) + product.step;
         input.value = newValue; 
     });
 
     spanMinus.addEventListener ('click', function () {
         const nowValue = input.value;
-        const newValue = parseFloat(nowValue) - option.step;
-        input.value = newValue < option.quantity ? option.quantity : newValue;
+        const newValue = parseFloat(nowValue) - product.step;
+        input.value = newValue < product.quantity ? product.quantity : newValue;
     });
 
     buttonDel.addEventListener ('click', function() {
         if (product.id) {
             basketProduct.removeChild (wrapCard);
+            for (let key in productsInBasket) {
+                delete productsInBasket[key]
+            };
+            console.log (productsInBasket);
+            spanEmptyBasket.classList.toggle ('basket-goods');
         }
     });
 
     basketProduct.append (wrapCard);
+    
 };
 
-module.exports = {addToBasket}
+module.exports = {productToBasket}

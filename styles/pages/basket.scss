@@ -31,6 +31,16 @@
             flex-direction: column;
             overflow-y: auto;
 
+            .empty-basket {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .basket-goods {
+                display: none;
+            }
+
             &_wrap {
                 display: flex;
                 padding-left: 10px;
