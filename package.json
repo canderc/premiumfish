@@ -25,6 +25,7 @@
   },
   "scripts": {
     "deploy": "gh-pages -d build",
+    "start": "gulp --gulpfile ./gulpfile-prod.js && node __server__",
     "build": "gulp",
     "dev": "concurrently 'nodemon __server__/index.js' 'gulp'",
     "test": "echo \"Error: no test specified\" && exit 1"
