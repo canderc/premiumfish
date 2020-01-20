@@ -6,6 +6,17 @@ const basketWrap = document.querySelector ('.basket-wrap');
 const spanEmptyBasket = document.querySelector ('.empty-basket');
 const spanCostSum = document.querySelector ('order-cost_sum_number');
 
+function hendlerClick (product) {
+    return function () {
+        const nowValue = input.value;
+        const newValue = parseFloat(nowValue) + product.step;
+        input.value = newValue; 
+        const newSum = product.price * input.value;
+        spanSum.innerHTML = newSum + ' грн';
+        productsInBasket[product.id].cost = spanSum.innerHTML
+    }
+}
+
 const productsInBasket = {};
 
 buttonBasketClose.addEventListener ('click', function() {
@@ -26,9 +37,10 @@ function productToBasket (product) {
         input.value = productsInBasket[productId].quantity;
         const spanSum = document.querySelector ('[data-sum =' + product.id +']');
         spanSum.innerHTML = input.value * product.price + ' грн';
+        productsInBasket[productId].cost = spanSum.innerHTML;
         console.log (product.price);
     } else {
-        productsInBasket[productId] = {quantity: +product.quantity, step: product.step,};
+        productsInBasket[productId] = {quantity: +product.quantity, step: product.step, cost: product.price*product.quantity};
         addToBasket(product);
         spanEmptyBasket.classList.add ('basket-goods');
     }
@@ -109,24 +121,35 @@ function addToBasket (product) {
     spanPlus.addEventListener ('click', function () {
         const nowValue = input.value;
         const newValue = parseFloat(nowValue) + product.step;
+        const productId = product.id;
         input.value = newValue; 
         const newSum = product.price * input.value;
         spanSum.innerHTML = newSum + ' грн';
+        productsInBasket[productId].quantity = newValue;
+        productsInBasket[productId].cost = newSum;
+        console.log (productsInBasket)
     });
 
     spanMinus.addEventListener ('click', function () {
         const nowValue = input.value;
         const newValue = parseFloat(nowValue) - product.step;
+        const productId = product.id;
         input.value = newValue < product.quantity ? product.quantity : newValue;
         const newSum = product.price * input.value;
         spanSum.innerHTML = newSum + ' грн';
+        productsInBasket[productId].quantity = newValue;
+        productsInBasket[productId].cost = newSum;
+        console.log (productsInBasket)
     });
 
     input.addEventListener ('change', function () {
+        const productId = product.id;
         input.value = this.value;
         const newSum = product.price * input.value;
         spanSum.innerHTML = newSum + ' грн';
-        console.log (input.value)
+        productsInBasket[productId].quantity = +(this.value);
+        productsInBasket[productId].cost = newSum;
+        console.log (productsInBasket)
     });
 
     buttonDel.addEventListener ('click', function(e) {
