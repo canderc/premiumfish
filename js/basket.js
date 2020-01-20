@@ -4,17 +4,16 @@ const basketIcons = document.querySelector ('.basket-icons');
 const basketProduct = document.querySelector ('.basket-product');
 const basketWrap = document.querySelector ('.basket-wrap');
 const spanEmptyBasket = document.querySelector ('.empty-basket');
-const spanCostSum = document.querySelector ('order-cost_sum_number');
+const spanCostSum = document.querySelector ('.order-cost_sum_number');
 
-function hendlerClick (product) {
-    return function () {
-        const nowValue = input.value;
-        const newValue = parseFloat(nowValue) + product.step;
-        input.value = newValue; 
-        const newSum = product.price * input.value;
-        spanSum.innerHTML = newSum + ' грн';
-        productsInBasket[product.id].cost = spanSum.innerHTML
+function calcelateTotalCost () {
+    let sum = 0;
+    const keys = Object.keys (productsInBasket);
+    for (i=0; i<keys.length; i++) {
+        sum+= parseFloat(productsInBasket[keys[i]].cost);
     }
+    console.log("====",sum)
+    spanCostSum.innerHTML = sum + ' грн';
 }
 
 const productsInBasket = {};
@@ -38,12 +37,13 @@ function productToBasket (product) {
         const spanSum = document.querySelector ('[data-sum =' + product.id +']');
         spanSum.innerHTML = input.value * product.price + ' грн';
         productsInBasket[productId].cost = spanSum.innerHTML;
-        console.log (product.price);
+        console.log (productsInBasket[productId].cost);
     } else {
         productsInBasket[productId] = {quantity: +product.quantity, step: product.step, cost: product.price*product.quantity};
         addToBasket(product);
         spanEmptyBasket.classList.add ('basket-goods');
     }
+    calcelateTotalCost()
 }
 
 function addToBasket (product) {
@@ -127,10 +127,12 @@ function addToBasket (product) {
         spanSum.innerHTML = newSum + ' грн';
         productsInBasket[productId].quantity = newValue;
         productsInBasket[productId].cost = newSum;
-        console.log (productsInBasket)
+        console.log (productsInBasket[productId].cost);
+        calcelateTotalCost ()
     });
 
     spanMinus.addEventListener ('click', function () {
+        calcelateTotalCost ()
         const nowValue = input.value;
         const newValue = parseFloat(nowValue) - product.step;
         const productId = product.id;
@@ -139,7 +141,7 @@ function addToBasket (product) {
         spanSum.innerHTML = newSum + ' грн';
         productsInBasket[productId].quantity = newValue;
         productsInBasket[productId].cost = newSum;
-        console.log (productsInBasket)
+        console.log (productsInBasket);
     });
 
     input.addEventListener ('change', function () {
@@ -149,7 +151,8 @@ function addToBasket (product) {
         spanSum.innerHTML = newSum + ' грн';
         productsInBasket[productId].quantity = +(this.value);
         productsInBasket[productId].cost = newSum;
-        console.log (productsInBasket)
+        console.log (productsInBasket[productId].cost);
+        calcelateTotalCost ()
     });
 
     buttonDel.addEventListener ('click', function(e) {
@@ -166,7 +169,7 @@ function addToBasket (product) {
         if (isEmpty(productsInBasket) === true) {
             spanEmptyBasket.classList.toggle ('basket-goods');
         }
-        console.log (target)
+        calcelateTotalCost ()
     });
 
     basketProduct.append (wrapCard);
