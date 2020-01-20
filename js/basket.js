@@ -4,6 +4,7 @@ const basketIcons = document.querySelector ('.basket-icons');
 const basketProduct = document.querySelector ('.basket-product');
 const basketWrap = document.querySelector ('.basket-wrap');
 const spanEmptyBasket = document.querySelector ('.empty-basket');
+const spanCostSum = document.querySelector ('order-cost_sum_number');
 
 const productsInBasket = {};
 
@@ -20,12 +21,14 @@ function productToBasket (product) {
     const productId = product.id;
     console.log (productsInBasket);
     if (productsInBasket[productId]) {
-        productsInBasket[productId].quantity = productsInBasket[productId].quantity + product.step;
+        productsInBasket[productId].quantity = +productsInBasket[productId].quantity + +product.step;
         const input = document.querySelector ('[data-id =' + product.id +']');
         input.value = productsInBasket[productId].quantity;
+        const spanSum = document.querySelector ('[data-sum =' + product.id +']');
+        spanSum.innerHTML = input.value * product.price + ' грн';
         console.log (product.price);
     } else {
-        productsInBasket[productId] = {quantity: product.quantity, step: product.step};
+        productsInBasket[productId] = {quantity: +product.quantity, step: product.step,};
         addToBasket(product);
         spanEmptyBasket.classList.add ('basket-goods');
     }
@@ -58,6 +61,7 @@ function addToBasket (product) {
     titleImage.setAttribute ('alt', 'titl-image_basket')
     titleImage.setAttribute ('src', product.avatar);
     input.setAttribute ("data-id", product.id);
+    spanSum.setAttribute ("data-sum", product.id);
     input.className = "quantity";
     quantityWrap.className = "quantity-wrap";
     spanPlus.className = "plus-minus";

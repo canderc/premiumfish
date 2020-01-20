@@ -16,7 +16,6 @@ const productsMock = [
 
 const request = require('./services/request')
 
-
 function handleProducts (products) {
     for (let i = 0; i < products.length; i++) {
         const product = products[i];
@@ -87,6 +86,10 @@ function createCard (product, option) {
     spanMinus.innerHTML = "-";
     input.value = option.quantity;
     spanWeight.innerHTML = "кг";
+
+    input.addEventListener ('change', function () {
+        input.value = this.value;
+    });
     
     spanPlus.addEventListener ('click', function () {
         const nowValue = input.value;
@@ -109,6 +112,9 @@ function createCard (product, option) {
                 return true
             }
         });
+        const quantityProductCard = input.value;
+        product.quantity = quantityProductCard;
+        console.log (product.quantity)
         basket.productToBasket(product, option);
     });
 

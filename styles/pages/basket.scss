@@ -142,12 +142,18 @@
 
         }
 
-        .basket.product {
-            display: flex;
-        }
-
         .order-cost {
             display: flex;
+            flex-direction: column;
+
+            &_sum {
+                display: flex;
+                justify-content: space-between;
+                width: 50%;
+                margin-right: 5px;
+                margin: auto;
+                font-size: 25px;
+            }
         }
 
         .basket-form {
