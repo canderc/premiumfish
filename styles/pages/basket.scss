@@ -8,10 +8,33 @@
     top: 15%;
     min-height: 80%;
 
+    table {
+        border-collapse: collapse;
+        border-spacing: 0;
+        width: 100%;
+        // border: 1px solid #ddd;
+    }
+      
+    th, td {
+        text-align: left;
+        padding: 8px;
+    }
+
+    th {
+        font-weight: bold;
+        padding: 25px 8px;
+        font-size: 1.2em;
+
+        &:first-child {
+            text-align: center;
+        }
+    }
+      
+    tr:nth-child(even){background-color: lighten($main-background, 5%)}
+
     .basket-wrap {
-        display: flex;
-        flex-direction: column;
-        background-color: $main-background;
+        // display: flex;
+        // flex-direction: column;
         height: 85%;
         width: 100%;
         top: 13%;
@@ -20,7 +43,8 @@
         margin: auto;
         position: fixed;
         justify-content: space-between;
-        border: 1px solid $dark-blue;
+        border-radius: 15px;
+        background-color: lighten($main-background, 7%);
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 
         @include sm-screen {
@@ -129,9 +153,9 @@
                             text-align: center;
                         }
                     
-                        .weight {
-                            margin-right: 8px;
-                        }
+                        // .weight {
+                        //     margin-right: 8px;
+                        // }
                     }
                 }
 
@@ -151,6 +175,13 @@
                         font-weight: bold;
                     }
                 }
+
+                .product_cost {
+                    &:after {
+                        content: "грн";
+                        padding-left: 3px;
+                    }
+                }
             }
         }
 
@@ -162,7 +193,7 @@
             display: flex;
             justify-content: space-between;
             margin-bottom: 15px;
-            border-bottom: 1px solid #dfe1f0;
+            border-bottom: 2px solid lighten($main-background, 5%);
             padding: 10px 0;
 
             .basket-title {
