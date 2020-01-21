@@ -116,6 +116,19 @@ function createCard (product, option) {
         product.quantity = quantityProductCard;
         console.log (product.quantity)
         basket.productToBasket(product, option);
+        function numberItemsInBasket () {
+            const keys = Object.keys (productsInBasket);
+            console.log ("количество"+keys.length);
+            const divBasketQuantity = document.createElement ('div');
+            const spanBasketQuantity = document.createElement ('span');
+        
+            divBasketQuantity.className = "basket-quantity";
+            spanBasketQuantity.className = "basket-quantity_number";
+        
+            basketIcons.append (divBasketQuantity);
+            divBasketQuantity.appendChild (spanBasketQuantity);
+            spanBasketQuantity.innerHTML = keys.length
+        }
     });
 
     return wrapCard;

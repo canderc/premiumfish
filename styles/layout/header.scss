@@ -229,5 +229,22 @@
 		&:active {
 			box-shadow: none;
 		}
+
+		.basket-quantity {
+			width: 22px;
+    		height: 22px;
+    		background-color: $dark-blue;
+    		position: absolute;
+			right: 22px;
+			border-radius: 45%;
+			top: inherit;
+			
+			&_number {
+				display: block;
+				text-align: center;
+				font-size: 20px;
+				color: $dark-yellow;
+			}
+		}
 	}
 }

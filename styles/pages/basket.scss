@@ -14,7 +14,7 @@
         background-color: #d4d3cf;
         height: 85%;
         width: 100%;
-        top: 12%;
+        top: 13%;
         left: 0;
         right: 0;
         margin: auto;
@@ -23,7 +23,7 @@
 
         @include sm-screen {
             width: 85%;
-            top: 10%;
+            top: 14%;
         }
 
         .basket-product {
@@ -70,7 +70,11 @@
                         width: 100%;
 
                         .product-title_basket {
-                            font-size: 17px;
+                            font-size: 13px;
+
+                            @include sm-screen {
+                                font-size: 17px;
+                            }
                         }
                     }
                 }
@@ -80,6 +84,11 @@
                     display: flex;
                     flex-direction: column;
                     align-items: center;
+                    font-size: 13px;
+
+                    @include sm-screen {
+                        font-size: 17px;
+                    }
 
                     .quantity-title {
                         font-weight: bold;
@@ -117,6 +126,11 @@
                     flex-direction: column;
                     justify-content: space-between;
                     align-items: center;
+                    font-size: 13px;
+
+                    @include sm-screen {
+                        font-size: 17px;
+                    }
 
                     .sum-title {
                         font-weight: bold;
@@ -152,7 +166,11 @@
                 width: 50%;
                 margin-right: 5px;
                 margin: auto;
-                font-size: 25px;
+                font-size: 18px;
+
+                @include sm-screen {
+                    font-size: 25px;
+                }
             }
         }
 

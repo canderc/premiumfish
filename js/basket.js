@@ -5,6 +5,8 @@ const basketProduct = document.querySelector ('.basket-product');
 const basketWrap = document.querySelector ('.basket-wrap');
 const spanEmptyBasket = document.querySelector ('.empty-basket');
 const spanCostSum = document.querySelector ('.order-cost_sum_number');
+const divBasketQuantity = document.querySelector ('.basket-quantity');
+const spanBasketQuantity = document.querySelector ('.basket-quantity_number');
 
 function calcelateTotalCost () {
     let sum = 0;
@@ -15,6 +17,27 @@ function calcelateTotalCost () {
     console.log("====",sum)
     spanCostSum.innerHTML = sum + ' грн';
 }
+
+function numberItemsInBasket () {
+    const keys = Object.keys (productsInBasket);
+    console.log ("количество"+keys.length);
+    const keysLength = keys.length;
+    spanBasketQuantity.innerHTML = keysLength;
+}
+
+// function numberItemsInBasket () {
+//     const keys = Object.keys (productsInBasket);
+//     console.log ("количество"+keys.length);
+//     const divBasketQuantity = document.createElement ('div');
+//     const spanBasketQuantity = document.createElement ('span');
+
+//     divBasketQuantity.className = "basket-quantity";
+//     spanBasketQuantity.className = "basket-quantity_number";
+
+//     basketIcons.append (divBasketQuantity);
+//     divBasketQuantity.appendChild (spanBasketQuantity);
+//     spanBasketQuantity.innerHTML = keys.length
+// }
 
 const productsInBasket = {};
 
@@ -44,6 +67,7 @@ function productToBasket (product) {
         spanEmptyBasket.classList.add ('basket-goods');
     }
     calcelateTotalCost()
+    numberItemsInBasket()
 }
 
 function addToBasket (product) {
@@ -170,6 +194,7 @@ function addToBasket (product) {
             spanEmptyBasket.classList.toggle ('basket-goods');
         }
         calcelateTotalCost ()
+        numberItemsInBasket()
     });
 
     basketProduct.append (wrapCard);
