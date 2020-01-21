@@ -1,14 +1,26 @@
 const buttonBasketClose = document.querySelector ('.basket-close_button');
 const basket = document.querySelector ('.basket-close');
 const basketIcons = document.querySelector ('.basket-icons');
-const basketProduct = document.querySelector ('.basket-product');
+// const basketProduct = document.querySelector ('.basket-product');
 // const basketWrap = document.querySelector ('.basket-wrap');
-const spanEmptyBasket = document.querySelector ('.empty-basket');
+// const spanEmptyBasket = document.querySelector ('.empty-basket');
 const spanCostSum = document.querySelector ('.order-cost_sum_number');
 // const divBasketQuantity = document.querySelector ('.basket-quantity');
 const spanBasketQuantity = document.querySelector ('.basket-quantity_number');
+const tableContainer = document.getElementById('basket-table-container');
+const table = document.createElement('table');
 
 const productsInBasket = {};
+
+const tablesColumnsDescriptor = [
+    { displayName: '', name: 'avatar' },
+    { displayName: 'Товар', name: 'title' },
+    { displayName: 'Цена ( грн )', name: 'price' },
+    { displayName: 'Количество ( кг )', name: 'quantity' },
+    { displayName: 'Стоимость ( грн )', name: 'cost' }
+]
+
+// const tableColumnsNames = [' ', 'Goods', 'Price', 'Quantity', 'Cost']
 
 function calculateTotalCost () {
     let sum = 0;
@@ -22,32 +34,143 @@ function calculateTotalCost () {
     spanCostSum.innerHTML = sum + ' грн';
 }
 
-function numberItemsInBasket () {
+function calculateNumberItemsInBasket () {
     const keys = Object.keys (productsInBasket);
 
     spanBasketQuantity.innerHTML = keys.length;
 }
 
+function calculateProductCost (product) {
+    const costHtmlElement = document.querySelector(`[data-cost-for=${product.id}]`)
+    const cost = Number(product.price) * Number(productsInBasket[product.id].quantity)
+
+    costHtmlElement.innerText = cost;
+}
+
+function addProductQuantity (product, quantity) { // TODO rename to increaseProductQuantity
+    const quantityHtmlElement = document.querySelector(`[data-quantity-for=${product.id}]`)
+    const newQuantity = Number(quantity) + Number(productsInBasket[product.id].quantity);
+
+    quantityHtmlElement.innerText = newQuantity;
+
+    calculateProductCost(product)
+}
+
+function renderQuantityControl (parentNode, product) {
+    const value = document.createElement('span');
+    const increaseQuantityBtn = document.createElement('button');
+    const decreaseQuantityBtn = document.createElement('button');
+
+    value.setAttribute('data-quantity-for', product.id)
+
+    value.innerText = product.quantity;
+    increaseQuantityBtn.innerText = "+"
+    decreaseQuantityBtn.innerText = "-"
+
+    increaseQuantityBtn.addEventListener('click', function () {
+        const quantity = Number(value.innerText) + Number(product.step)
+
+        value.innerText = quantity
+        productsInBasket[product.id].quantity = quantity
+
+        calculateProductCost(product)
+    })
+    decreaseQuantityBtn.addEventListener('click', function () {
+        const quantity = Number(value.innerText) > product.step 
+            ? Number(value.innerText) - Number(product.step)
+            : value.innerText;
+
+        value.innerText = quantity;
+        productsInBasket[product.id].quantity = quantity;
+
+        calculateProductCost(product);
+    })
+
+    parentNode.appendChild(decreaseQuantityBtn);
+    parentNode.appendChild(value);
+    parentNode.appendChild(increaseQuantityBtn);
+}
+
+function renderTable () {
+    const tr = document.createElement('tr');
+
+    tablesColumnsDescriptor.forEach((descriptor) => {
+        const th = document.createElement('th')
+        
+        th.innerText = descriptor.displayName;
+        table.appendChild(th);
+    })
+
+    table.appendChild(tr);
+    tableContainer.appendChild(table);
+}
+
+function addProductToTable (product) {
+    const tr = document.createElement('tr');
+
+    tablesColumnsDescriptor.forEach((descriptor) => {
+        const td = document.createElement('td');
+
+        switch (descriptor.name) {
+            case 'title':
+                td.innerText = product.title
+                break;
+            case 'price':
+                td.innerText = product.price
+                break;
+            case 'quantity':
+                renderQuantityControl(td, product)
+                break;
+            case 'cost':
+                td.setAttribute('data-cost-for', product.id)
+                td.innerText = productsInBasket[product.id] 
+                    ? productsInBasket[product.id].quantity * product.price
+                    : product.quantity * product.price
+                break;
+        
+            default:
+                td.innerHTML = `<img style="width: 100%" alt=${product.title} src=${product.avatar} />`
+                td.style = "width: 100px; height: 80px;"
+                break;
+        }
+
+        tr.appendChild(td);
+    })
+
+    table.appendChild(tr)
+}
+
 function productToBasket (product) {
     const productId = product.id;
 
+    if (!Object.keys(productsInBasket).length) {
+        // TODO toggle "No products in basket yet" info
+        renderTable()
+    } 
+    
     if (productsInBasket[productId]) {
         productsInBasket[productId].quantity = +productsInBasket[productId].quantity + +product.step;
+        addProductQuantity(product, product.step);
+        // const productQuantityInput = document.querySelector ('[data-id =' + product.id +']');
+        // const productCost = document.querySelector ('[data-sum =' + product.id +']');
 
-        const productQuantityInput = document.querySelector ('[data-id =' + product.id +']');
-        const productCost = document.querySelector ('[data-sum =' + product.id +']');
-
-        productQuantityInput.value = productsInBasket[productId].quantity;
-        productCost.innerHTML = productQuantityInput.value * product.price;
-        productsInBasket[productId].cost = productCost.innerHTML;
+        // productQuantityInput.value = productsInBasket[productId].quantity;
+        // productCost.innerHTML = productQuantityInput.value * product.price;
+        // productsInBasket[productId].cost = productCost.innerHTML;
     } else {
-        productsInBasket[productId] = {quantity: +product.quantity, step: product.step, cost: product.price*product.quantity};
-        addToBasket(product);
-        spanEmptyBasket.classList.add ('basket-goods');
+        productsInBasket[productId] = { 
+            quantity: +product.quantity, 
+            step: product.step, 
+            cost: product.price * product.quantity 
+        };
+        // addToBasket(product);
+        addProductToTable(product)
+        // spanEmptyBasket.classList.add ('basket-goods');
     }
 
     calculateTotalCost()
-    numberItemsInBasket()
+    // calculateNumberItemsInBasket()
+
 }
 
 buttonBasketClose.addEventListener ('click', function() {
@@ -197,7 +320,7 @@ function addToBasket (product) {
     buttonDel.addEventListener ('click', function(e) {
         // const target = e.target;
         if (product.id) {
-            basketProduct.removeChild (wrapCard);
+            // basketProduct.removeChild (wrapCard);
 
             for (var key in productsInBasket) {
                 if(product.id === key) {
@@ -207,14 +330,14 @@ function addToBasket (product) {
         }
 
         if (isEmpty(productsInBasket) === true) {
-            spanEmptyBasket.classList.toggle ('basket-goods');
+            // spanEmptyBasket.classList.toggle ('basket-goods');
         }
 
         calculateTotalCost ()
         numberItemsInBasket()
     });
 
-    basketProduct.append (wrapCard);
+    // basketProduct.append (wrapCard);
 };
 
 function isEmpty(obj) {

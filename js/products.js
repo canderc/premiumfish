@@ -1,4 +1,5 @@
 const basket = require ('./basket.js');
+const request = require('./services/request')
 
 const productsMock = [
     { id: 'fish-1', avatar: 'img/title_img/5.png', title: 'Корюшка дальневосточная с икрой', description: 'Минимальный заказ 1 кг. Размер рыбы 26-33 см.', price: 680, quantity: 1, step: 1, category: 'fish' },
@@ -14,8 +15,6 @@ const productsMock = [
     { id: 'snacks-2', avatar: 'img/title_img/5.png', title: 'Рыбные палочки', description: 'Суперовые палочки горбуши фасовка по 0,5кг', price: 490, quantity: 0.5, step: 0.5, category: 'snacks'},
 ]
 
-const request = require('./services/request')
-
 function handleProducts (products) {
     for (let i = 0; i < products.length; i++) {
         const product = products[i];
@@ -28,10 +27,6 @@ function handleProducts (products) {
             drawSnacks(product)
         }
     };
-}
-
-function handlePlusClick() {
-
 }
 
 function createCard (product, option) {
@@ -144,15 +139,6 @@ function drawSnacks (product) {
 
     snacksCategoryWrap.append(card);
 }
-
-// module.exports = {
-//     onLoad: function() {
-//       request.get('/api/products')
-//         .then(function(products) {
-//           handleProducts(products)
-//         });
-//     }
-//   }
 
 handleProducts(productsMock);
     
