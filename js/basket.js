@@ -25,20 +25,6 @@ function numberItemsInBasket () {
     spanBasketQuantity.innerHTML = keysLength;
 }
 
-// function numberItemsInBasket () {
-//     const keys = Object.keys (productsInBasket);
-//     console.log ("количество"+keys.length);
-//     const divBasketQuantity = document.createElement ('div');
-//     const spanBasketQuantity = document.createElement ('span');
-
-//     divBasketQuantity.className = "basket-quantity";
-//     spanBasketQuantity.className = "basket-quantity_number";
-
-//     basketIcons.append (divBasketQuantity);
-//     divBasketQuantity.appendChild (spanBasketQuantity);
-//     spanBasketQuantity.innerHTML = keys.length
-// }
-
 const productsInBasket = {};
 
 buttonBasketClose.addEventListener ('click', function() {
@@ -156,16 +142,24 @@ function addToBasket (product) {
     });
 
     spanMinus.addEventListener ('click', function () {
-        calcelateTotalCost ()
         const nowValue = input.value;
         const newValue = parseFloat(nowValue) - product.step;
         const productId = product.id;
-        input.value = newValue < product.quantity ? product.quantity : newValue;
+        console.log ('+++ '+nowValue);
+        console.log ('--- '+newValue);
+        console.log ('product '+product.quantity);
+        if (nowValue === product.step) {
+            input.value = newValue < product.quantity ? product.quantity : newValue;
+        } else if (nowValue > product.step) {
+            input.value = newValue < product.quantity ? newValue : product.quantity;
+        }
+        console.log ('== '+input.value);
         const newSum = product.price * input.value;
         spanSum.innerHTML = newSum + ' грн';
         productsInBasket[productId].quantity = newValue;
         productsInBasket[productId].cost = newSum;
         console.log (productsInBasket);
+        calcelateTotalCost ()
     });
 
     input.addEventListener ('change', function () {
