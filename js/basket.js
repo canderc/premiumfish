@@ -119,7 +119,7 @@ function addToBasket (product) {
     sum.append (spanSum);
         
     title.innerHTML = product.title;
-    price.innerHTML = 'Цена: '+ product.price + ' кг';
+    price.innerHTML = 'Цена: '+ product.price + ' грн';
     spanPlus.innerHTML = "+";
     spanMinus.innerHTML = "-";
     input.value = product.quantity;
