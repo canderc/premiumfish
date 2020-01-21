@@ -1,19 +1,20 @@
+const basket = require ('./basket.js');
+
 const productsMock = [
-    { avatar: 'img/title_img/5.png', title: 'Корюшка дальневосточная с икрой', description: 'Минимальный заказ 1 кг. Размер рыбы 26-33 см.', price: 'Цена: 680 грн', category: 'fish' },
-    { avatar: 'img/title_img/5.png', title: 'Камбала дальневосточная с икрой', description: 'Минимальный заказ 1 кг. Вес одной камбалы от 300 грамм.', price: "Цена: 590 грн", category: 'fish' },
-    { avatar: 'img/title_img/5.png', title: 'ОКУНЬ', description: 'Окунь предпочитает водоемы с чистой водой. Это могут быть реки, пруды, озера, водохранилища и т.д. Окунь является самым часто встречающимся хищником, но его никогда не найдешь там, где вода мутная и грязная.', price: 630, category: 'fish' },
-    { avatar: 'img/title_img/5.png', title: 'ГУСТЕРА', description: 'Это малоподвижный вид рыбы с голубовато-серым окрасом. Живет густера примерно 15 лет и врастает в длину до 35 см, при весе 1,2 кг. Густера, как и лещ, растет довольно медленно.', price: 12000, category: 'fish' },
-    { avatar: 'img/title_img/5.png', title: 'САЗАН', description: 'Эта рыба отличается темно-желто-золотистым оттенком', price: 10, category: 'fish' },
-    { avatar: 'img/title_img/5.png', title: 'Икра лемонемы', description: 'Икра в вакуумной упаковке. Фасовка по 0,5 кг. Минимальный заказ 0,5 кг. Срок хранения 6 мес.', price: 'Цена: 700 грн', category: 'caviar'},
-    { avatar: 'img/title_img/5.png', title: 'Икра наваги', description: 'Икра в вакуумной упаковке. Фасовка по 0,5 кг. Минимальный заказ 0,5 кг. Срок хранения 6 мес.', price: 'Цена: 680 грн', category: 'caviar'},
-    { avatar: 'img/title_img/5.png', title: 'Палочки горбуши', description: 'Суперовые палочки горбуши фасовка по 0,5кг', price: 'Цена: 560 грн', category: 'snacks'},
-    { avatar: 'img/title_img/5.png', title: 'Икра лосося', description: 'Очень вкусная икра в ястыке', price: 'Цена: 750 грн', category: 'caviar'},
-    { avatar: 'img/title_img/5.png', title: 'Икра лосося', description: 'Очень вкусная икра в ястыке', price: 'Цена: 750 грн', category: 'caviar'},
-    { avatar: 'img/title_img/5.png', title: 'Рыбные палочки', description: 'Суперовые палочки горбуши фасовка по 0,5кг', price: 'Цена 490 грн', category: 'snacks'},
+    { id: 'fish-1', avatar: 'img/title_img/5.png', title: 'Корюшка дальневосточная с икрой', description: 'Минимальный заказ 1 кг. Размер рыбы 26-33 см.', price: 680, quantity: 1, step: 1, category: 'fish' },
+    { id: 'fish-2', avatar: 'img/title_img/5.png', title: 'Камбала дальневосточная с икрой', description: 'Минимальный заказ 1 кг. Вес одной камбалы от 300 грамм.', price:590, quantity: 1, step: 1, category: 'fish' },
+    { id: 'fish-3', avatar: 'img/title_img/5.png', title: 'ОКУНЬ', description: 'Окунь предпочитает водоемы с чистой водой. Это могут быть реки, пруды, озера, водохранилища и т.д. Окунь является самым часто встречающимся хищником, но его никогда не найдешь там, где вода мутная и грязная.', price: 630, quantity: 1, step: 1, category: 'fish' },
+    { id: 'fish-4', avatar: 'img/title_img/5.png', title: 'ГУСТЕРА', description: 'Это малоподвижный вид рыбы с голубовато-серым окрасом. Живет густера примерно 15 лет и врастает в длину до 35 см, при весе 1,2 кг. Густера, как и лещ, растет довольно медленно.', price: 12000, quantity: 1, step: 1, category: 'fish' },
+    { id: 'fish-5', avatar: 'img/title_img/5.png', title: 'САЗАН', description: 'Эта рыба отличается темно-желто-золотистым оттенком', price: 10, quantity: 1, step: 1, category: 'fish' },
+    { id: 'caviar-1', avatar: 'img/title_img/5.png', title: 'Икра лемонемы', description: 'Икра в вакуумной упаковке. Фасовка по 0,5 кг. Минимальный заказ 0,5 кг. Срок хранения 6 мес.', price: 700, quantity: 0.5, step: 0.5, category: 'caviar'},
+    { id: 'caviar-2', avatar: 'img/title_img/5.png', title: 'Икра наваги', description: 'Икра в вакуумной упаковке. Фасовка по 0,5 кг. Минимальный заказ 0,5 кг. Срок хранения 6 мес.', price: 680, quantity: 0.5, step: 0.5, category: 'caviar'},
+    { id: 'snacks-1', avatar: 'img/title_img/5.png', title: 'Палочки горбуши', description: 'Суперовые палочки горбуши фасовка по 0,5кг', price: 560, quantity: 0.5, step: 0.5, category: 'snacks'},
+    { id: 'caviar-3', avatar: 'img/title_img/5.png', title: 'Икра лосося', description: 'Очень вкусная икра в ястыке', price: 750, quantity: 0.5, step: 0.5, category: 'caviar'},
+    { id: 'caviar-4', avatar: 'img/title_img/5.png', title: 'Икра лосося', description: 'Очень вкусная икра в ястыке', price: 750, quantity: 0.5, step: 0.5, category: 'caviar'},
+    { id: 'snacks-2', avatar: 'img/title_img/5.png', title: 'Рыбные палочки', description: 'Суперовые палочки горбуши фасовка по 0,5кг', price: 490, quantity: 0.5, step: 0.5, category: 'snacks'},
 ]
 
 const request = require('./services/request')
-
 
 function handleProducts (products) {
     for (let i = 0; i < products.length; i++) {
@@ -55,6 +56,7 @@ function createCard (product, option) {
     wrapButton.className = "button-wrap";
     buttonLook.className = "button-look";
     buttonBasket.className = "button-basket";
+    buttonBasket.id = product.id;
     titleImage.className = "title-img";
     titleImage.setAttribute ('alt', 'titl-image')
     titleImage.setAttribute ('src', product.avatar);
@@ -62,7 +64,7 @@ function createCard (product, option) {
     quantityWrap.className = "quantity-wrap";
     spanPlus.className = "plus-minus";
     spanMinus.className = "plus-minus";
-    spanWeight.className = "weight"
+    spanWeight.className = "weight";
 
     wrapCard.append(titleImage);
     wrapCard.append(title);
@@ -78,12 +80,16 @@ function createCard (product, option) {
     
     title.innerHTML = product.title;
     description.innerHTML = product.description;
-    price.innerHTML = product.price;
+    price.innerHTML = 'Цена: ' + product.price + ' грн';
     buttonBasket.innerHTML = "В корзину";
     spanPlus.innerHTML = "+";
     spanMinus.innerHTML = "-";
     input.value = option.quantity;
     spanWeight.innerHTML = "кг";
+
+    input.addEventListener ('change', function () {
+        input.value = this.value;
+    });
     
     spanPlus.addEventListener ('click', function () {
         const nowValue = input.value;
@@ -95,6 +101,21 @@ function createCard (product, option) {
         const nowValue = input.value;
         const newValue = parseFloat(nowValue) - option.step;
         input.value = newValue < option.quantity ? option.quantity : newValue;
+    });
+
+    buttonBasket.addEventListener ('click', function (event) {
+        const target = event.target;
+        const id = target.id;
+        // cart[art] = 1;
+        const product = productsMock.find (function (pr) {
+            if (pr.id === id) {
+                return true
+            }
+        });
+        const quantityProductCard = input.value;
+        product.quantity = quantityProductCard;
+        console.log (product.quantity)
+        basket.productToBasket(product, option);
     });
 
     return wrapCard;
