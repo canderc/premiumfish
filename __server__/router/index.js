@@ -35,13 +35,19 @@ module.exports = (req, res) => {
   // }
 
   if (url.indexOf('.') !== -1) {
+    let content;
+
     const address = url.substr(1)
-    
+
     const contentType = mimeTypes[getExtname(address)]
+    try {
+      content = fs.readFileSync(path.resolve(__dirname, '..', '..', address));
+    } catch(err) {
+      content = null
+      console.error(err)
+    }
 
-    const content = fs.readFileSync(path.resolve(__dirname, '..', '..', address));
-
-    res.writeHead(200, { 'Content-Type': contentType });
+    res.writeHead(content ? 200 : 404, { 'Content-Type': contentType });
     res.end(content, 'utf-8');
 
     return;
