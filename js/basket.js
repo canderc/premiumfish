@@ -132,12 +132,15 @@ function addToBasket (product) {
         const nowValue = input.value;
         const newValue = parseFloat(nowValue) + product.step;
         const productId = product.id;
-        input.value = newValue; 
+        input.value = newValue;
+        product.quantity = newValue;
+        console.log ('plus+++ '+nowValue);
+        console.log ('plus--- '+newValue);
+        console.log ('plus product '+product.quantity); 
         const newSum = product.price * input.value;
         spanSum.innerHTML = newSum + ' грн';
         productsInBasket[productId].quantity = newValue;
         productsInBasket[productId].cost = newSum;
-        console.log (productsInBasket[productId].cost);
         calcelateTotalCost ()
     });
 
@@ -151,7 +154,7 @@ function addToBasket (product) {
         if (nowValue === product.step) {
             input.value = newValue < product.quantity ? product.quantity : newValue;
         } else if (nowValue > product.step) {
-            input.value = newValue < product.quantity ? newValue : product.quantity;
+            input.value = newValue < product.quantity ? newValue :product.quantity ;
         }
         console.log ('== '+input.value);
         const newSum = product.price * input.value;
