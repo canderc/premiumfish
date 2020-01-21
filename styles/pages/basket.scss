@@ -11,7 +11,7 @@
     .basket-wrap {
         display: flex;
         flex-direction: column;
-        background-color: #d4d3cf;
+        background-color: $main-background;
         height: 85%;
         width: 100%;
         top: 13%;
@@ -20,6 +20,8 @@
         margin: auto;
         position: fixed;
         justify-content: space-between;
+        border: 1px solid $dark-blue;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 
         @include sm-screen {
             width: 85%;
@@ -57,9 +59,14 @@
                     width: 50%;
 
                     .title-img_basket {
-                        width: 50px;
-                        height: 30px;
-                        margin-right: 10px;
+                        display: none;
+
+                        @include sm-screen {
+                            display: block;
+                            width: 50px;
+                            height: 30px;
+                            margin-right: 10px;
+                        }
                     }
 
                     .title-price_wrap {
@@ -71,6 +78,14 @@
 
                         .product-title_basket {
                             font-size: 13px;
+
+                            @include sm-screen {
+                                font-size: 17px;
+                            }
+                        }
+
+                        .product-price_basket {
+                            font-size: 12px;
 
                             @include sm-screen {
                                 font-size: 17px;
@@ -147,6 +162,8 @@
             display: flex;
             justify-content: space-between;
             margin-bottom: 15px;
+            border-bottom: 1px solid #dfe1f0;
+            padding: 10px 0;
 
             .basket-title {
                 margin-left: 10px;
@@ -214,6 +231,8 @@
                 margin-bottom: 20px;
                 margin-right: 20px;
                 cursor: pointer;
+                background: $dark-blue;
+                color: $dark-yellow;
             }
         }
     }
@@ -223,7 +242,7 @@
 .basket-close_button {
     margin-right: 10px;
     margin-top: 5px;
-    background-color: #d4d3cf;
+    background: none;
     border: none;
     position: relative;
     cursor: pointer;
@@ -236,7 +255,7 @@
 
     .button-span::before, .button-span::after {
         position: absolute;
-        background-color: black;
+        background-color: $dark-blue;
         content: '';
         width: 20px;
         height: 2px;
