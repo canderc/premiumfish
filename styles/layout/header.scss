@@ -215,9 +215,33 @@
 		position: fixed;
 		top: 6%;
 		right: 2%;
-		width: 50px;
-		height: 50px;
-		background-image: url(../../img/basket256.svg);
+		width: 70px;
+		height: 70px;
+		border-radius: 50%;
+		background-color: $dark-blue;
+		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+		background-image: url(../../img/shopping_cart.svg);
+		background-position-x: center;
+		background-position-y: bottom;
+		background-repeat: no-repeat;
 		cursor: pointer;
+		transition: all .3s;
+
+		&:active {
+			box-shadow: none;
+		}
+
+		.basket-quantity {
+			position: relative;
+			top: 10px;
+			
+			&_number {
+				display: block;
+				text-align: center;
+				font-size: 20px;
+				color: $yellow;
+				font-weight: bold;
+			}
+		}
 	}
 }
