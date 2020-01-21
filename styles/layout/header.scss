@@ -221,7 +221,8 @@
 		background-color: #C6C4D4;
 		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 		background-image: url(../../img/shopping_cart.svg);
-		background-position: center;
+		background-position-x: center;
+		background-position-y: bottom;
 		background-repeat: no-repeat;
 		cursor: pointer;
 		transition: all .3s;
@@ -231,19 +232,15 @@
 		}
 
 		.basket-quantity {
-			width: 22px;
-    		height: 22px;
-    		background-color: $dark-blue;
-    		position: absolute;
-			right: 22px;
-			border-radius: 45%;
-			top: inherit;
+			position: relative;
+			top: 10px;
 			
 			&_number {
 				display: block;
 				text-align: center;
 				font-size: 20px;
-				color: $dark-yellow;
+				color: $dark-blue;
+				font-weight: bold;
 			}
 		}
 	}
