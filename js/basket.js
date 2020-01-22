@@ -10,6 +10,7 @@ const purchaseTotalCostHtml = document.getElementById ('purchase-total-cost');
 const productsQuantityIndicatorHtml = document.querySelector ('.basket-quantity_number');
 const tableContainerHtml = document.getElementById('basket-table-container');
 const tableHtml = document.getElementById('products-table');
+const formHtml = document.querySelector('.form');
 
 const PRODUCTS_IN_BASKET = {};
 
@@ -22,7 +23,15 @@ const tablesColumnsDescriptor = [
     { displayName: '', name: 'removeButton' }
 ]
 
-// const tableColumnsNames = [' ', 'Goods', 'Price', 'Quantity', 'Cost']
+formHtml.addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    const elements = e.target.elements;
+
+    for (let i = 0; i < elements.length; i++) {
+        console.log(elements[i].value);
+    }
+})
 
 function calculateTotalCost () {
     let cost = 0;
@@ -107,7 +116,9 @@ function renderTableHeader () {
 
     tablesColumnsDescriptor.forEach((descriptor) => {
         const th = document.createElement('th')
-        
+
+        if (descriptor.name === 'avatar') { th.classList.add('img-cell') }
+
         th.innerText = descriptor.displayName;
         tr.appendChild(th);
     })
@@ -145,7 +156,6 @@ function addProductToTable (product) {
     const tr = document.createElement('tr');
 
     tr.setAttribute('data-product-row', product.id);
-    tr.style = "height: 80px;"
 
     tablesColumnsDescriptor.forEach((descriptor) => {
         const td = document.createElement('td');
@@ -167,8 +177,9 @@ function addProductToTable (product) {
                     : product.quantity * product.price
                 break;
             case 'avatar':
-                td.innerHTML = `<img style="width: 100%" alt=${product.title} src=${product.avatar} />`
-                td.style = "width: 100px;"
+                td.innerHTML = `<img alt=${product.title} src=${product.avatar} />`
+                td.classList.add('img-cell')
+                // td.style = "width: 100px;"
                 break;
         
             default:

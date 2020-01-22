@@ -5,14 +5,11 @@
 .basket {
     display: block;
     position: absolute;
-    top: 15%;
-    min-height: 80%;
 
     table {
         border-collapse: collapse;
         border-spacing: 0;
         width: 100%;
-        // border: 1px solid #ddd;
     }
       
     th, td {
@@ -25,171 +22,34 @@
         font-weight: bold;
         padding: 25px 8px;
         font-size: 1.2em;
+        white-space: nowrap;
 
         &:first-child {
             text-align: center;
         }
     }
+
+    tr {
+        height: 40px;
+    }
+
+    .img-cell {
+        display: none;
+    }
       
     tr:nth-child(even){background-color: lighten($main-background, 5%)}
 
     .basket-wrap {
-        // display: flex;
-        // flex-direction: column;
-        height: 85%;
-        width: 100%;
-        top: 13%;
+        position: fixed;
+        top: 0;
         left: 0;
         right: 0;
-        margin: auto;
-        position: fixed;
-        justify-content: space-between;
-        border-radius: 15px;
+        bottom: 0;
+        overflow: auto;
         background-color: lighten($main-background, 7%);
-        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-
-        @include sm-screen {
-            width: 85%;
-            top: 14%;
-        }
-
-        // .basket-product {
-        //     display: flex;
-        //     flex-direction: column;
-        //     overflow-y: auto;
-
-        //     .empty-basket {
-        //         display: flex;
-        //         align-items: center;
-        //         justify-content: center;
-        //     }
-
-        //     .basket-goods {
-        //         display: none;
-        //     }
-
-        //     &_wrap {
-        //         display: flex;
-        //         padding-left: 10px;
-        //         width: 100%;
-        //         align-items: initial;
-        //         margin-bottom: 15px;
-        //         justify-content: space-between;
-        //         padding-top: 5px;
-        //         padding-bottom: 5px;
-
-        //         .title-price_item {
-        //             display: flex;
-        //             margin-right: 15px;
-        //             width: 50%;
-
-        //             .title-img_basket {
-        //                 display: none;
-
-        //                 @include sm-screen {
-        //                     display: block;
-        //                     width: 50px;
-        //                     height: 30px;
-        //                     margin-right: 10px;
-        //                 }
-        //             }
-
-        //             .title-price_wrap {
-        //                 display: flex;
-        //                 flex-direction: column;
-        //                 align-items: center;
-        //                 justify-content: space-between;
-        //                 width: 100%;
-
-        //                 .product-title_basket {
-        //                     font-size: 13px;
-
-        //                     @include sm-screen {
-        //                         font-size: 17px;
-        //                     }
-        //                 }
-
-        //                 .product-price_basket {
-        //                     font-size: 12px;
-
-        //                     @include sm-screen {
-        //                         font-size: 17px;
-        //                     }
-        //                 }
-        //             }
-        //         }
-
-        //         .quantity-wrap {
-        //             margin-right: 15px;
-        //             display: flex;
-        //             flex-direction: column;
-        //             align-items: center;
-        //             font-size: 13px;
-
-        //             @include sm-screen {
-        //                 font-size: 17px;
-        //             }
-
-        //             .quantity-title {
-        //                 font-weight: bold;
-        //             }
-
-        //             .quantity-wrap_item {
-        //                 display: flex;
-        //                 margin-top: 15px;
-                    
-        //                 .plus-minus {
-        //                     display: flex;
-        //                     width: 18px;
-        //                     justify-content: center;
-        //                     align-items: center;
-        //                     background-color: #fbfcfd38;
-        //                     cursor: pointer;
-        //                 }
-                    
-        //                 .quantity {
-        //                     margin-left: 8px;
-        //                     margin-right: 2px;
-        //                     width: 40px;
-        //                     text-align: center;
-        //                 }
-                    
-        //                 // .weight {
-        //                 //     margin-right: 8px;
-        //                 // }
-        //             }
-        //         }
-
-        //         .sum-wrap {
-        //             display: flex;
-        //             margin-right: 15px;
-        //             flex-direction: column;
-        //             justify-content: space-between;
-        //             align-items: center;
-        //             font-size: 13px;
-
-        //             @include sm-screen {
-        //                 font-size: 17px;
-        //             }
-
-        //             .sum-title {
-        //                 font-weight: bold;
-        //             }
-        //         }
-
-        //         .product_cost {
-        //             &:after {
-        //                 content: "грн";
-        //                 padding-left: 3px;
-        //             }
-        //         }
-        //     }
-        // }
-
-        @include sm-screen {
-            
-        }
-
+        z-index: 100;
+        box-shadow: -6px 9px 54px 5px rgba(0,0,0,0.75), ;
+          
         .basket-header {
             display: flex;
             justify-content: space-between;
@@ -203,69 +63,6 @@
                 font-size: 20px;
             }
         }
-
-        // .order-cost {
-        //     display: flex;
-        //     flex-direction: column;
-
-        //     &_sum {
-        //         display: flex;
-        //         justify-content: space-between;
-        //         width: 50%;
-        //         margin-right: 5px;
-        //         margin: auto;
-        //         font-size: 18px;
-
-        //         @include sm-screen {
-        //             font-size: 25px;
-        //         }
-        //     }
-        // }
-
-        // .basket-form {
-        //     display: flex;
-        //     flex-direction: column;
-
-        //     &_wrap {
-        //         display: flex;
-        //         flex-direction: column;
-        //         justify-content: space-between;
-        //         align-items: center;
-        //         flex-wrap: wrap;
-        //         margin-left: 8px;
-
-        //         @include lg-screen {
-        //             flex-direction: row;
-        //         }
-
-        //         &_title {
-        //             margin-left: 10px;
-        //         }
-
-        //         &_input {
-        //             margin-right: 10px;
-        //             margin-bottom: 10px;
-        //             padding-left: 10px;
-        //             padding-top: 5px;
-        //             padding-bottom: 5px;
-        //         }
-        //     }
-        // }
-
-        // .basket-footer {
-        //     display: flex;
-        //     flex-direction: row-reverse;
-
-        //     .basket-button-order {
-        //         height: 40px;
-        //         width: 130px;
-        //         margin-bottom: 20px;
-        //         margin-right: 20px;
-        //         cursor: pointer;
-        //         background: $dark-blue;
-        //         color: $dark-yellow;
-        //     }
-        // }
     }
    
 }
@@ -301,8 +98,6 @@
         transform: rotate(-45deg);
     }
 }
-
-// *************************************
 
 .purchase-total-cost-container {
     display: flex;
@@ -345,6 +140,81 @@
     }
 }
 
-// .hidden-with-products, .hidden-without-products {
-//     // display: none;
-// }
+.form-container {
+    margin-top: 30px;
+    padding-top: 30px;
+    padding-left: 8px;
+    padding-right: 8px;
+    border-top: 2px solid lighten($main-background, 5%);
+
+    .form {
+        padding-top: 15px;
+
+        .input-container {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 10px;
+
+            label {
+                margin-bottom: 3px;
+            }
+
+            input {
+                padding: 8px;
+                border-radius: 3px;
+                border: 1px solid lighten($main-background, 5%);
+            }
+
+        }
+
+        button {
+            float: right;
+            min-width: 90px;
+            margin: 15px 0;
+            padding: 8px 10px;
+            border: none;
+            background-color: $light-blue;
+            color: $text_color_white;
+            text-transform: uppercase;
+            border-radius: 3px;
+            font-weight: bold;
+            box-shadow: 1px 2px 15px -5px black;
+            font-size: 15px;
+
+            &:active {
+                box-shadow: none;
+            }
+        }
+
+        @include sm-screen {
+            width: 400px;
+            margin: 0 auto;
+        }
+    }
+}
+
+
+@include sm-screen {
+    .basket {
+        tr {
+            height: 50px;
+        }
+
+        .img-cell {
+            display: block;
+            width: 100px;
+        }
+    }
+}
+
+@include md-screen {
+    .basket {
+        .basket-wrap {
+            top: 5%;
+            bottom: 5%;
+            left: 5%;
+            right: 5%;
+            border-radius: 5px;
+        }
+    }
+}

@@ -20,10 +20,10 @@
 	width: 100%;
 	padding: 6px 10px;
 	font-size: 18px;
-    background-color: $dark-blue;
-    color: $text_color_white;
+	background-color: $dark-blue;
+	color: $text_color_white;
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-	z-index: 1000;
+	z-index: 40;
 	@include lg-screen {
 		padding: 8px 5px;
 	}
@@ -37,7 +37,7 @@
 		.logo {
 			font-size: 1.5em;
 			font-weight: bold;
-			$text-shadow: 0px 2px 3px rgba(255, 216, 99, 0.75);
+			text-shadow: 0px 2px 3px rgba(255, 216, 99, 0.75);
 			color: $dark-yellow;
 
 			@include md-screen {
@@ -93,18 +93,6 @@
 		.contact {
 			display: flex;
 			flex-direction: column;
-
-			// .contact_email {
-			// 	display: none;
-
-			// 	// @include sm-screen {
-			// 	// 	display: block;
-			// 	// }
-	
-			// 	a {
-			// 		color: $text_color_white;
-			// 	}
-			// }
 		}
 	}
 
@@ -213,10 +201,10 @@
 
 	.basket-icons {
 		position: fixed;
-		top: 6%;
-		right: 2%;
-		width: 70px;
-		height: 70px;
+		top: 55px;
+		right: 8px;
+		width: 55px;
+		height: 55px;
 		border-radius: 50%;
 		background-color: $dark-blue;
 		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -237,8 +225,10 @@
 			
 			&_number {
 				display: block;
+				position: relative;
+				top: -6px;
 				text-align: center;
-				font-size: 20px;
+				font-size: 18px;
 				color: $yellow;
 				font-weight: bold;
 			}
