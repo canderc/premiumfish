@@ -49,3 +49,13 @@
 	align-items: center;
 	justify-content: center;
 }
+
+.hidden {
+	display: none !important;
+}
+
+button {
+	&:hover {
+		cursor: pointer;
+	}
+}
