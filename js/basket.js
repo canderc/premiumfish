@@ -1,14 +1,8 @@
 const basketCloseBtn = document.querySelector ('.basket-close_button');
 const basketHtml = document.querySelector ('.basket-close');
 const basketIconHtml = document.querySelector ('.basket-icons');
-// const basketProduct = document.querySelector ('.basket-product');
-// const basketWrap = document.querySelector ('.basket-wrap');
-// const spanEmptyBasket = document.querySelector ('.empty-basket');
 const purchaseTotalCostHtml = document.getElementById ('purchase-total-cost');
-// const spanCostSum = document.querySelector ('.order-cost_sum_number');
-// const divBasketQuantity = document.querySelector ('.basket-quantity');
 const productsQuantityIndicatorHtml = document.querySelector ('.basket-quantity_number');
-const tableContainerHtml = document.getElementById('basket-table-container');
 const tableHtml = document.getElementById('products-table');
 const formHtml = document.querySelector('.form');
 
@@ -58,11 +52,10 @@ function calculateProductCost (product) {
     costHtmlElement.innerText = cost;
 }
 
-function increaseProductQuantity (product, quantity) { // TODO rename to increaseProductQuantity
+function increaseProductQuantity (product) {
     const quantityHtmlElement = document.querySelector(`[data-quantity-for=${product.id}]`)
-    const newQuantity = Number(quantity) + Number(PRODUCTS_IN_BASKET[product.id].quantity);
 
-    quantityHtmlElement.innerText = newQuantity;
+    quantityHtmlElement.innerText = PRODUCTS_IN_BASKET[product.id].quantity;
 
     calculateProductCost(product)
 }
@@ -213,8 +206,6 @@ function productToBasket (product) {
     const productId = product.id;
 
     if (!Object.keys(PRODUCTS_IN_BASKET).length) {
-        // TODO toggle "No products in basket yet" info
-        // renderTableHeader()
         showBasketContent()
     } 
     
