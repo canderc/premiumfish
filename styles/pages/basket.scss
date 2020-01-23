@@ -167,6 +167,15 @@
 
         }
 
+        .error-none {
+            color: red;
+            font-size: 15px;
+        }
+
+        .error {
+            display: none;
+        }
+
         button {
             float: right;
             min-width: 90px;

@@ -5,6 +5,10 @@ const purchaseTotalCostHtml = document.getElementById ('purchase-total-cost');
 const productsQuantityIndicatorHtml = document.querySelector ('.basket-quantity_number');
 const tableHtml = document.getElementById('products-table');
 const formHtml = document.querySelector('.form');
+const btnSubmit = document.querySelector ('.button-submit');
+const inputEmail =document.querySelector ('#email');
+const inputPhone = document.querySelector ('#phone');
+const error = document.querySelector ('.error');
 
 const PRODUCTS_IN_BASKET = {};
 
@@ -243,4 +247,21 @@ basketIconHtml.addEventListener ('click', function() {
 
 renderTableHeader()
 
+function addTextErorr () {
+    if (inputEmail.value === "" || inputPhone.value === "") {
+        error.classList.add ('error-none');
+        error.classList.remove ('error')
+    }
+}
+
+function delTextError () {
+    if (error.className === 'error-none') {
+        error.classList.add ('error');
+        error.classList.remove ('error-none')
+    }
+}
+
+btnSubmit.addEventListener ('click', addTextErorr);
+inputEmail.addEventListener ('click', delTextError);
+inputPhone.addEventListener ('click', delTextError);
 module.exports = {productToBasket}
