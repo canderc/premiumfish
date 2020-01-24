@@ -251,6 +251,8 @@ function delTextError () {
     if (errorHtml.className === 'error-none') {
         errorHtml.classList.add ('error');
         errorHtml.classList.remove ('error-none');
+        inputEmail.setAttribute ("style", "1px solid #d4d3df;");
+        inputPhone.setAttribute ("style", "1px solid #d4d3df;")
     }
 }
 
@@ -259,14 +261,18 @@ formHtml.addEventListener('submit', function(e) {
     
     const elements = e.target.elements;
     const isFormDataValid = validateForm();
-
+    
     for (let i = 0; i < elements.length; i++) {
         console.log(elements[i].value);
+        if (i<3 && i>0 && elements[i].value === "") {
+            elements[i].setAttribute ("style", "border: 1px solid red;");
+            
+        }
     }
 
     if (isFormDataValid) {
         // TODO request to server with user data;
-    }
+    } 
 })
 
 inputEmail.addEventListener ('focus', delTextError);
