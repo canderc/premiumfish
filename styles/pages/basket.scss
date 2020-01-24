@@ -2,7 +2,7 @@
     display: none;
 }
 
-.basket {
+.modal-window {
     display: block;
     position: absolute;
 
@@ -39,16 +39,16 @@
       
     tr:nth-child(even){background-color: lighten($main-background, 5%)}
 
-    .basket-wrap {
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        overflow: auto;
-        background-color: lighten($main-background, 7%);
-        z-index: 100;
-        box-shadow: -6px 9px 54px 5px rgba(0,0,0,0.75), ;
+    // .window-wrap {
+    //     position: fixed;
+    //     top: 0;
+    //     left: 0;
+    //     right: 0;
+    //     bottom: 0;
+    //     overflow: auto;
+    //     background-color: lighten($main-background, 7%);
+    //     z-index: 100;
+    //     box-shadow: -6px 9px 54px 5px rgba(0,0,0,0.75), ;
           
         .basket-header {
             display: flex;
@@ -65,39 +65,39 @@
         }
     }
    
-}
+// }
 
-.basket-close_button {
-    margin-right: 10px;
-    margin-top: 5px;
-    background: none;
-    border: none;
-    position: relative;
-    cursor: pointer;
+// .basket-close_button {
+//     margin-right: 10px;
+//     margin-top: 5px;
+//     background: none;
+//     border: none;
+//     position: relative;
+//     cursor: pointer;
 
-    .button-span {
-        display: block;
-        width: 20px;
-        height: 2px;
-    }
+//     .button-span {
+//         display: block;
+//         width: 20px;
+//         height: 2px;
+//     }
 
-    .button-span::before, .button-span::after {
-        position: absolute;
-        background-color: $dark-blue;
-        content: '';
-        width: 20px;
-        height: 2px;
-        right: 7px;
-    }
+//     .button-span::before, .button-span::after {
+//         position: absolute;
+//         background-color: $dark-blue;
+//         content: '';
+//         width: 20px;
+//         height: 2px;
+//         right: 7px;
+//     }
 
-    .button-span::before {
-        transform: rotate(45deg);
-    }
+//     .button-span::before {
+//         transform: rotate(45deg);
+//     }
 
-    .button-span::after {
-        transform: rotate(-45deg);
-    }
-}
+//     .button-span::after {
+//         transform: rotate(-45deg);
+//     }
+// }
 
 .purchase-total-cost-container {
     display: flex;
@@ -208,7 +208,7 @@
 
 
 @include sm-screen {
-    .basket {
+    .modal-window {
         tr {
             height: 50px;
         }
@@ -220,14 +220,23 @@
     }
 }
 
-@include md-screen {
-    .basket {
-        .basket-wrap {
-            top: 5%;
-            bottom: 5%;
-            left: 5%;
-            right: 5%;
-            border-radius: 5px;
-        }
-    }
+// @include md-screen {
+//     .modal-window {
+//         .window-wrap {
+//             top: 5%;
+//             bottom: 5%;
+//             left: 5%;
+//             right: 5%;
+//             border-radius: 5px;
+//         }
+//     }
+// }
+
+.thank-page {
+    display: none;
+}
+
+.thank-page_open {
+    display: block;
+    position: absolute;
 }

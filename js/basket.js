@@ -1,5 +1,5 @@
-const basketCloseBtn = document.querySelector ('.basket-close_button');
-const basketHtml = document.querySelector ('.basket-close');
+const basketCloseBtn = document.querySelector ('.window-close_button');
+const basketHtml = document.querySelector ('.modal-window-close');
 const basketIconHtml = document.querySelector ('.basket-icons');
 const purchaseTotalCostHtml = document.getElementById ('purchase-total-cost');
 const productsQuantityIndicatorHtml = document.querySelector ('.basket-quantity_number');
@@ -116,7 +116,7 @@ function renderRemoveProductBtn (parentNode, product) {
     const closeIconBtn = document.createElement('button');
     const icon = document.createElement('span');
 
-    closeIconBtn.classList.add('basket-close_button');
+    closeIconBtn.classList.add('window-close_button');
     icon.classList.add('button-span');
 
     closeIconBtn.addEventListener('click', function () {
@@ -226,12 +226,12 @@ function productToBasket (product) {
 }
 
 basketCloseBtn.addEventListener ('click', function() {
-    basketHtml.classList.toggle ('basket-close');
-    basketHtml.classList.remove ('basket');
+    basketHtml.classList.toggle ('modal-window-close');
+    basketHtml.classList.remove ('modal-window');
 })
 
 basketIconHtml.addEventListener ('click', function() {
-    basketHtml.classList.toggle ('basket')
+    basketHtml.classList.toggle ('modal-window')
 });
 
 renderTableHeader()

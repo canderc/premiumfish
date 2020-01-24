@@ -1,0 +1,79 @@
+.thank-page_button {
+    left: 90%;
+    margin-right: 10px;
+    margin-top: 20px;
+    background: none;
+    border: none;
+    position: relative;
+    cursor: pointer;
+
+    @include sm-screen {
+       left: 95%;
+    }
+
+    .button-span {
+        display: block;
+        width: 20px;
+        height: 2px;
+    }
+
+    .button-span::before, .button-span::after {
+        position: absolute;
+        background-color: $dark-blue;
+        content: '';
+        width: 20px;
+        height: 2px;
+        right: 7px;
+    }
+
+    .button-span::before {
+        transform: rotate(45deg);
+    }
+
+    .button-span::after {
+        transform: rotate(-45deg);
+    }
+}
+
+.thank-page_title {
+    font-size: 35px;
+    text-align: center;
+    padding-top: 50px;
+}
+
+.thank-page_text {
+    text-align: center;
+    font-size: 20px;
+    padding-top: 25px;
+}
+
+.thank-page_item {
+    text-align: center;
+    font-size: 17px;
+    padding-top: 25px;
+}
+
+.thank-page_contact {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding-top: 17px;
+    flex-direction: column;
+
+    @include sm-screen {
+        flex-direction: row;
+     }
+}
+
+.thank-page_phone {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 15px;
+
+    p {
+        padding-bottom: 5px;
+    }
+}
+
+
