@@ -8,7 +8,7 @@ const formHtml = document.querySelector('.form');
 const btnSubmit = document.querySelector ('.button-submit');
 const inputEmail =document.querySelector ('#email');
 const inputPhone = document.querySelector ('#phone');
-const error = document.querySelector ('.error');
+const errorHtml = document.querySelector ('.error');
 
 const PRODUCTS_IN_BASKET = {};
 
@@ -20,16 +20,6 @@ const tablesColumnsDescriptor = [
     { displayName: 'Стоимость ( грн )', name: 'cost' },
     { displayName: '', name: 'removeButton' }
 ]
-
-formHtml.addEventListener('submit', function(e) {
-    e.preventDefault();
-    
-    const elements = e.target.elements;
-
-    for (let i = 0; i < elements.length; i++) {
-        console.log(elements[i].value);
-    }
-})
 
 function calculateTotalCost () {
     let cost = 0;
@@ -247,21 +237,40 @@ basketIconHtml.addEventListener ('click', function() {
 
 renderTableHeader()
 
-function addTextErorr () {
+function validateForm () {
     if (inputEmail.value === "" || inputPhone.value === "") {
-        error.classList.add ('error-none');
-        error.classList.remove ('error')
+        errorHtml.classList.add ('error-none');
+        errorHtml.classList.remove ('error');
+        
+        return false;
     }
+
+    return true;
 }
 
 function delTextError () {
-    if (error.className === 'error-none') {
-        error.classList.add ('error');
-        error.classList.remove ('error-none')
+    if (errorHtml.className === 'error-none') {
+        errorHtml.classList.add ('error');
+        errorHtml.classList.remove ('error-none');
     }
 }
 
-btnSubmit.addEventListener ('click', addTextErorr);
+formHtml.addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    const elements = e.target.elements;
+    const isFormDataValid = validateForm();
+
+    for (let i = 0; i < elements.length; i++) {
+        console.log(elements[i].value);
+    }
+
+    if (isFormDataValid) {
+        // TODO request to server with user data;
+    }
+})
+
 inputEmail.addEventListener ('click', delTextError);
 inputPhone.addEventListener ('click', delTextError);
-module.exports = {productToBasket}
+
+module.exports = { productToBasket }
