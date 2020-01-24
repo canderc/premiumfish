@@ -148,6 +148,7 @@
     border-top: 2px solid lighten($main-background, 5%);
 
     .form {
+        position: relative;
         padding-top: 15px;
 
         .input-container {
@@ -168,18 +169,21 @@
         }
 
         .error-none {
+            position: absolute;
             color: red;
             font-size: 15px;
         }
 
         .error {
+            position: absolute;
             display: none;
         }
 
         button {
             float: right;
             min-width: 90px;
-            margin: 15px 0;
+            margin-bottom: 15px;
+            margin-top: 20px;
             padding: 8px 10px;
             border: none;
             background-color: $light-blue;

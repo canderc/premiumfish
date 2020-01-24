@@ -5,7 +5,6 @@ const purchaseTotalCostHtml = document.getElementById ('purchase-total-cost');
 const productsQuantityIndicatorHtml = document.querySelector ('.basket-quantity_number');
 const tableHtml = document.getElementById('products-table');
 const formHtml = document.querySelector('.form');
-const btnSubmit = document.querySelector ('.button-submit');
 const inputEmail =document.querySelector ('#email');
 const inputPhone = document.querySelector ('#phone');
 const errorHtml = document.querySelector ('.error');
@@ -270,7 +269,7 @@ formHtml.addEventListener('submit', function(e) {
     }
 })
 
-inputEmail.addEventListener ('click', delTextError);
-inputPhone.addEventListener ('click', delTextError);
+inputEmail.addEventListener ('focus', delTextError);
+inputPhone.addEventListener ('focus', delTextError);
 
 module.exports = { productToBasket }
