@@ -1,3 +1,5 @@
+const request = require('./services/request')
+
 const basketCloseBtn = document.querySelector ('.window-close_button');
 const basketHtml = document.querySelector ('.modal-window-close');
 const basketIconHtml = document.querySelector ('.basket-icons');
@@ -9,7 +11,8 @@ const inputEmail =document.querySelector ('#email');
 const inputPhone = document.querySelector ('#phone');
 const errorHtml = document.querySelector ('.error');
 
-const PRODUCTS_IN_BASKET = {};
+const PRODUCTS_IN_BASKET = { };
+let PURCHASE_COST = 0;
 
 const tablesColumnsDescriptor = [
     { displayName: '', name: 'avatar' },
@@ -29,6 +32,7 @@ function calculateTotalCost () {
         cost += parseFloat(PRODUCTS_IN_BASKET[keys[i]].cost);
     }
 
+    PURCHASE_COST = cost;
     purchaseTotalCostHtml.innerText = cost;
 }
 
@@ -205,18 +209,18 @@ function productToBasket (product) {
     if (PRODUCTS_IN_BASKET[productId]) {
         const quantity = +PRODUCTS_IN_BASKET[productId].quantity + +product.quantity;
 
-        PRODUCTS_IN_BASKET[productId] = {
+        PRODUCTS_IN_BASKET[productId] = Object.assign({}, product, {
             cost: product.price * quantity,
             step: product.step,
             quantity,
-        }
+        }) 
         increaseProductQuantity(product, product.quantity);
     } else {
-        PRODUCTS_IN_BASKET[productId] = { 
+        PRODUCTS_IN_BASKET[productId] = Object.assign({}, product, { 
             quantity: +product.quantity, 
             step: product.step, 
             cost: product.price * product.quantity 
-        };
+        });
         addProductToTable(product)
     }
 
@@ -238,8 +242,10 @@ renderTableHeader()
 
 function validateForm () {
     if (inputEmail.value === "" || inputPhone.value === "") {
-        errorHtml.classList.add ('error-none');
-        errorHtml.classList.remove ('error');
+        errorHtml.classList.remove ('hidden');
+
+        inputEmail.value === "" && inputEmail.setAttribute ("style", "border: 1px solid red;");
+        inputPhone.value === "" && inputPhone.setAttribute ("style", "border: 1px solid red;");
         
         return false;
     }
@@ -247,35 +253,56 @@ function validateForm () {
     return true;
 }
 
-function delTextError () {
-    if (errorHtml.className === 'error-none') {
-        errorHtml.classList.add ('error');
-        errorHtml.classList.remove ('error-none');
-        inputEmail.setAttribute ("style", "1px solid #d4d3df;");
-        inputPhone.setAttribute ("style", "1px solid #d4d3df;")
+function tryToHideErrorMessage () {
+    if (!inputEmail.hasAttribute('style') && !inputPhone.hasAttribute('style')) {
+        errorHtml.classList.add ('hidden');
     }
+
+}
+
+function delTextError (inputFieldHtml) {
+    return function () {
+        if (inputFieldHtml.hasAttribute('style')) {
+           inputFieldHtml.removeAttribute('style');
+        }
+
+        tryToHideErrorMessage();
+    }
+
 }
 
 formHtml.addEventListener('submit', function(e) {
     e.preventDefault();
-    
+
     const elements = e.target.elements;
     const isFormDataValid = validateForm();
-    
+    const user = {}
+
     for (let i = 0; i < elements.length; i++) {
-        console.log(elements[i].value);
-        if (i<3 && i>0 && elements[i].value === "") {
-            elements[i].setAttribute ("style", "border: 1px solid red;");
-            
-        }
+        if (elements[i].value) {
+            user[elements[i].name] = elements[i].value
+        } 
     }
 
     if (isFormDataValid) {
-        // TODO request to server with user data;
+        request.post('/api/products', {
+            user,
+            products: PRODUCTS_IN_BASKET,
+            totalCost: PURCHASE_COST
+        })
+        .then((data) => {
+            if (data.ok) {
+                // TODO Show here your window with thanks for making shopping
+            }
+        })
+        .catch((err) => {
+            console.err(err);
+            // TODO Handle case when something went wrong on server
+        })
     } 
 })
 
-inputEmail.addEventListener ('focus', delTextError);
-inputPhone.addEventListener ('focus', delTextError);
+inputEmail.addEventListener ('focus', delTextError(inputEmail));
+inputPhone.addEventListener ('focus', delTextError(inputPhone));
 
 module.exports = { productToBasket }

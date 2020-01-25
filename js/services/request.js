@@ -15,8 +15,8 @@ const get = function(url) {
   return fetch({ url });
 };
 
-const post = function(url, data, options) {
-  return fetch(Object.assign(options, {
+const post = function(url, data) {
+  return fetch(Object.assign({}, {
     url,
     method: 'POST',
     data,

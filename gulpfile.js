@@ -21,7 +21,7 @@ gulp.task('reload', function (done) {
 })
 
 gulp.task('run', function(done) {
-  const proxyOptions = url.parse('http://localhost:4444/api')
+  const proxyOptions = url.parse('http://localhost:5555/api')
   proxyOptions.route = "/api"
   
   browserSync.init({

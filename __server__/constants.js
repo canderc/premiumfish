@@ -2,6 +2,7 @@ const PRODUCTS_URL = '/api/products'
 const FAVICON_URL = '/favicon.ico'
 
 const GET = 'GET'
+const POST = 'POST'
 
 const productsMock = [
     { avatar: 'img/title_img/5.png', title: 'СУДАК', description: 'Судак, как и окунь, предпочитает лишь чистую воду, насыщенную кислородом и способствующую нормальной жизнедеятельности рыбы', price: 'Цена: 280 грн', category: 'fish' },
@@ -20,5 +21,6 @@ module.exports = {
   PRODUCTS_URL,
   FAVICON_URL,
   GET,
+  POST,
   productsMock
 }
