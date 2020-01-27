@@ -1,15 +1,10 @@
 .thank-page_button {
-    left: 90%;
+    left: -10;
     margin-right: 10px;
-    margin-top: 20px;
+    margin-top: 15px;
     background: none;
     border: none;
-    position: relative;
     cursor: pointer;
-
-    @include sm-screen {
-       left: 95%;
-    }
 
     .button-span {
         display: block;
@@ -55,7 +50,7 @@
 
 .thank-page_contact {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
     align-items: center;
     padding-top: 17px;
     flex-direction: column;
@@ -68,9 +63,9 @@
 .thank-page_phone {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     padding-bottom: 15px;
-
+    
     p {
         padding-bottom: 5px;
     }

@@ -4,6 +4,7 @@ const visualEffects = require('./visual-effects')
 const basket = require('./basket')
 require('./products')
 require('./thankPage')
+require('./cardProduct')
 
 window.onload = function() {
   hamburger.onLoad && hamburger.onLoad();
