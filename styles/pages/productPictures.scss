@@ -39,6 +39,7 @@
     flex-direction: column;
     height: 90%;
     margin-top: 20px;
+    justify-content: space-between;
 
     .product-pictures_title {
         display: flex;
@@ -46,10 +47,10 @@
         width: 90%;
         border: 1px solid #0000501c;
         margin: 5px auto;
-        flex-grow: 5;
-
+        
         img {
             width: 100%;
+            height: auto;
         }
     }
 
@@ -58,7 +59,7 @@
         justify-content: space-around;
         border: 1px solid #0000501c;
         margin: 15px auto;
-        flex-grow: 1;
+        flex-grow: 0;
         width: 90%;
     }
 }
@@ -70,6 +71,6 @@
 
     img {
         width: 100%;
-        height: 100%;
+        height: auto;
     }
 }
