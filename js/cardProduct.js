@@ -1,9 +1,10 @@
 const basket = require ('./basket.js'); // { productToBasket }
-console.log ('const basket = ', basket)
+const pictures = require ('./productPictures.js')
+
 const productsCard = document.querySelectorAll (`[data-card]`);
-// console.log (buttonBasket)
+
 const productsMock = [
-    { id: 'fish-1', avatar: 'img/title_img/5.png', title: 'Корюшка дальневосточная с икрой', description: 'Минимальный заказ 1 кг. Размер рыбы 26-33 см.', price: 680, quantity: 1, step: 1, category: 'fish' },
+    { id: 'fish-1', avatar: 'img/title_img/5.png', img: ['img/title_img/5.png','img/koryushka/корюшка 1.jpg', 'img/koryushka/корюшка 2.jpg', 'img/koryushka/Корюшка.png'], title: 'Корюшка дальневосточная с икрой', description: 'Минимальный заказ 1 кг. Размер рыбы 26-33 см.', price: 680, quantity: 1, step: 1, category: 'fish' },
     { id: 'fish-2', avatar: 'img/title_img/5.png', title: 'Камбала дальневосточная с икрой', description: 'Минимальный заказ 1 кг. Вес одной камбалы от 300 грамм.', price:590, quantity: 1, step: 1, category: 'fish' },
     // { id: 'fish-3', avatar: 'img/title_img/5.png', title: 'ОКУНЬ', description: 'Окунь предпочитает водоемы с чистой водой. Это могут быть реки, пруды, озера, водохранилища и т.д. Окунь является самым часто встречающимся хищником, но его никогда не найдешь там, где вода мутная и грязная.', price: 630, quantity: 1, step: 1, category: 'fish' },
     // { id: 'fish-4', avatar: 'img/title_img/5.png', title: 'ГУСТЕРА', description: 'Это малоподвижный вид рыбы с голубовато-серым окрасом. Живет густера примерно 15 лет и врастает в длину до 35 см, при весе 1,2 кг. Густера, как и лещ, растет довольно медленно.', price: 12000, quantity: 1, step: 1, category: 'fish' },
@@ -29,6 +30,8 @@ for (var i = 0; i < productsCard.length; i++) {
     const quantityPlus = productHtml.querySelector (".increase");
     const quantityInput = productHtml.querySelector ('.quantity');
     const buttonBasket = productHtml.querySelector ('.button-basket');
+    const avatar = productHtml.querySelector ('.title-img');
+    console.log (avatar)
 
     quantityInput.value = productObj.quantity;
     quantityInput.step = productObj.step;
@@ -58,5 +61,13 @@ for (var i = 0; i < productsCard.length; i++) {
     buttonBasket.addEventListener ('click', function (event) {
         basket.productToBasket (productObj)
     });
+
+    avatar.addEventListener ('click', function () {
+        const productImg = productObj.img;
+        pictures.createGalleryProductImages (productImg) 
+        console.log (productImg);
+        // console.log (productPicturesButton);
+    })
 }
 
+ 

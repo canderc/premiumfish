@@ -1,4 +1,4 @@
-const modalWindow = document.querySelector ('.modal-window');
+const modalWindow = document.querySelector ('#window-thank');
 const thankPageButton = document.querySelector ('.thank-page_button');
 
 thankPageButton.addEventListener ('click', function() {

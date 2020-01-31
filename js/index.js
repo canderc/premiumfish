@@ -5,6 +5,7 @@ const basket = require('./basket')
 require('./products')
 require('./thankPage')
 require('./cardProduct')
+require('./productPictures')
 
 window.onload = function() {
   hamburger.onLoad && hamburger.onLoad();

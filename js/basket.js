@@ -10,6 +10,8 @@ const formHtml = document.querySelector('.form');
 const inputEmail =document.querySelector ('#email');
 const inputPhone = document.querySelector ('#phone');
 const errorHtml = document.querySelector ('.error');
+const modalWindow = document.querySelector ('#window-thank');
+const tableContainer = document.querySelector ('#basket-table-container');
 
 const PRODUCTS_IN_BASKET = { };
 let PURCHASE_COST = 0;
@@ -22,6 +24,24 @@ const tablesColumnsDescriptor = [
     { displayName: 'Стоимость ( грн )', name: 'cost' },
     { displayName: '', name: 'removeButton' }
 ]
+
+function emptyBasketAfterOrdering () {
+    const rowToRemove = document.querySelectorAll ('[data-product-row]')
+    for (let i = 0; i<rowToRemove.length; i++) {
+        const row = rowToRemove[i]
+        row.parentNode.removeChild (row)
+    }
+    
+    for (let keys in PRODUCTS_IN_BASKET) {
+        delete PRODUCTS_IN_BASKET[keys]
+    }
+    PURCHASE_COST = 0;
+    purchaseTotalCostHtml.innerText = PURCHASE_COST;
+    hideBasketContent ()
+    updateProductsQuantityIndicator ()
+}
+
+// emptyBasketAfterOrdering ()
 
 function calculateTotalCost () {
     let cost = 0;
@@ -45,7 +65,7 @@ function updateProductsQuantityIndicator () {
 function calculateProductCost (product) {
     const costHtmlElement = document.querySelector(`[data-cost-for=${product.id}]`)
     const cost = Number(product.price) * Number(PRODUCTS_IN_BASKET[product.id].quantity)
-
+    console.log ('====',product)
     costHtmlElement.innerText = cost;
 }
 
@@ -293,11 +313,15 @@ formHtml.addEventListener('submit', function(e) {
         .then((data) => {
             if (data.ok) {
                 // TODO Show here your window with thanks for making shopping
+                modalWindow.classList.toggle ('hidden');
+                basketHtml.classList.toggle ('modal-window');
+                emptyBasketAfterOrdering ()
             }
         })
         .catch((err) => {
-            console.err(err);
+            console.error(err);
             // TODO Handle case when something went wrong on server
+            
         })
     } 
 })

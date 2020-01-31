@@ -29,13 +29,16 @@
     "deploy": "gh-pages -d build",
     "start": "node __server__",
     "build": "gulp --gulpfile ./gulpfile-prod.js",
-    "dev": "concurrently 'nodemon __server__/index.js' 'gulp'",
+    "dev": "concurrently 'node __server__/index.js' 'gulp'",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
   "nodemonConfig": {
-    "ignore": ["js/*", "img/*, fonts/*, styles/*"],
+    "ignore": [
+      "js/*",
+      "img/*, fonts/*, styles/*"
+    ],
     "delay": "2500"
   }
 }
