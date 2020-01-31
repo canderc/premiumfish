@@ -11,6 +11,8 @@ const devMailer = ({
       path.resolve(__dirname, 'logs', fileName),
       JSON.stringify(msg, null, 3)
     )
+
+    return Promise.resolve(true);
   }
 })
 
@@ -32,6 +34,14 @@ const sendMail = ({ to, subject, html }) => {
   }
 
   mailer.send(msg)
+    .then(() => {
+      console.log(`<<< Mail was sent >>>`);
+    })
+    .catch(error => {
+        const {message, code, response} = error;
+        console.error(`${error.code} :${error.message}`);
+    });
+
 }
 
 module.exports = {

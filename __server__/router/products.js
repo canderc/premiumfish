@@ -13,13 +13,11 @@ const purchase = (req, res) => {
   let strBody = '';
 
   req.on('data', function(data) {
-    console.log('==== data ==== ', String(data));
     strBody += data;
   })
 
   req.on('end', function () {
     const body = JSON.parse(strBody);
-    console.log('==== body ==== ', body);
 
     body.date = formattedCurrentDate();
     body.products = Object.keys(body.products).map(function(key) {
