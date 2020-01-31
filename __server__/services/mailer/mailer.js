@@ -18,7 +18,7 @@ const devMailer = ({
 
 const initMailer = (env) => {
   if (env === 'production') {
-    sgMail.setApiKey(process.env.MAILER_API_KEY || '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');
+    sgMail.setApiKey(process.env.MAILER_API_KEY);
   }
   mailer = env === 'production'
     ? sgMail
