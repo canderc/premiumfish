@@ -19,11 +19,27 @@ function createGalleryProductImages (arrImg) {
         divWrapImgGallery.appendChild (img);
         img.setAttribute ('src', arrImg[i]);
         img.classList = 'images-colection';
-        img.addEventListener ('click', function () {
+        
+        if (i === 0) {
+            divWrapImgGallery.classList.add ('active')
+        }
+
+        img.addEventListener ('click', function (e) {
             picturesTitleImg.setAttribute ('src', arrImg[i])
+            const target = e.target;
+            const child = picturesGallery.childNodes
+            
+            for (let i = 1; i < child.length; i++) {
+                
+                if (child[i].classList.contains('active') ) {
+                    child[i].classList.remove ('active')
+                }
+
+                target.parentNode.classList.add ('active')
+            }
         })
     }
-        
+    
     productPictures.classList.toggle ('product-hide')
 }
 

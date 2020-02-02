@@ -3,9 +3,10 @@
 }
 
 .product-pictures_button {
-    left: -10px;
-    margin-right: 10px;
-    margin-top: 15px;
+    right: 0px;
+    top: 10px;
+    height: 15px;
+    position: absolute;
     background: none;
     border: none;
     cursor: pointer;
@@ -37,7 +38,8 @@
 .product-pictures_wrap {
     display: flex;
     flex-direction: column;
-    height: 90%;
+    max-height: 500px;
+    width: auto;
     margin-top: 20px;
     justify-content: space-between;
 
@@ -73,4 +75,11 @@
         width: 100%;
         height: auto;
     }
+}
+
+.active {
+    border: 3px solid $dark-blue;
+    box-shadow: 5px 4px 6px $dark-blue;
+    background: white;
+    opacity: 0.6;
 }
