@@ -314,7 +314,7 @@ formHtml.addEventListener('submit', function(e) {
             if (data.ok) {
                 // TODO Show here your window with thanks for making shopping
                 modalWindow.classList.toggle ('hidden');
-                basketHtml.classList.toggle ('modal-window');
+                basketHtml.classList.toggle ('hidden');
                 emptyBasketAfterOrdering ()
             }
         })
