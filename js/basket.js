@@ -255,7 +255,8 @@ basketCloseBtn.addEventListener ('click', function() {
 })
 
 basketIconHtml.addEventListener ('click', function() {
-    basketHtml.classList.toggle ('modal-window')
+    basketHtml.classList.toggle ('hidden')
+
 });
 
 renderTableHeader()
