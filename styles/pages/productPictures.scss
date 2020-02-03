@@ -46,9 +46,10 @@
     .product-pictures_title {
         display: flex;
         justify-content: center;
-        width: 90%;
+        // min-width: 75%;
         border: 1px solid #0000501c;
         margin: 5px auto;
+        height: auto;
         
         img {
             width: 100%;
