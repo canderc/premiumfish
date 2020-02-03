@@ -250,7 +250,7 @@ function productToBasket (product) {
 }
 
 basketCloseBtn.addEventListener ('click', function() {
-    basketHtml.classList.toggle ('modal-window-close');
+    basketHtml.classList.toggle ('hidden');
     // basketHtml.classList.remove ('modal-window');
 })
 
