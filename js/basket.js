@@ -1,8 +1,8 @@
 const request = require('./services/request')
 
 const basketCloseBtn = document.querySelector ('.window-close_button');
-const basketHtml = document.querySelector ('.modal-window');
-const basketIconHtml = document.querySelector ('#window-basket');
+const basketHtml = document.querySelector ('#window-basket');
+const basketIconHtml = document.querySelector ('.basket-icons');
 const purchaseTotalCostHtml = document.getElementById ('purchase-total-cost');
 const productsQuantityIndicatorHtml = document.querySelector ('.basket-quantity_number');
 const tableHtml = document.getElementById('products-table');
@@ -256,7 +256,6 @@ basketCloseBtn.addEventListener ('click', function() {
 
 basketIconHtml.addEventListener ('click', function() {
     basketHtml.classList.toggle ('hidden')
-
 });
 
 renderTableHeader()
