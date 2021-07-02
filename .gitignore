@@ -1,6 +1,4 @@
 node_modules
 build
-styles/style.css
-js/bundle.js
 __server__/services/mailer/logs/*
 !__server__/services/mailer/logs/.gitkeep
